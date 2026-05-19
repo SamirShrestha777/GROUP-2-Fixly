@@ -17,9 +17,7 @@ public class HomePage extends javax.swing.JFrame {
      */
     public HomePage() {
         initComponents();
-    jButton1.putClientProperty("JButton.buttonType", "roundRect");
-    jButton1.setBackground(new java.awt.Color(99, 102, 241));
-    jButton1.setForeground(java.awt.Color.WHITE);
+
 
     }
 
@@ -32,36 +30,122 @@ public class HomePage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        enter = new javax.swing.JLabel();
+        Forgot = new javax.swing.JLabel();
+        EmailTxT = new javax.swing.JLabel();
+        txtboxemail = new javax.swing.JTextField();
+        sndbutton = new javax.swing.JButton();
+        txtboxemail1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(this::jButton1ActionPerformed);
+        jPanel1.setBackground(new java.awt.Color(30, 41, 59));
+        jPanel1.setForeground(new java.awt.Color(30, 41, 59));
+
+        enter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/fix (1).png"))); // NOI18N
+
+        Forgot.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        Forgot.setForeground(new java.awt.Color(248, 250, 252));
+        Forgot.setText("Welcome Back");
+
+        EmailTxT.setBackground(new java.awt.Color(204, 204, 204));
+        EmailTxT.setForeground(new java.awt.Color(248, 250, 252));
+        EmailTxT.setText("Login into your account");
+
+        txtboxemail.setForeground(new java.awt.Color(204, 204, 204));
+        txtboxemail.setText("Enter your email address");
+        txtboxemail.addActionListener(this::txtboxemailActionPerformed);
+
+        sndbutton.setBackground(new java.awt.Color(29, 78, 216));
+        sndbutton.setForeground(new java.awt.Color(255, 255, 255));
+        sndbutton.setText("Login");
+        sndbutton.setBorderPainted(false);
+        sndbutton.addActionListener(this::sndbuttonActionPerformed);
+
+        txtboxemail1.setForeground(new java.awt.Color(204, 204, 204));
+        txtboxemail1.setText("Enter your password");
+        txtboxemail1.addActionListener(this::txtboxemail1ActionPerformed);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/mistri-Photoroom (1).png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 252, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Forgot)
+                            .addComponent(EmailTxT))
+                        .addGap(319, 319, 319))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtboxemail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
+                            .addComponent(txtboxemail1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sndbutton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(228, 228, 228))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(enter, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(256, 256, 256))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(79, 79, 79)
+                .addComponent(enter)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Forgot)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(EmailTxT)
+                .addGap(18, 18, 18)
+                .addComponent(txtboxemail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(txtboxemail1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(sndbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(149, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(388, 388, 388)
-                .addComponent(jButton1)
-                .addContainerGap(454, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(341, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(221, 221, 221))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 18, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void txtboxemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtboxemailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_txtboxemailActionPerformed
+
+    private void sndbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sndbuttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sndbuttonActionPerformed
+
+    private void txtboxemail1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtboxemail1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtboxemail1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,6 +162,13 @@ public class HomePage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel EmailTxT;
+    private javax.swing.JLabel Forgot;
+    private javax.swing.JLabel enter;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton sndbutton;
+    private javax.swing.JTextField txtboxemail;
+    private javax.swing.JTextField txtboxemail1;
     // End of variables declaration//GEN-END:variables
 }
