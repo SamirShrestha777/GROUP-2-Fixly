@@ -26,7 +26,6 @@ public class ForgotPassword extends javax.swing.JFrame {
         backtologin = new javax.swing.JButton();
         or = new javax.swing.JLabel();
         sndbutton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,8 +59,6 @@ public class ForgotPassword extends javax.swing.JFrame {
         sndbutton.setBorderPainted(false);
         sndbutton.addActionListener(this::sndbuttonActionPerformed);
 
-        jLabel1.setText("jLabel1");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -82,10 +79,6 @@ public class ForgotPassword extends javax.swing.JFrame {
                         .addGap(132, 132, 132)
                         .addComponent(or)))
                 .addContainerGap(107, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(277, 277, 277)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,9 +98,7 @@ public class ForgotPassword extends javax.swing.JFrame {
                         .addGap(3, 3, 3)
                         .addComponent(backtologin, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(enter, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
-                .addComponent(jLabel1)
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addContainerGap(153, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -156,7 +147,6 @@ public class ForgotPassword extends javax.swing.JFrame {
     private javax.swing.JLabel Forgot;
     private javax.swing.JButton backtologin;
     private javax.swing.JLabel enter;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel or;
     private javax.swing.JButton sndbutton;
