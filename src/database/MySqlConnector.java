@@ -9,8 +9,8 @@ public class MySqlConnector implements db{
     @Override
     public Connection openConnection() {
         try{
-        String username="root";
-        String password ="@@##tosh#";
+        String username="fixly";
+        String password ="fixly@69";
         String database="credentials";
         Connection connection;
         connection=DriverManager.getConnection(
