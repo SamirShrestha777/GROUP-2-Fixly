@@ -170,4 +170,8 @@ backtologin.putClientProperty("JComponent.arc", 20);
     private javax.swing.JTextField txtboxemail;
     private javax.swing.JTextField txtboxemail1;
     // End of variables declaration//GEN-END:variables
+
+
+
+
 }
