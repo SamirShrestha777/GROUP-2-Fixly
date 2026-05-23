@@ -1,7 +1,5 @@
 package view;
 
-import javax.swing.JFrame;
-
 /**
  *
  * @author Omne
@@ -16,6 +14,8 @@ public class HomePage extends javax.swing.JFrame {
      */
     public HomePage() {
         initComponents();
+        sndbutton.putClientProperty("JButton.buttonType", "roundRect");
+sndbutton.putClientProperty("JComponent.arc", 25); 
 
     }
 
@@ -35,6 +35,10 @@ public class HomePage extends javax.swing.JFrame {
         txtboxemail = new javax.swing.JTextField();
         sndbutton = new javax.swing.JButton();
         txtboxemail1 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        frgtpswbtn = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        signupbtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,30 +69,55 @@ public class HomePage extends javax.swing.JFrame {
         txtboxemail1.setText("Enter your password");
         txtboxemail1.addActionListener(this::txtboxemail1ActionPerformed);
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("or");
+
+        frgtpswbtn.setBackground(new java.awt.Color(30, 41, 59));
+        frgtpswbtn.setForeground(new java.awt.Color(102, 204, 255));
+        frgtpswbtn.setText("Forgot Password");
+        frgtpswbtn.setOpaque(true);
+        frgtpswbtn.addActionListener(this::frgtpswbtnActionPerformed);
+
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Don't have an account");
+
+        signupbtn.setForeground(new java.awt.Color(102, 102, 255));
+        signupbtn.setText("Sign up");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(634, 634, 634)
+                .addGap(557, 557, 557)
+                .addComponent(enter, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(525, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Forgot)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(EmailTxT)))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(586, 586, 586)
-                        .addComponent(enter, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(557, 557, 557)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(EmailTxT))
+                            .addComponent(Forgot))
+                        .addGap(593, 593, 593))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtboxemail1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtboxemail, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sndbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(476, Short.MAX_VALUE))
+                            .addComponent(sndbutton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(508, 508, 508))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(frgtpswbtn)
+                        .addGap(495, 495, 495))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(signupbtn)
+                        .addGap(573, 573, 573))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,11 +130,19 @@ public class HomePage extends javax.swing.JFrame {
                 .addComponent(EmailTxT)
                 .addGap(18, 18, 18)
                 .addComponent(txtboxemail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(txtboxemail1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(frgtpswbtn)
+                .addGap(18, 18, 18)
                 .addComponent(sndbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(246, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(signupbtn))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -123,6 +160,10 @@ public class HomePage extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void frgtpswbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frgtpswbtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_frgtpswbtnActionPerformed
 
     private void txtboxemailActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtboxemailActionPerformed
         // TODO add your handling code here:
@@ -153,9 +194,32 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel EmailTxT;
     private javax.swing.JLabel Forgot;
     private javax.swing.JLabel enter;
+    private javax.swing.JButton frgtpswbtn;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton signupbtn;
     private javax.swing.JButton sndbutton;
     private javax.swing.JTextField txtboxemail;
     private javax.swing.JTextField txtboxemail1;
     // End of variables declaration//GEN-END:variables
+public void addLoginListener(java.awt.event.ActionListener listener) {
+    sndbutton.addActionListener(listener);
+}
+
+public void addSignupListener(java.awt.event.ActionListener listener) {
+    signupbtn.addActionListener(listener);
+}
+
+public void addForgotPasswordListener(java.awt.event.ActionListener listener) {
+    frgtpswbtn.addActionListener(listener);
+}
+
+public javax.swing.JTextField getEmailField() {
+    return txtboxemail;
+}
+
+public javax.swing.JTextField getPasswordField() {
+    return txtboxemail1;
+}
 }
