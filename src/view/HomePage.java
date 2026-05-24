@@ -14,8 +14,7 @@ public class HomePage extends javax.swing.JFrame {
      */
     public HomePage() {
         initComponents();
-        sndbutton.putClientProperty("JButton.buttonType", "roundRect");
-sndbutton.putClientProperty("JComponent.arc", 25); 
+        
 
     }
 
@@ -59,6 +58,8 @@ sndbutton.putClientProperty("JComponent.arc", 25);
         txtboxemail.setText("Enter your email address");
         txtboxemail.addActionListener(this::txtboxemailActionPerformed);
 
+        sndbutton.putClientProperty("JButton.buttonType", "roundRect");
+        sndbutton.putClientProperty("JComponent.arc", 25);
         sndbutton.setBackground(new java.awt.Color(29, 78, 216));
         sndbutton.setForeground(new java.awt.Color(255, 255, 255));
         sndbutton.setText("Login");

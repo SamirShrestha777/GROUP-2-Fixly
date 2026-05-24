@@ -176,6 +176,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sndbuttonActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="sndbutton.putClientProperty(&quot;JButton.buttonType&quot;, &quot;roundRect&quot;);&#xa;sndbutton.putClientProperty(&quot;JComponent.arc&quot;, 25);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="txtboxemail1">
           <Properties>
