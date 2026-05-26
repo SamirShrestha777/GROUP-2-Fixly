@@ -98,14 +98,12 @@ public class History extends javax.swing.JFrame {
         jButton9.setForeground(new java.awt.Color(255, 255, 255));
         jButton9.setText("🔔   Notification");
         jButton9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 65, 85)));
-        jButton9.setPreferredSize(null);
         jButton9.addActionListener(this::jButton9ActionPerformed);
 
         jButton10.setBackground(new java.awt.Color(30, 41, 59));
         jButton10.setForeground(new java.awt.Color(255, 255, 255));
         jButton10.setText("👨‍   Technician");
         jButton10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 65, 85)));
-        jButton10.setPreferredSize(null);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
