@@ -52,7 +52,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="557" max="-2" attributes="0"/>
                   <Component id="enter" min="-2" pref="243" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="539" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="525" max="32767" attributes="0"/>
@@ -68,14 +68,6 @@
                           <EmptySpace min="-2" pref="593" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="txtboxemail1" min="-2" pref="306" max="-2" attributes="0"/>
-                              <Component id="txtboxemail" min="-2" pref="306" max="-2" attributes="0"/>
-                              <Component id="sndbutton" alignment="0" min="-2" pref="306" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="508" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
                           <Component id="frgtpswbtn" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="495" max="-2" attributes="0"/>
                       </Group>
@@ -87,6 +79,16 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="signupbtn" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="573" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="txtboxemail" alignment="0" pref="306" max="32767" attributes="0"/>
+                              <Component id="sndbutton" alignment="0" pref="306" max="32767" attributes="0"/>
+                              <Component id="passfield" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="pwcheckbox" min="-2" pref="119" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="377" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -104,8 +106,11 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="txtboxemail" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="txtboxemail1" min="-2" pref="30" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="passfield" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="pwcheckbox" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Component id="frgtpswbtn" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="sndbutton" min="-2" pref="32" max="-2" attributes="0"/>
@@ -180,17 +185,6 @@
             <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="sndbutton.putClientProperty(&quot;JButton.buttonType&quot;, &quot;roundRect&quot;);&#xa;sndbutton.putClientProperty(&quot;JComponent.arc&quot;, 25);"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtboxemail1">
-          <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="cc" red="cc" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Enter your password"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtboxemail1ActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -229,6 +223,25 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Sign up"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JPasswordField" name="passfield">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Enter your password"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="pwcheckbox">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="3b" green="29" red="1e" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Show Password"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pwcheckboxActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
