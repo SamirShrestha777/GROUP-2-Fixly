@@ -3,32 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ACER/OneDrive/Documents/NetBeansProjects/GROUP-2-Fixly/src/database/MySqlConnector.java</file>
-            <file>file:/C:/Users/ACER/OneDrive/Documents/NetBeansProjects/GROUP-2-Fixly/src/dao/UserDao.java</file>
-            <file>file:/C:/Users/ACER/OneDrive/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/update.java</file>
-
-            <file>file:/C:/Users/ACER/OneDrive/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/History.java</file>
-            <file>file:/C:/Users/ACER/OneDrive/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/ForgotPassword.java</file>
-
-            <file>file:/C:/Users/ACER/OneDrive/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/HomePage.java</file>
-
-            <file>file:/C:/Users/A%20C%20E%20R/OneDrive/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/Dashboard.java</file>
-            <file>file:/C:/Users/A%20C%20E%20R/OneDrive/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/ForgotPassword.java</file>
-            <file>file:/C:/Users/A%20C%20E%20R/OneDrive/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/HomePage.java</file>
-            <file>file:/C:/Users/A%20C%20E%20R/OneDrive/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/SignupPage.java</file>
-            <file>file:/C:/Users/A%20C%20E%20R/OneDrive/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/bg%20(1).png</file>
-            <file>file:/C:/Users/A%20C%20E%20R/OneDrive/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/fix%20(1).png</file>
-            <file>file:/C:/Users/A%20C%20E%20R/OneDrive/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/fixly_mechanic_svg.svg</file>
-            <file>file:/C:/Users/A%20C%20E%20R/OneDrive/Documents/NetBeansProjects/GROUP-2-Fixly/src/images/Painter.png</file>
-            <file>file:/C:/Users/A%20C%20E%20R/OneDrive/Documents/NetBeansProjects/GROUP-2-Fixly/src/images/NewClass.java</file>
-            <file>file:/C:/Users/A%20C%20E%20R/OneDrive/Documents/NetBeansProjects/GROUP-2-Fixly/src/images/fixly%20logo.png</file>
-            <file>file:/C:/Users/A%20C%20E%20R/OneDrive/Documents/NetBeansProjects/GROUP-2-Fixly/src/images/maillogo.png</file>
-            <file>file:/C:/Users/A%20C%20E%20R/OneDrive/Documents/NetBeansProjects/GROUP-2-Fixly/src/images/mylogo.png</file>
-            <file>file:/C:/Users/A%20C%20E%20R/OneDrive/Documents/NetBeansProjects/GROUP-2-Fixly/src/images/plumber.png</file>
-            <file>file:/C:/Users/A%20C%20E%20R/OneDrive/Documents/NetBeansProjects/GROUP-2-Fixly/src/database/db.java</file>
-            <file>file:/C:/Users/A%20C%20E%20R/OneDrive/Documents/NetBeansProjects/GROUP-2-Fixly/src/database/MySqlConnector.java</file>
- f9642d4d0e0014072929e754987d713a4971cced
-d4a28b4d568595253c47766c6ece6d9e6bdd36f6
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/SignupPage.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/controller/HomeController.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/controller/ForgotPasswordPageController.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/Dashboard.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/dao/UserDao.java</file>
         </group>
     </open-files>
 </project-private>
