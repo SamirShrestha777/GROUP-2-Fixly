@@ -14,11 +14,12 @@ public class HomePage extends javax.swing.JFrame {
      */
     public HomePage() {
         initComponents();
-        
 
     }
 
     @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
@@ -33,11 +34,12 @@ public class HomePage extends javax.swing.JFrame {
         EmailTxT = new javax.swing.JLabel();
         txtboxemail = new javax.swing.JTextField();
         sndbutton = new javax.swing.JButton();
-        txtboxemail1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         frgtpswbtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         signupbtn = new javax.swing.JButton();
+        passfield = new javax.swing.JPasswordField();
+        pwcheckbox = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,10 +68,6 @@ public class HomePage extends javax.swing.JFrame {
         sndbutton.setBorderPainted(false);
         sndbutton.addActionListener(this::sndbuttonActionPerformed);
 
-        txtboxemail1.setForeground(new java.awt.Color(204, 204, 204));
-        txtboxemail1.setText("Enter your password");
-        txtboxemail1.addActionListener(this::txtboxemail1ActionPerformed);
-
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("or");
 
@@ -85,6 +83,13 @@ public class HomePage extends javax.swing.JFrame {
         signupbtn.setForeground(new java.awt.Color(102, 102, 255));
         signupbtn.setText("Sign up");
 
+        passfield.setText("Enter your password");
+
+        pwcheckbox.setBackground(new java.awt.Color(30, 41, 59));
+        pwcheckbox.setForeground(new java.awt.Color(204, 204, 204));
+        pwcheckbox.setText("Show Password");
+        pwcheckbox.addActionListener(this::pwcheckboxActionPerformed);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -92,7 +97,7 @@ public class HomePage extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(557, 557, 557)
                 .addComponent(enter, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(539, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(525, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,12 +109,6 @@ public class HomePage extends javax.swing.JFrame {
                             .addComponent(Forgot))
                         .addGap(593, 593, 593))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtboxemail1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtboxemail, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sndbutton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(508, 508, 508))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(frgtpswbtn)
                         .addGap(495, 495, 495))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -118,7 +117,15 @@ public class HomePage extends javax.swing.JFrame {
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(signupbtn)
-                        .addGap(573, 573, 573))))
+                        .addGap(573, 573, 573))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtboxemail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
+                            .addComponent(sndbutton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
+                            .addComponent(passfield, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(pwcheckbox, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(377, 377, 377))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,8 +139,10 @@ public class HomePage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(txtboxemail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(txtboxemail1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(passfield, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pwcheckbox))
+                .addGap(14, 14, 14)
                 .addComponent(frgtpswbtn)
                 .addGap(18, 18, 18)
                 .addComponent(sndbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -162,9 +171,17 @@ public class HomePage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void frgtpswbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frgtpswbtnActionPerformed
+    private void frgtpswbtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_frgtpswbtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_frgtpswbtnActionPerformed
+    }// GEN-LAST:event_frgtpswbtnActionPerformed
+
+    private void pwcheckboxActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_pwcheckboxActionPerformed
+       if (pwcheckbox.isSelected()) {
+        passfield.setEchoChar((char) 0);
+    } else {
+        passfield.setEchoChar('●');
+    }
+    }// GEN-LAST:event_pwcheckboxActionPerformed
 
     private void txtboxemailActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtboxemailActionPerformed
         // TODO add your handling code here:
@@ -199,28 +216,40 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPasswordField passfield;
+    private javax.swing.JCheckBox pwcheckbox;
     private javax.swing.JButton signupbtn;
     private javax.swing.JButton sndbutton;
     private javax.swing.JTextField txtboxemail;
-    private javax.swing.JTextField txtboxemail1;
     // End of variables declaration//GEN-END:variables
-public void addLoginListener(java.awt.event.ActionListener listener) {
-    sndbutton.addActionListener(listener);
-}
+    public void addLoginListener(java.awt.event.ActionListener listener) {
+        sndbutton.addActionListener(listener);
+    }
 
-public void addSignupListener(java.awt.event.ActionListener listener) {
-    signupbtn.addActionListener(listener);
-}
+    public void addSignupListener(java.awt.event.ActionListener listener) {
+        signupbtn.addActionListener(listener);
+    }
 
-public void addForgotPasswordListener(java.awt.event.ActionListener listener) {
-    frgtpswbtn.addActionListener(listener);
-}
+    public void addForgotPasswordListener(java.awt.event.ActionListener listener) {
+        frgtpswbtn.addActionListener(listener);
+    }
 
-public javax.swing.JTextField getEmailField() {
-    return txtboxemail;
-}
+    public javax.swing.JTextField getEmailField() {
+        return txtboxemail;
+    }
 
-public javax.swing.JTextField getPasswordField() {
-    return txtboxemail1;
+    public javax.swing.JTextField getPasswordField() {
+        return passfield;
+    }
+    public void removeAllListeners() {
+    for (java.awt.event.ActionListener al : sndbutton.getActionListeners()) {
+        sndbutton.removeActionListener(al);
+    }
+    for (java.awt.event.ActionListener al : signupbtn.getActionListeners()) {
+        signupbtn.removeActionListener(al);
+    }
+    for (java.awt.event.ActionListener al : frgtpswbtn.getActionListeners()) {
+        frgtpswbtn.removeActionListener(al);
+    }
 }
 }

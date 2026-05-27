@@ -24,7 +24,7 @@ public class UserDao {
                 stmt.executeUpdate(createSql);
             }
 
-            // Step 2: Insert user (now includes address)
+           
             String insertSql = "INSERT INTO users(username, email, password, address) VALUES(?, ?, ?, ?)";
             try (PreparedStatement pstm = conn.prepareStatement(insertSql)) {
                 pstm.setString(1, user.getUsername());
@@ -42,7 +42,7 @@ public class UserDao {
         }
     }
 
-    // ✅ FIX: Added missing checkUser method
+   
     public boolean checkUser(UserData user) {
         Connection conn = mysql.openConnection();
         try {
@@ -113,5 +113,23 @@ public class UserDao {
     } finally {
         mysql.closeConnection(conn);
     }
+}
+    public String getUsernameByEmail(String email) {
+    Connection conn = mysql.openConnection();
+    try {
+        String sql = "SELECT username FROM users WHERE email = ?";
+        try (PreparedStatement pstm = conn.prepareStatement(sql)) {
+            pstm.setString(1, email);
+            ResultSet rs = pstm.executeQuery();
+            if (rs.next()) {
+                return rs.getString("username");
+            }
+        }
+    } catch (Exception e) {
+        System.out.println("Error getting username: " + e.getMessage());
+    } finally {
+        mysql.closeConnection(conn);
+    }
+    return "";
 }
 }

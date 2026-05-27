@@ -8,10 +8,12 @@ import java.awt.event.ActionListener;
 public class ForgotPasswordPageController {
 
     private final ForgotPassword forgotView;
+    private final HomePage homeView;
     private final ForgotPasswordController forgotController = new ForgotPasswordController();
 
-    public ForgotPasswordPageController(ForgotPassword forgotView) {
+    public ForgotPasswordPageController(ForgotPassword forgotView, HomePage homeView) {
         this.forgotView = forgotView;
+        this.homeView = homeView;
         forgotView.addSendOtpListener(new SendOtpListener());
         forgotView.addConfirmOtpListener(new ConfirmOtpListener());
         forgotView.addBackToLoginListener(new BackToLoginListener());
@@ -66,9 +68,7 @@ public class ForgotPasswordPageController {
                 boolean reset = forgotController.resetPassword(email, newPassword, confirmPassword);
                 if (reset) {
                     close();
-                    HomePage homeView = new HomePage();
-                    HomeController homeController = new HomeController(homeView);
-                    homeController.open();
+                    homeView.setVisible(true);
                 }
             }
         }
@@ -78,9 +78,7 @@ public class ForgotPasswordPageController {
         @Override
         public void actionPerformed(ActionEvent e) {
             close();
-            HomePage homeView = new HomePage();
-            HomeController homeController = new HomeController(homeView);
-            homeController.open();
+            homeView.setVisible(true);
         }
     }
 }

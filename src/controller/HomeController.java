@@ -2,6 +2,7 @@ package controller;
 
 import dao.UserDao;
 import model.UserData;
+import view.Dashboard;
 import view.HomePage;
 import view.SignupPage;
 import view.ForgotPassword;
@@ -19,13 +20,12 @@ public class HomeController {
         homeView.addLoginListener(new LoginListener());
         homeView.addSignupListener(new SignupListener());
         homeView.addForgotPasswordListener(new ForgotPasswordListener());
-
         setPlaceholder(homeView.getEmailField(), "Enter your email address");
         setPlaceholder(homeView.getPasswordField(), "Enter your password");
     }
 
     public void open()  { homeView.setVisible(true); }
-    public void close() { homeView.dispose(); }
+    public void close() { homeView.setVisible(false); }
 
     private void setPlaceholder(javax.swing.JTextField field, String placeholder) {
         field.setText(placeholder);
@@ -66,7 +66,11 @@ public class HomeController {
 
             boolean valid = userDao.loginUser(user);
             if (valid) {
-                JOptionPane.showMessageDialog(homeView, "Login successful!");
+                String username = userDao.getUsernameByEmail(email);
+                close();
+                Dashboard dashboard = new Dashboard();
+                dashboard.setUsername(username);
+                dashboard.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(homeView, "Invalid email or password.");
             }
@@ -78,7 +82,7 @@ public class HomeController {
         public void actionPerformed(ActionEvent e) {
             close();
             SignupPage signupView = new SignupPage();
-            SignupController signupController = new SignupController(signupView);
+            SignupController signupController = new SignupController(signupView, homeView);
             signupController.open();
         }
     }
@@ -88,7 +92,7 @@ public class HomeController {
         public void actionPerformed(ActionEvent e) {
             close();
             ForgotPassword forgotView = new ForgotPassword();
-            ForgotPasswordPageController forgotController = new ForgotPasswordPageController(forgotView);
+            ForgotPasswordPageController forgotController = new ForgotPasswordPageController(forgotView, homeView);
             forgotController.open();
         }
     }
