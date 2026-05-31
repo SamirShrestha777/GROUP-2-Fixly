@@ -277,7 +277,7 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_acrepairbtnActionPerformed
 
         private void lgnbtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_lgnbtnActionPerformed
-                // ✅ Logout — go back to login page
+                
                 this.dispose();
                 HomePage homeView = new HomePage();
                 controller.HomeController homeController = new controller.HomeController(homeView);
@@ -287,6 +287,13 @@ public class Dashboard extends javax.swing.JFrame {
         private void plumbingbtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_plumbingbtnActionPerformed
                 // TODO: open Plumber booking
         }// GEN-LAST:event_plumbingbtnActionPerformed
+        private void historybtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historybtnActionPerformed
+    // TODO: open History page
+}//GEN-LAST:event_historybtnActionPerformed
+
+private void bookingbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookingbtnActionPerformed
+    // TODO: open Booking page
+}//GEN-LAST:event_bookingbtnActionPerformed
 
         public static void main(String args[]) {
                 try {
