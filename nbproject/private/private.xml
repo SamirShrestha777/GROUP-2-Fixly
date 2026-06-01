@@ -10,6 +10,11 @@
             <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/History.java</file>
             <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/ForgotPassword.java</file>
             <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/notificationpanel.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/signupforadmin.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/dao/UserDao.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/dao/TechnicianDao.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/dao/AdminDao.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/controller/HomeController.java</file>
         </group>
     </open-files>
 </project-private>
