@@ -1,18 +1,23 @@
 package controller;
 
 import dao.UserDao;
+import dao.TechnicianDao;
+import dao.AdminDao;
 import model.UserData;
 import view.Dashboard;
 import view.HomePage;
 import view.SignupPage;
 import view.ForgotPassword;
+import view.TechnicianDashboard;
+import view.AdminDashboard;
 import javax.swing.JOptionPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class HomeController {
-
     private final UserDao userDao = new UserDao();
+    private final TechnicianDao techDao = new TechnicianDao();
+    private final AdminDao adminDao = new AdminDao();
     private final HomePage homeView;
 
     public HomeController(HomePage homeView) {
@@ -60,20 +65,42 @@ public class HomeController {
                 return;
             }
 
+            // 1 — Check admin first
+            if (adminDao.loginAdmin(email, password)) {
+                adminDao.logAction("Admin logged in");
+                close();
+                AdminDashboard adminDash = new AdminDashboard();
+                adminDash.setVisible(true);
+                return;
+            }
+
+            // 2 — Check technicians
+            if (techDao.loginTechnician(email, password)) {
+                String username = techDao.getUsernameByEmail(email);
+                int techId = techDao.getIdByEmail(email);
+                close();
+                TechnicianDashboard techDash = new TechnicianDashboard();
+                techDash.setTechnicianId(techId);
+                techDash.setUsername(username);
+                techDash.setVisible(true);
+                return;
+            }
+
+            // 3 — Check users
             UserData user = new UserData();
             user.setEmail(email);
             user.setPassword(password);
-
-            boolean valid = userDao.loginUser(user);
-            if (valid) {
+            if (userDao.loginUser(user)) {
                 String username = userDao.getUsernameByEmail(email);
                 close();
                 Dashboard dashboard = new Dashboard();
                 dashboard.setUsername(username);
                 dashboard.setVisible(true);
-            } else {
-                JOptionPane.showMessageDialog(homeView, "Invalid email or password.");
+                return;
             }
+
+            // Nothing matched
+            JOptionPane.showMessageDialog(homeView, "Invalid email or password.");
         }
     }
 
