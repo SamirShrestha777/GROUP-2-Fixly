@@ -28,7 +28,7 @@ public class signupforadmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        bgpanel = new javax.swing.JPanel();
         Createacc = new javax.swing.JLabel();
         getstarted = new javax.swing.JLabel();
         namelabel = new javax.swing.JLabel();
@@ -48,8 +48,8 @@ public class signupforadmin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(30, 41, 59));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1556, 840));
+        bgpanel.setBackground(new java.awt.Color(30, 41, 59));
+        bgpanel.setPreferredSize(new java.awt.Dimension(1556, 840));
 
         Createacc.setBackground(new java.awt.Color(255, 255, 255));
         Createacc.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
@@ -97,14 +97,14 @@ public class signupforadmin extends javax.swing.JFrame {
         sgnbtn.setForeground(new java.awt.Color(255, 255, 255));
         sgnbtn.setText("Sign up");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout bgpanelLayout = new javax.swing.GroupLayout(bgpanel);
+        bgpanel.setLayout(bgpanelLayout);
+        bgpanelLayout.setHorizontalGroup(
+            bgpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bgpanelLayout.createSequentialGroup()
                 .addGap(496, 496, 496)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(bgpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(bgpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(emailtxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 617, Short.MAX_VALUE)
                         .addComponent(deptlbl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(passwordlbl, javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,22 +119,22 @@ public class signupforadmin extends javax.swing.JFrame {
                     .addComponent(confpswlbl)
                     .addComponent(Createacc, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 440, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(bgpanelLayout.createSequentialGroup()
                 .addGap(515, 515, 515)
                 .addComponent(getstarted)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgpanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(sgnbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(579, 579, 579))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgpanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(pswcheckbox)
                 .addGap(338, 338, 338))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        bgpanelLayout.setVerticalGroup(
+            bgpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bgpanelLayout.createSequentialGroup()
                 .addGap(118, 118, 118)
                 .addComponent(Createacc)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -175,13 +175,13 @@ public class signupforadmin extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bgpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bgpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -227,6 +227,7 @@ public class signupforadmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Createacc;
+    private javax.swing.JPanel bgpanel;
     private javax.swing.JLabel confpswlbl;
     private javax.swing.JLabel contactlbl;
     private javax.swing.JLabel deptlbl;
@@ -234,7 +235,6 @@ public class signupforadmin extends javax.swing.JFrame {
     private javax.swing.JTextField emailtxt;
     private javax.swing.JTextField fullnametxt;
     private javax.swing.JLabel getstarted;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JLabel namelabel;
     private javax.swing.JLabel passwordlbl;
