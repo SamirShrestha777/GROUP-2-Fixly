@@ -84,16 +84,15 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="servicenotif" min="-2" pref="80" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="history1" alignment="0" max="32767" attributes="0"/>
-                          <Component id="History2" alignment="0" max="32767" attributes="0"/>
-                          <Component id="History3" max="32767" attributes="0"/>
-                          <Component id="History4" pref="922" max="32767" attributes="0"/>
-                      </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
               <Component id="jPanel9" alignment="0" max="32767" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace pref="1401" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="100" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -109,15 +108,9 @@
                       <Component id="paymentnotif" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="servicenotif" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                  <Component id="history1" min="-2" pref="41" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                  <Component id="History2" min="-2" pref="41" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                  <Component id="History3" min="-2" pref="41" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                  <Component id="History4" min="-2" pref="40" max="-2" attributes="0"/>
-                  <EmptySpace pref="168" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="100" max="-2" attributes="0"/>
+                  <EmptySpace pref="329" max="32767" attributes="0"/>
                   <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -170,38 +163,6 @@
         <Component class="javax.swing.JButton" name="servicenotif">
           <Properties>
             <Property name="text" type="java.lang.String" value="Services"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="history1">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="f8" green="f8" red="f8" type="rgb"/>
-            </Property>
-            <Property name="opaque" type="boolean" value="true"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="History2">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="f8" green="f8" red="f8" type="rgb"/>
-            </Property>
-            <Property name="opaque" type="boolean" value="true"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="History3">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="f8" green="f8" red="f8" type="rgb"/>
-            </Property>
-            <Property name="opaque" type="boolean" value="true"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="History4">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="f8" green="f8" red="f8" type="rgb"/>
-            </Property>
-            <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel6">
@@ -389,6 +350,10 @@
               </Properties>
             </Component>
           </SubComponents>
+        </Container>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
         </Container>
       </SubComponents>
     </Container>

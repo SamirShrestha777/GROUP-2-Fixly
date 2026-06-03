@@ -36,10 +36,6 @@ public class History extends javax.swing.JFrame {
         bookingnotif = new javax.swing.JButton();
         paymentnotif = new javax.swing.JButton();
         servicenotif = new javax.swing.JButton();
-        history1 = new javax.swing.JLabel();
-        History2 = new javax.swing.JLabel();
-        History3 = new javax.swing.JLabel();
-        History4 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         historybtn = new javax.swing.JButton();
         bookingbtn = new javax.swing.JButton();
@@ -48,6 +44,7 @@ public class History extends javax.swing.JFrame {
         jPanel9 = new javax.swing.JPanel();
         lgnbtn = new javax.swing.JButton();
         Createacc1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
 
         jButton4.setText("Services");
 
@@ -78,18 +75,6 @@ public class History extends javax.swing.JFrame {
         paymentnotif.addActionListener(this::paymentnotifActionPerformed);
 
         servicenotif.setText("Services");
-
-        history1.setBackground(new java.awt.Color(248, 248, 248));
-        history1.setOpaque(true);
-
-        History2.setBackground(new java.awt.Color(248, 248, 248));
-        History2.setOpaque(true);
-
-        History3.setBackground(new java.awt.Color(248, 248, 248));
-        History3.setOpaque(true);
-
-        History4.setBackground(new java.awt.Color(248, 248, 248));
-        History4.setOpaque(true);
 
         jPanel6.setBackground(new java.awt.Color(30, 41, 59));
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(170, 182, 193)));
@@ -189,14 +174,13 @@ public class History extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(paymentnotif, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(servicenotif, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(history1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(History2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(History3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(History4, javax.swing.GroupLayout.DEFAULT_SIZE, 922, Short.MAX_VALUE)))
+                        .addComponent(servicenotif, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(1401, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,15 +194,9 @@ public class History extends javax.swing.JFrame {
                     .addComponent(bookingnotif)
                     .addComponent(paymentnotif)
                     .addComponent(servicenotif))
-                .addGap(53, 53, 53)
-                .addComponent(history1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(History2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(History3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(History4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
+                .addGap(105, 105, 105)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 329, Short.MAX_VALUE)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -292,12 +270,8 @@ public class History extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ALL;
     private javax.swing.JLabel Createacc1;
-    private javax.swing.JLabel History2;
-    private javax.swing.JLabel History3;
-    private javax.swing.JLabel History4;
     private javax.swing.JButton bookingbtn;
     private javax.swing.JButton bookingnotif;
-    private javax.swing.JLabel history1;
     private javax.swing.JButton historybtn;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
@@ -305,6 +279,7 @@ public class History extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton lgnbtn;
     private javax.swing.JButton notificationbtn;
     private javax.swing.JButton paymentnotif;
