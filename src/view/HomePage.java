@@ -46,7 +46,7 @@ public class HomePage extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(30, 41, 59));
         jPanel1.setForeground(new java.awt.Color(30, 41, 59));
 
-        enter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/fix (1).png"))); // NOI18N
+        enter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fix (1).png"))); // NOI18N
 
         Forgot.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         Forgot.setForeground(new java.awt.Color(29, 78, 216));
