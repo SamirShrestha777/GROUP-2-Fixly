@@ -267,7 +267,9 @@ public class Dashboard extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+public void addBookingListener(java.awt.event.ActionListener listener) {
+    bookingbtn.addActionListener(listener);
+}
     private void caprenterbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caprenterbtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_caprenterbtnActionPerformed

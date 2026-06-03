@@ -71,19 +71,21 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="jPanel6" alignment="0" max="32767" attributes="0"/>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
+              <Component id="jPanel9" alignment="0" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jLabel1" min="-2" pref="117" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <Component id="ALL" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                           <Component id="bookingnotif" min="-2" pref="80" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                           <Component id="paymentnotif" min="-2" pref="80" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                           <Component id="servicenotif" min="-2" pref="80" max="-2" attributes="0"/>
                       </Group>
+<<<<<<< HEAD
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -93,6 +95,16 @@
                   <Component id="jScrollPane1" min="-2" pref="100" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
               </Group>
+=======
+                      <Component id="history1" alignment="0" pref="1417" max="32767" attributes="0"/>
+                      <Component id="History2" alignment="0" max="32767" attributes="0"/>
+                      <Component id="History3" alignment="0" max="32767" attributes="0"/>
+                      <Component id="History4" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jPanel3" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+>>>>>>> 3d261e4ae7768b86f3486a680b2e06d7c019930a
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -108,9 +120,23 @@
                       <Component id="paymentnotif" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="servicenotif" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
+<<<<<<< HEAD
                   <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="100" max="-2" attributes="0"/>
                   <EmptySpace pref="329" max="32767" attributes="0"/>
+=======
+                  <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                  <Component id="history1" min="-2" pref="41" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                  <Component id="History2" min="-2" pref="41" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                  <Component id="History3" min="-2" pref="41" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                  <Component id="History4" min="-2" pref="40" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                  <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="41" max="32767" attributes="0"/>
+>>>>>>> 3d261e4ae7768b86f3486a680b2e06d7c019930a
                   <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -351,9 +377,26 @@
             </Component>
           </SubComponents>
         </Container>
+<<<<<<< HEAD
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+=======
+        <Container class="javax.swing.JPanel" name="jPanel3">
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="40" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+>>>>>>> 3d261e4ae7768b86f3486a680b2e06d7c019930a
         </Container>
       </SubComponents>
     </Container>

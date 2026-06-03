@@ -40,6 +40,9 @@ public class HomePage extends javax.swing.JFrame {
         signupbtn = new javax.swing.JButton();
         passfield = new javax.swing.JPasswordField();
         pwcheckbox = new javax.swing.JCheckBox();
+        userbtn = new javax.swing.JRadioButton();
+        adminbtn = new javax.swing.JRadioButton();
+        techbtn = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,6 +93,15 @@ public class HomePage extends javax.swing.JFrame {
         pwcheckbox.setText("Show Password");
         pwcheckbox.addActionListener(this::pwcheckboxActionPerformed);
 
+        userbtn.setForeground(new java.awt.Color(255, 255, 255));
+        userbtn.setText("User");
+
+        adminbtn.setForeground(new java.awt.Color(255, 255, 255));
+        adminbtn.setText("Admin");
+
+        techbtn.setForeground(new java.awt.Color(255, 255, 255));
+        techbtn.setText("Technician");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -99,7 +111,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addComponent(enter, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(539, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(525, Short.MAX_VALUE)
+                .addContainerGap(570, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,18 +131,32 @@ public class HomePage extends javax.swing.JFrame {
                         .addComponent(signupbtn)
                         .addGap(573, 573, 573))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtboxemail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
-                            .addComponent(sndbutton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
-                            .addComponent(passfield, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(pwcheckbox, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(377, 377, 377))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtboxemail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
+                                    .addComponent(sndbutton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
+                                    .addComponent(passfield, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(pwcheckbox, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(342, 342, 342)
+                                .addComponent(userbtn)
+                                .addGap(18, 18, 18)
+                                .addComponent(adminbtn)
+                                .addGap(18, 18, 18)
+                                .addComponent(techbtn)))
+                        .addGap(210, 210, 210))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(190, 190, 190)
+                .addGap(34, 34, 34)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(userbtn)
+                    .addComponent(adminbtn)
+                    .addComponent(techbtn))
+                .addGap(135, 135, 135)
                 .addComponent(enter)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Forgot)
@@ -211,6 +237,7 @@ public class HomePage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel EmailTxT;
     private javax.swing.JLabel Forgot;
+    private javax.swing.JRadioButton adminbtn;
     private javax.swing.JLabel enter;
     private javax.swing.JButton frgtpswbtn;
     private javax.swing.JLabel jLabel1;
@@ -220,7 +247,9 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JCheckBox pwcheckbox;
     private javax.swing.JButton signupbtn;
     private javax.swing.JButton sndbutton;
+    private javax.swing.JRadioButton techbtn;
     private javax.swing.JTextField txtboxemail;
+    private javax.swing.JRadioButton userbtn;
     // End of variables declaration//GEN-END:variables
     public void addLoginListener(java.awt.event.ActionListener listener) {
         sndbutton.addActionListener(listener);

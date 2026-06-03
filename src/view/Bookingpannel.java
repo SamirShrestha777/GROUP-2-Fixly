@@ -12,9 +12,7 @@ public class Bookingpannel extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Bookingpannel.class.getName());
 
-    /**
-     * Creates new form Bookingpannel
-     */
+  
     public Bookingpannel() {
         initComponents();
     }
@@ -34,13 +32,8 @@ public class Bookingpannel extends javax.swing.JFrame {
         Booktechbtn = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        timebtn = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        notebtn = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        addressbtn = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        summarybtn = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         lgnbtn = new javax.swing.JButton();
         Createacc1 = new javax.swing.JLabel();
@@ -51,6 +44,12 @@ public class Bookingpannel extends javax.swing.JFrame {
         technicianbtn = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        timepanel = new javax.swing.JPanel();
+        timetxt = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        notestxt = new javax.swing.JTextArea();
+        addtxt = new javax.swing.JTextField();
+        confbtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,33 +79,16 @@ public class Bookingpannel extends javax.swing.JFrame {
         jLabel6.setText("Time");
         jLabel6.setOpaque(true);
 
-        timebtn.setBackground(new java.awt.Color(241, 238, 238));
-        timebtn.setOpaque(true);
-
         jLabel8.setBackground(new java.awt.Color(30, 41, 59));
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Notes");
         jLabel8.setOpaque(true);
 
-        notebtn.setBackground(new java.awt.Color(241, 238, 238));
-        notebtn.setOpaque(true);
-
         jLabel10.setBackground(new java.awt.Color(30, 41, 59));
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Address");
-
-        addressbtn.setBackground(new java.awt.Color(241, 238, 238));
-        addressbtn.setOpaque(true);
-
-        jLabel12.setBackground(new java.awt.Color(30, 41, 59));
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Booking Summary");
-
-        summarybtn.setBackground(new java.awt.Color(241, 238, 238));
-        summarybtn.setOpaque(true);
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
         jPanel9.setForeground(new java.awt.Color(204, 204, 204));
@@ -180,7 +162,7 @@ public class Bookingpannel extends javax.swing.JFrame {
                 .addComponent(notificationbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(technicianbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(326, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,6 +189,35 @@ public class Bookingpannel extends javax.swing.JFrame {
                 .addContainerGap(11, Short.MAX_VALUE))
         );
 
+        timetxt.setForeground(new java.awt.Color(51, 51, 51));
+        timetxt.setText("Enter the time");
+
+        javax.swing.GroupLayout timepanelLayout = new javax.swing.GroupLayout(timepanel);
+        timepanel.setLayout(timepanelLayout);
+        timepanelLayout.setHorizontalGroup(
+            timepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(timepanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(timetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        timepanelLayout.setVerticalGroup(
+            timepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, timepanelLayout.createSequentialGroup()
+                .addContainerGap(9, Short.MAX_VALUE)
+                .addComponent(timetxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        notestxt.setColumns(20);
+        notestxt.setRows(5);
+        jScrollPane1.setViewportView(notestxt);
+
+        addtxt.addActionListener(this::addtxtActionPerformed);
+
+        confbtn.setBackground(new java.awt.Color(102, 153, 255));
+        confbtn.setText("Confirm");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -215,20 +226,20 @@ public class Bookingpannel extends javax.swing.JFrame {
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(58, 58, 58)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Booktechbtn, javax.swing.GroupLayout.DEFAULT_SIZE, 1296, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 1190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(timebtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(notebtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(addressbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(summarybtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(202, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(confbtn)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(Booktechbtn, javax.swing.GroupLayout.DEFAULT_SIZE, 1296, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(timepanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1)
+                        .addComponent(addtxt)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -244,21 +255,19 @@ public class Bookingpannel extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(timepanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(timebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
                 .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(notebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
                 .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(addressbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(summarybtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(addtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(confbtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -283,23 +292,63 @@ public class Bookingpannel extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+public void addConfirmListener(
+        java.awt.event.ActionListener listener) {
 
-    private void lgnbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lgnbtnActionPerformed
+    confbtn.addActionListener(listener);
+}
+    private void technicianbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_technicianbtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_lgnbtnActionPerformed
-
-    private void historybtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historybtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_historybtnActionPerformed
+    }//GEN-LAST:event_technicianbtnActionPerformed
 
     private void bookingbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookingbtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bookingbtnActionPerformed
 
-    private void technicianbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_technicianbtnActionPerformed
+    private void historybtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historybtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_technicianbtnActionPerformed
+    }//GEN-LAST:event_historybtnActionPerformed
 
+    private void lgnbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lgnbtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lgnbtnActionPerformed
+
+    private void addtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addtxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addtxtActionPerformed
+
+    public javax.swing.JTextField getTimeField() {
+    return timetxt;
+}
+
+public javax.swing.JTextArea getNotesField() {
+    return notestxt;
+}
+
+public javax.swing.JTextField getAddressField() {
+    return addtxt;
+}
+
+public com.toedter.calendar.JDateChooser getDateChooser() {
+    return jDateChooser1;
+}
+
+
+public java.util.Date getSelectedDate() {
+    return jDateChooser1.getDate();
+}
+
+public String getTime() {
+    return timetxt.getText().trim();
+}
+
+public String getNotes() {
+    return notestxt.getText().trim();
+}
+
+public String getAddress() {
+    return addtxt.getText().trim();
+}
     /**
      * @param args the command line arguments
      */
@@ -328,13 +377,13 @@ public class Bookingpannel extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Booktechbtn;
     private javax.swing.JLabel Createacc1;
-    private javax.swing.JLabel addressbtn;
+    private javax.swing.JTextField addtxt;
     private javax.swing.JButton bookingbtn;
+    private javax.swing.JButton confbtn;
     private javax.swing.JButton historybtn;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
@@ -343,11 +392,12 @@ public class Bookingpannel extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton lgnbtn;
-    private javax.swing.JLabel notebtn;
+    private javax.swing.JTextArea notestxt;
     private javax.swing.JButton notificationbtn;
-    private javax.swing.JLabel summarybtn;
     private javax.swing.JButton technicianbtn;
-    private javax.swing.JLabel timebtn;
+    private javax.swing.JPanel timepanel;
+    private javax.swing.JTextField timetxt;
     // End of variables declaration//GEN-END:variables
 }
