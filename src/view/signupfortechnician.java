@@ -8,14 +8,11 @@ package view;
  *
  * @author ACER
  */
-public class signupforadmin extends javax.swing.JFrame {
+public class signupfortechnician extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(signupforadmin.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(signupfortechnician.class.getName());
 
-    /**
-     * Creates new form signupforadmin
-     */
-    public signupforadmin() {
+    public signupfortechnician() {
         initComponents();
     }
 
@@ -54,7 +51,7 @@ public class signupforadmin extends javax.swing.JFrame {
         Createacc.setBackground(new java.awt.Color(255, 255, 255));
         Createacc.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
         Createacc.setForeground(new java.awt.Color(29, 78, 216));
-        Createacc.setText("Create Account For Admin");
+        Createacc.setText("Create Account For Technician");
 
         getstarted.setForeground(new java.awt.Color(204, 204, 204));
         getstarted.setText("Sign up to get started");
@@ -89,6 +86,8 @@ public class signupforadmin extends javax.swing.JFrame {
         contactlbl.setForeground(new java.awt.Color(255, 255, 255));
         contactlbl.setText("Contact Number");
 
+        pswfield2.addActionListener(this::pswfield2ActionPerformed);
+
         deptlbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         deptlbl.setForeground(new java.awt.Color(255, 255, 255));
         deptlbl.setText("Department");
@@ -101,9 +100,18 @@ public class signupforadmin extends javax.swing.JFrame {
         bgpanel.setLayout(bgpanelLayout);
         bgpanelLayout.setHorizontalGroup(
             bgpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgpanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(sgnbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(579, 579, 579))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgpanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pswcheckbox)
+                .addGap(338, 338, 338))
             .addGroup(bgpanelLayout.createSequentialGroup()
                 .addGap(496, 496, 496)
                 .addGroup(bgpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(getstarted)
                     .addGroup(bgpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(emailtxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 617, Short.MAX_VALUE)
                         .addComponent(deptlbl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -117,20 +125,8 @@ public class signupforadmin extends javax.swing.JFrame {
                     .addComponent(pswfield, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pswfield1, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(confpswlbl)
-                    .addComponent(Createacc, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Createacc))
                 .addGap(0, 440, Short.MAX_VALUE))
-            .addGroup(bgpanelLayout.createSequentialGroup()
-                .addGap(515, 515, 515)
-                .addComponent(getstarted)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgpanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(sgnbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(579, 579, 579))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgpanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(pswcheckbox)
-                .addGap(338, 338, 338))
         );
         bgpanelLayout.setVerticalGroup(
             bgpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,6 +196,10 @@ public class signupforadmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_pswcheckboxActionPerformed
 
+    private void pswfield2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pswfield2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pswfield2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -222,7 +222,7 @@ public class signupforadmin extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new signupforadmin().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new signupfortechnician().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

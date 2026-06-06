@@ -124,7 +124,7 @@ public class update extends javax.swing.JFrame {
 
         technicianbtn.setBackground(new java.awt.Color(30, 41, 59));
         technicianbtn.setForeground(new java.awt.Color(255, 255, 255));
-        technicianbtn.setText("👨‍   Technician");
+        technicianbtn.setText("👨‍   Profile");
         technicianbtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 65, 85)));
         technicianbtn.addActionListener(this::technicianbtnActionPerformed);
 

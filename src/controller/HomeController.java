@@ -27,6 +27,13 @@ public class HomeController {
         homeView.addForgotPasswordListener(new ForgotPasswordListener());
         setPlaceholder(homeView.getEmailField(), "Enter your email address");
         setPlaceholder(homeView.getPasswordField(), "Enter your password");
+
+        // group radio buttons so only one selectable at a time
+        javax.swing.ButtonGroup roleGroup = new javax.swing.ButtonGroup();
+        roleGroup.add(homeView.getUserbtn());
+        roleGroup.add(homeView.getAdminbtn());
+        roleGroup.add(homeView.getTechbtn());
+        homeView.getUserbtn().setSelected(true);
     }
 
     public void open()  { homeView.setVisible(true); }
@@ -58,6 +65,7 @@ public class HomeController {
         public void actionPerformed(ActionEvent e) {
             String email    = homeView.getEmailField().getText().trim();
             String password = homeView.getPasswordField().getText().trim();
+            String role     = homeView.getSelectedRole();
 
             if (email.isEmpty() || email.equals("Enter your email address") ||
                 password.isEmpty() || password.equals("Enter your password")) {
@@ -65,42 +73,54 @@ public class HomeController {
                 return;
             }
 
-            // 1 — Check admin first
-            if (adminDao.loginAdmin(email, password)) {
-                adminDao.logAction("Admin logged in");
-                close();
-                AdminDashboard adminDash = new AdminDashboard();
-                adminDash.setVisible(true);
-                return;
-            }
+            switch (role) {
 
-            // 2 — Check technicians
-            if (techDao.loginTechnician(email, password)) {
-                String username = techDao.getUsernameByEmail(email);
-                int techId = techDao.getIdByEmail(email);
-                close();
-                TechnicianDashboard techDash = new TechnicianDashboard();
-                techDash.setTechnicianId(techId);
-                techDash.setUsername(username);
-                techDash.setVisible(true);
-                return;
-            }
+                case "admin":
+                    if (adminDao.loginAdmin(email, password)) {
+                        adminDao.logAction("Admin logged in");
+                        close();
+                        new AdminDashboard().setVisible(true);
+                    } else {
+                        JOptionPane.showMessageDialog(homeView,
+                            "Invalid admin credentials.");
+                    }
+                    break;
 
-            // 3 — Check users
-            UserData user = new UserData();
-            user.setEmail(email);
-            user.setPassword(password);
-            if (userDao.loginUser(user)) {
-                String username = userDao.getUsernameByEmail(email);
-                close();
-                Dashboard dashboard = new Dashboard();
-                dashboard.setUsername(username);
-                dashboard.setVisible(true);
-                return;
-            }
+                case "technician":
+                    if (techDao.loginTechnician(email, password)) {
+                        String techUsername = techDao.getUsernameByEmail(email);
+                        int techId          = techDao.getIdByEmail(email);
+                        close();
+                        TechnicianDashboard techDash = new TechnicianDashboard();
+                        techDash.setTechnicianId(techId);
+                        techDash.setUsername(techUsername);
+                        techDash.setVisible(true);
+                    } else {
+                        JOptionPane.showMessageDialog(homeView,
+                            "Invalid technician credentials.");
+                    }
+                    break;
 
-            // Nothing matched
-            JOptionPane.showMessageDialog(homeView, "Invalid email or password.");
+                case "client":
+                    UserData user = new UserData();
+                    user.setEmail(email);
+                    user.setPassword(password);
+                    if (userDao.loginUser(user)) {
+                        String username = userDao.getUsernameByEmail(email);
+                        close();
+                        Dashboard dashboard = new Dashboard();
+                        dashboard.setUsername(username);
+                        dashboard.setVisible(true);
+                    } else {
+                        JOptionPane.showMessageDialog(homeView,
+                            "Invalid user credentials.");
+                    }
+                    break;
+
+                default:
+                    JOptionPane.showMessageDialog(homeView,
+                        "Please select a role to continue.");
+            }
         }
     }
 
@@ -119,7 +139,8 @@ public class HomeController {
         public void actionPerformed(ActionEvent e) {
             close();
             ForgotPassword forgotView = new ForgotPassword();
-            ForgotPasswordPageController forgotController = new ForgotPasswordPageController(forgotView, homeView);
+            ForgotPasswordPageController forgotController =
+                new ForgotPasswordPageController(forgotView, homeView);
             forgotController.open();
         }
     }

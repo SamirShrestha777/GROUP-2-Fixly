@@ -1,62 +1,49 @@
 package model;
-import java.util.Date;
+
 public class Appointment {
 
-    private String email;
+    private int id;
+    private int clientId;
+    private int technicianId;
+    private String serviceType;
     private String date;
     private String time;
     private String notes;
     private String address;
-    private Date appointmentDate;
+    private String status;
+    private String clientName;
+    private String email;
 
-    public Appointment() {
-    }
+    public int getId()                          { return id; }
+    public void setId(int id)                   { this.id = id; }
 
-    public String getEmail() {
-        return email;
-    }
+    public int getClientId()                    { return clientId; }
+    public void setClientId(int id)             { this.clientId = id; }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    public int getTechnicianId()                { return technicianId; }
+    public void setTechnicianId(int id)         { this.technicianId = id; }
 
-    public String getDate() {
-        return date;
-    }
+    public String getServiceType()              { return serviceType; }
+    public void setServiceType(String s)        { this.serviceType = s; }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
+    public String getDate()                     { return date; }
+    public void setDate(String date)            { this.date = date; }
 
-    public String getTime() {
-        return time;
-    }
+    public String getTime()                     { return time; }
+    public void setTime(String time)            { this.time = time; }
 
-    public void setTime(String time) {
-        this.time = time;
-    }
+    public String getNotes()                    { return notes; }
+    public void setNotes(String notes)          { this.notes = notes; }
 
-    public String getNotes() {
-        return notes;
-    }
+    public String getAddress()                  { return address; }
+    public void setAddress(String address)      { this.address = address; }
 
-    public void setNotes(String notes) {
-        this.notes = notes;
-    }
+    public String getStatus()                   { return status; }
+    public void setStatus(String status)        { this.status = status; }
 
-    public String getAddress() {
-        return address;
-    }
+    public String getClientName()               { return clientName; }
+    public void setClientName(String name)      { this.clientName = name; }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-
-public Date getAppointmentDate() {
-    return appointmentDate;
-}
-public void setAppointmentDate(Date appointmentDate) {
-    this.appointmentDate = appointmentDate;
-}
+    public String getEmail()                    { return email; }
+    public void setEmail(String email)          { this.email = email; }
 }

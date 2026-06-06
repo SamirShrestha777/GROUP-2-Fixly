@@ -14,6 +14,11 @@ public class HomePage extends javax.swing.JFrame {
      */
     public HomePage() {
         initComponents();
+        javax.swing.ButtonGroup roleGroup = new javax.swing.ButtonGroup();
+    roleGroup.add(userbtn);
+    roleGroup.add(adminbtn);
+    roleGroup.add(techbtn);
+    userbtn.setSelected(true); // default selection
 
     }
 
@@ -93,14 +98,20 @@ public class HomePage extends javax.swing.JFrame {
         pwcheckbox.setText("Show Password");
         pwcheckbox.addActionListener(this::pwcheckboxActionPerformed);
 
+        userbtn.setBackground(new java.awt.Color(30, 41, 59));
         userbtn.setForeground(new java.awt.Color(255, 255, 255));
         userbtn.setText("User");
+        userbtn.setOpaque(true);
 
+        adminbtn.setBackground(new java.awt.Color(30, 41, 59));
         adminbtn.setForeground(new java.awt.Color(255, 255, 255));
         adminbtn.setText("Admin");
+        adminbtn.setOpaque(true);
 
+        techbtn.setBackground(new java.awt.Color(30, 41, 59));
         techbtn.setForeground(new java.awt.Color(255, 255, 255));
         techbtn.setText("Technician");
+        techbtn.setOpaque(true);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -280,5 +291,22 @@ public class HomePage extends javax.swing.JFrame {
     for (java.awt.event.ActionListener al : frgtpswbtn.getActionListeners()) {
         frgtpswbtn.removeActionListener(al);
     }
+}
+    public javax.swing.JRadioButton getUserbtn() {
+    return userbtn;
+}
+
+public javax.swing.JRadioButton getAdminbtn() {
+    return adminbtn;
+}
+
+public javax.swing.JRadioButton getTechbtn() {
+    return techbtn;
+}
+
+public String getSelectedRole() {
+    if (adminbtn.isSelected()) return "admin";
+    if (techbtn.isSelected()) return "technician";
+    return "client";
 }
 }
