@@ -36,7 +36,25 @@ public class AppointmentDao {
             mysql.closeConnection(conn);
         }
     }
-    public void createAppointment(Appointment appointment) {
+    public boolean saveAppointment(Appointment appointment) {
+    Connection conn = mysql.openConnection();
+    try {
+        String sql = "INSERT INTO appointments (email, date, time, notes, address) " +
+                     "VALUES (?, ?, ?, ?, ?)";
+        PreparedStatement pstm = conn.prepareStatement(sql);
+        pstm.setString(1, appointment.getEmail());
+        pstm.setString(2, appointment.getDate());
+        pstm.setString(3, appointment.getTime());
+        pstm.setString(4, appointment.getNotes());
+        pstm.setString(5, appointment.getAddress());
+        return pstm.executeUpdate() > 0;
+    } catch (Exception e) {
+        System.out.println(e.getMessage());
+        return false;
+    } finally {
+        mysql.closeConnection(conn);
+    }
+}    public void createAppointment(Appointment appointment) {
 
     Connection conn = mysql.openConnection();
 

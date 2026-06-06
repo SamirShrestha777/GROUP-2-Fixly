@@ -1,5 +1,5 @@
 package model;
-
+import java.util.Date;
 public class Appointment {
 
     private String email;
@@ -7,6 +7,7 @@ public class Appointment {
     private String time;
     private String notes;
     private String address;
+    private Date appointmentDate;
 
     public Appointment() {
     }
@@ -50,4 +51,12 @@ public class Appointment {
     public void setAddress(String address) {
         this.address = address;
     }
+
+
+public Date getAppointmentDate() {
+    return appointmentDate;
+}
+public void setAppointmentDate(Date appointmentDate) {
+    this.appointmentDate = appointmentDate;
+}
 }

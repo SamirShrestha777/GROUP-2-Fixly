@@ -33,4 +33,12 @@ public class UserData {
 
     public String getAddress() { return address; } // ✅ fixed — was throwing exception
     public void setAddress(String address) { this.address = address; } // ✅ added setter
+    private String specialization;
+
+public String getSpecialization() {
+    return specialization;
+}
+public void setSpecialization(String specialization) {
+    this.specialization = specialization;
+}
 }

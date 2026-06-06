@@ -39,9 +39,9 @@ public class TechnicianDashboard extends javax.swing.JFrame {
         technicianbtn = new javax.swing.JButton();
         Verifyrequest = new javax.swing.JLabel();
         All = new javax.swing.JButton();
-        Pending = new javax.swing.JButton();
-        Approved = new javax.swing.JButton();
-        Rejected = new javax.swing.JButton();
+        electrical = new javax.swing.JButton();
+        plm = new javax.swing.JButton();
+        ac = new javax.swing.JButton();
         jScrollBar1 = new javax.swing.JScrollBar();
         jScrollPane1 = new javax.swing.JScrollPane();
 
@@ -68,7 +68,7 @@ public class TechnicianDashboard extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addComponent(Createacc1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1270, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1264, Short.MAX_VALUE)
                 .addComponent(lgnbtn)
                 .addGap(47, 47, 47))
         );
@@ -87,13 +87,13 @@ public class TechnicianDashboard extends javax.swing.JFrame {
 
         historybtn.setBackground(new java.awt.Color(30, 41, 59));
         historybtn.setForeground(new java.awt.Color(255, 255, 255));
-        historybtn.setText("🕓   History");
+        historybtn.setText("Request");
         historybtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 65, 85)));
         historybtn.addActionListener(this::historybtnActionPerformed);
 
         bookingbtn.setBackground(new java.awt.Color(30, 41, 59));
         bookingbtn.setForeground(new java.awt.Color(255, 255, 255));
-        bookingbtn.setText("📅   Booking");
+        bookingbtn.setText("🕓   History");
         bookingbtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 65, 85)));
         bookingbtn.addActionListener(this::bookingbtnActionPerformed);
 
@@ -104,7 +104,7 @@ public class TechnicianDashboard extends javax.swing.JFrame {
 
         technicianbtn.setBackground(new java.awt.Color(30, 41, 59));
         technicianbtn.setForeground(new java.awt.Color(255, 255, 255));
-        technicianbtn.setText("👨‍   Technician");
+        technicianbtn.setText("👨‍   Profile");
         technicianbtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 65, 85)));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -138,62 +138,67 @@ public class TechnicianDashboard extends javax.swing.JFrame {
         All.setForeground(new java.awt.Color(255, 255, 255));
         All.setText("All");
 
-        Pending.setBackground(new java.awt.Color(30, 41, 59));
-        Pending.setForeground(new java.awt.Color(255, 255, 255));
-        Pending.setText("Pending");
+        electrical.setBackground(new java.awt.Color(30, 41, 59));
+        electrical.setForeground(new java.awt.Color(255, 255, 255));
+        electrical.setText("Electrical");
 
-        Approved.setBackground(new java.awt.Color(30, 41, 59));
-        Approved.setForeground(new java.awt.Color(255, 255, 255));
-        Approved.setText("Approved");
+        plm.setBackground(new java.awt.Color(30, 41, 59));
+        plm.setForeground(new java.awt.Color(255, 255, 255));
+        plm.setText("Plumbing");
 
-        Rejected.setBackground(new java.awt.Color(30, 41, 59));
-        Rejected.setForeground(new java.awt.Color(255, 255, 255));
-        Rejected.setText("Rejected");
+        ac.setBackground(new java.awt.Color(30, 41, 59));
+        ac.setForeground(new java.awt.Color(255, 255, 255));
+        ac.setText("AC");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(All)
-                                .addGap(40, 40, 40)
-                                .addComponent(Pending)
-                                .addGap(40, 40, 40)
-                                .addComponent(Approved)
-                                .addGap(40, 40, 40)
-                                .addComponent(Rejected))
-                            .addComponent(Verifyrequest, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(646, 646, 646)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(51, 51, 51)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Verifyrequest, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(All, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(electrical, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(plm, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(ac, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(195, 195, 195))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(646, 646, 646)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(109, 109, 109)))
+                        .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(Verifyrequest)
                         .addGap(26, 26, 26)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(All)
-                            .addComponent(Pending)
-                            .addComponent(Approved)
-                            .addComponent(Rejected))
+                            .addComponent(electrical)
+                            .addComponent(plm)
+                            .addComponent(ac))
                         .addGap(162, 162, 162)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 284, Short.MAX_VALUE))
+                        .addGap(0, 266, Short.MAX_VALUE))
                     .addComponent(jScrollBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -224,7 +229,17 @@ public class TechnicianDashboard extends javax.swing.JFrame {
     private void bookingbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookingbtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bookingbtnActionPerformed
+private int technicianId;
+private String username;
 
+public void setTechnicianId(int technicianId) {
+    this.technicianId = technicianId;
+}
+public void setUsername(String username) {
+    this.username = username;
+    // optional: update a label on the dashboard
+    // lblWelcome.setText("Welcome, " + username);
+}
     /**
      * @param args the command line arguments
      */
@@ -252,12 +267,11 @@ public class TechnicianDashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton All;
-    private javax.swing.JButton Approved;
     private javax.swing.JLabel Createacc1;
-    private javax.swing.JButton Pending;
-    private javax.swing.JButton Rejected;
     private javax.swing.JLabel Verifyrequest;
+    private javax.swing.JButton ac;
     private javax.swing.JButton bookingbtn;
+    private javax.swing.JButton electrical;
     private javax.swing.JButton historybtn;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel6;
@@ -266,6 +280,7 @@ public class TechnicianDashboard extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton lgnbtn;
     private javax.swing.JButton notificationbtn;
+    private javax.swing.JButton plm;
     private javax.swing.JButton technicianbtn;
     // End of variables declaration//GEN-END:variables
 }

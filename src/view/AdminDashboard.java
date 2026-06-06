@@ -86,25 +86,26 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         historybtn.setBackground(new java.awt.Color(30, 41, 59));
         historybtn.setForeground(new java.awt.Color(255, 255, 255));
-        historybtn.setText("🕓   History");
+        historybtn.setText("Verify");
         historybtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 65, 85)));
         historybtn.addActionListener(this::historybtnActionPerformed);
 
         bookingbtn.setBackground(new java.awt.Color(30, 41, 59));
         bookingbtn.setForeground(new java.awt.Color(255, 255, 255));
-        bookingbtn.setText("📅   Booking");
+        bookingbtn.setText("Monitor");
         bookingbtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 65, 85)));
         bookingbtn.addActionListener(this::bookingbtnActionPerformed);
 
         notificationbtn.setBackground(new java.awt.Color(30, 41, 59));
         notificationbtn.setForeground(new java.awt.Color(255, 255, 255));
-        notificationbtn.setText("🔔   Notification");
+        notificationbtn.setText("👨‍   Technician");
         notificationbtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 65, 85)));
 
         technicianbtn.setBackground(new java.awt.Color(30, 41, 59));
         technicianbtn.setForeground(new java.awt.Color(255, 255, 255));
-        technicianbtn.setText("👨‍   Technician");
+        technicianbtn.setText("Settings");
         technicianbtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 65, 85)));
+        technicianbtn.addActionListener(this::technicianbtnActionPerformed);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -136,18 +137,20 @@ public class AdminDashboard extends javax.swing.JFrame {
         All.setBackground(new java.awt.Color(30, 41, 59));
         All.setForeground(new java.awt.Color(255, 255, 255));
         All.setText("All");
+        All.addActionListener(this::AllActionPerformed);
 
         Plumbing.setBackground(new java.awt.Color(30, 41, 59));
         Plumbing.setForeground(new java.awt.Color(255, 255, 255));
-        Plumbing.setText("Plumbing");
+        Plumbing.setText("Pending");
 
         Electrical.setBackground(new java.awt.Color(30, 41, 59));
         Electrical.setForeground(new java.awt.Color(255, 255, 255));
-        Electrical.setText("Electrical");
+        Electrical.setText("Approved");
+        Electrical.addActionListener(this::ElectricalActionPerformed);
 
         HVAC.setBackground(new java.awt.Color(30, 41, 59));
         HVAC.setForeground(new java.awt.Color(255, 255, 255));
-        HVAC.setText("HVAC");
+        HVAC.setText("Rejected");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -159,15 +162,18 @@ public class AdminDashboard extends javax.swing.JFrame {
                 .addGap(47, 47, 47)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(All)
-                        .addGap(40, 40, 40)
-                        .addComponent(Plumbing)
-                        .addGap(40, 40, 40)
-                        .addComponent(Electrical)
-                        .addGap(40, 40, 40)
-                        .addComponent(HVAC))
-                    .addComponent(Availablerequest, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Availablerequest, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1336, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(All, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Plumbing, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Electrical, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(HVAC, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(192, 192, 192)))
                 .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -218,6 +224,18 @@ public class AdminDashboard extends javax.swing.JFrame {
     private void bookingbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookingbtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bookingbtnActionPerformed
+
+    private void AllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AllActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AllActionPerformed
+
+    private void ElectricalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ElectricalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ElectricalActionPerformed
+
+    private void technicianbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_technicianbtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_technicianbtnActionPerformed
 
     /**
      * @param args the command line arguments
