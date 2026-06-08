@@ -10,11 +10,11 @@ public class MySqlConnector implements db{
     public Connection openConnection() {
         try{
         String username="fixly";
-        String password ="fixly@69";
+        String password ="12345";
         String database="credentials";
         Connection connection;
         connection=DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/"+ database,username,password);
+                "jdbc:mysql://127.0.0.1:3306/"+ database,username,password);
         if (connection==null){
         System.out.println("Connection Null");
         }else{

@@ -24,7 +24,7 @@ public class SignupPage extends javax.swing.JFrame {
         sgnbtn.putClientProperty("JButton.buttonType", "roundRect");
         sgnbtn.putClientProperty("JComponent.arc", 25);
         pswfield.setEchoChar('●');
-        jPasswordField2.setEchoChar('●');
+        pswfld.setEchoChar('●');
 
         setPlaceholder(fullnametxt, "Enter your full name");
         setPlaceholder(emailtxt, "Enter your email address");
@@ -62,7 +62,7 @@ public class SignupPage extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         sgnbtn = new javax.swing.JButton();
         pswfield = new javax.swing.JPasswordField();
-        jPasswordField2 = new javax.swing.JPasswordField();
+        pswfld = new javax.swing.JPasswordField();
         pswcheckbox = new javax.swing.JCheckBox();
         jLabel7 = new javax.swing.JLabel();
 
@@ -171,7 +171,7 @@ public class SignupPage extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(Createacc, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pswfield)
-                    .addComponent(jPasswordField2))
+                    .addComponent(pswfld))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addComponent(pswcheckbox)
                 .addGap(303, 303, 303))
@@ -200,7 +200,7 @@ public class SignupPage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
-                .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pswfld, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -262,10 +262,10 @@ public class SignupPage extends javax.swing.JFrame {
 
     private void pswcheckboxActionPerformed(java.awt.event.ActionEvent evt) {
         if (pswcheckbox.isSelected()) {
-            jPasswordField2.setEchoChar((char) 0); // show password
+            pswfld.setEchoChar((char) 0); // show password
             pswfield.setEchoChar((char) 0); // show confirm password
         } else {
-            jPasswordField2.setEchoChar('●'); // hide password
+            pswfld.setEchoChar('●'); // hide password
             pswfield.setEchoChar('●'); // hide confirm password
         }
     }
@@ -322,10 +322,10 @@ public class SignupPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JButton lgnbtn;
     private javax.swing.JCheckBox pswcheckbox;
     private javax.swing.JPasswordField pswfield;
+    private javax.swing.JPasswordField pswfld;
     private javax.swing.JButton sgnbtn;
     // End of variables declaration//GEN-END:variables
     public void addSignupListener(ActionListener listener) {
@@ -346,15 +346,15 @@ public class SignupPage extends javax.swing.JFrame {
 
     }
 
-    public javax.swing.JTextField getPasswordField() {
-        return (javax.swing.JTextField) jPasswordField2;
+public javax.swing.JPasswordField getPasswordField() {
+    return pswfld;
 
-    }
+}
 
-    public javax.swing.JTextField getCPasswordField() {
-        return (javax.swing.JTextField) pswfield;
+public javax.swing.JPasswordField getCPasswordField() {
+    return pswfield;
 
-    }
+}
 
     public javax.swing.JTextField getAddressField() {
         return addtxt;

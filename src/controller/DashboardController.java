@@ -1,69 +1,32 @@
 package controller;
 
 import view.Dashboard;
-import view.Bookingpannel;
-import view.HistoryPage;
-import view.NotificationPage;
-import view.Update;
 import view.HomePage;
 import utils.Session;
 import javax.swing.JOptionPane;
 
 public class DashboardController {
     private final Dashboard view;
+    private final NavigationManager nav;
 
     public DashboardController(Dashboard view) {
         this.view = view;
+        this.nav  = new NavigationManager(view);
         wireAllButtons();
     }
 
-    // reusable go-back action
-    private void goBackToDashboard() {
-        view.setVisible(true);
-    }
-
     private void wireAllButtons() {
+        view.addHistoryListener(e -> nav.goToHistory(view));
+        view.addNotificationListener(e -> nav.goToNotification(view));
+        view.addProfileListener(e -> nav.goToProfile(view));
+        view.addBookingListener(e -> nav.goToBooking(view, ""));
 
-        view.addHistoryListener(e -> {
-            view.setVisible(false);
-            HistoryPage historyPage = new HistoryPage();
-            HistoryController historyController = new HistoryController(
-                historyPage,
-                Session.getUserId(),
-                this::goBackToDashboard  // pass callback
-            );
-            historyController.open();
-        });
-
-        view.addNotificationListener(e -> {
-            view.setVisible(false);
-            NotificationPage notifPage = new NotificationPage();
-            NotificationController notifController = new NotificationController(
-                notifPage,
-                Session.getUserId(),
-                this::goBackToDashboard
-            );
-            notifController.open();
-        });
-
-        view.addProfileListener(e -> {
-            view.setVisible(false);
-            Update profilePage = new Update();
-            UpdateController updateController = new UpdateController(
-                profilePage,
-                Session.getUserId(),
-                this::goBackToDashboard
-            );
-            updateController.open();
-        });
-
-        view.addBookingListener(e -> openBooking(""));
-        view.addPlumbingListener(e ->   openBooking("Plumbing"));
-        view.addElectricalListener(e -> openBooking("Electrical"));
-        view.addCleaningListener(e ->   openBooking("Cleaning"));
-        view.addCarpentryListener(e ->  openBooking("Carpentry"));
-        view.addPaintingListener(e ->   openBooking("Painting"));
-        view.addACRepairListener(e ->   openBooking("AC Repair"));
+        view.addPlumbingListener(e ->   nav.goToBooking(view, "Plumbing"));
+        view.addElectricalListener(e -> nav.goToBooking(view, "Electrical"));
+        view.addCleaningListener(e ->   nav.goToBooking(view, "Cleaning"));
+        view.addCarpentryListener(e ->  nav.goToBooking(view, "Carpentry"));
+        view.addPaintingListener(e ->   nav.goToBooking(view, "Painting"));
+        view.addACRepairListener(e ->   nav.goToBooking(view, "AC Repair"));
 
         view.addLogoutListener(e -> {
             int confirm = JOptionPane.showConfirmDialog(
@@ -78,18 +41,6 @@ public class DashboardController {
                 homeView.setVisible(true);
             }
         });
-    }
-
-    private void openBooking(String serviceType) {
-        view.setVisible(false);
-        Bookingpannel bookingView = new Bookingpannel();
-        BookingController bookingController = new BookingController(
-            bookingView,
-            Session.getUserId(),
-            serviceType,
-            this::goBackToDashboard
-        );
-        bookingController.open();
     }
 
     public void open() {

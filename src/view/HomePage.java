@@ -279,9 +279,9 @@ public class HomePage extends javax.swing.JFrame {
         return txtboxemail;
     }
 
-    public javax.swing.JTextField getPasswordField() {
-        return passfield;
-    }
+public javax.swing.JPasswordField getPasswordField() {
+    return passfield;
+}
     public void removeAllListeners() {
     for (java.awt.event.ActionListener al : sndbutton.getActionListeners()) {
         sndbutton.removeActionListener(al);

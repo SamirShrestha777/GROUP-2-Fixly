@@ -27,7 +27,6 @@ public class HomeController {
         homeView.addSignupListener(new SignupListener());
         homeView.addForgotPasswordListener(new ForgotPasswordListener());
         setPlaceholder(homeView.getEmailField(), "Enter your email address");
-        setPlaceholder(homeView.getPasswordField(), "Enter your password");
 
         javax.swing.ButtonGroup roleGroup = new javax.swing.ButtonGroup();
         roleGroup.add(homeView.getUserbtn());
@@ -64,11 +63,11 @@ public class HomeController {
         @Override
         public void actionPerformed(ActionEvent e) {
             String email    = homeView.getEmailField().getText().trim();
-            String password = homeView.getPasswordField().getText().trim();
+            String password = new String(homeView.getPasswordField().getPassword()).trim();
             String role     = homeView.getSelectedRole();
 
             if (email.isEmpty() || email.equals("Enter your email address") ||
-                password.isEmpty() || password.equals("Enter your password")) {
+                password.isEmpty()) {
                 JOptionPane.showMessageDialog(homeView, "Please fill in all fields.");
                 return;
             }
@@ -90,9 +89,9 @@ public class HomeController {
 
                 case "technician":
                     if (techDao.loginTechnician(email, password)) {
-                        String techUsername     = techDao.getUsernameByEmail(email);
-                        int techId              = techDao.getIdByEmail(email);
-                        String specialization   = techDao.getSpecializationByEmail(email);
+                        String techUsername   = techDao.getUsernameByEmail(email);
+                        int techId            = techDao.getIdByEmail(email);
+                        String specialization = techDao.getSpecializationByEmail(email);
 
                         Session.setUserId(techId);
                         Session.setEmail(email);

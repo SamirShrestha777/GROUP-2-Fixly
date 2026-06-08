@@ -9,7 +9,6 @@ import view.HomePage;
 import view.SignupPage;
 
 public class SignupController {
-
     private final UserDao userDao = new UserDao();
     private final SignupPage userView;
     private final HomePage homeView;
@@ -28,17 +27,16 @@ public class SignupController {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                String name      = userView.getNameField().getText();
-                String email     = userView.getEmailField().getText();
-                String password  = userView.getPasswordField().getText();
-                String cpassword = userView.getCPasswordField().getText();
-                String address   = userView.getAddressField().getText();
+                String name      = userView.getNameField().getText().trim();
+                String email     = userView.getEmailField().getText().trim();
+                String password  = new String(userView.getPasswordField().getPassword()).trim();
+                String cpassword = new String(userView.getCPasswordField().getPassword()).trim();
+                String address   = userView.getAddressField().getText().trim();
 
                 if (name.isEmpty() || email.isEmpty() || password.isEmpty() || address.isEmpty()) {
                     JOptionPane.showMessageDialog(userView, "Please fill in all fields.");
                     return;
                 }
-
                 if (!password.equals(cpassword)) {
                     JOptionPane.showMessageDialog(userView, "Passwords do not match.");
                     return;
@@ -49,6 +47,7 @@ public class SignupController {
                 user.setEmail(email);
                 user.setPassword(password);
                 user.setAddress(address);
+                user.setRole("client"); // fixes login after signup
 
                 boolean exists = userDao.checkUser(user);
                 if (exists) {
@@ -56,12 +55,12 @@ public class SignupController {
                 } else {
                     userDao.createUser(user);
                     JOptionPane.showMessageDialog(userView, "Account created successfully!");
-                    // ✅ Auto open login after signup
                     close();
                     homeView.setVisible(true);
                 }
             } catch (Exception ex) {
                 System.out.println("Error adding user: " + ex.getMessage());
+                JOptionPane.showMessageDialog(userView, "Error: " + ex.getMessage());
             }
         }
     }
