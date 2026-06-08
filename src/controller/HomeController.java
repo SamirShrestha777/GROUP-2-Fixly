@@ -10,6 +10,7 @@ import view.SignupPage;
 import view.ForgotPassword;
 import view.TechnicianDashboard;
 import view.AdminDashboard;
+import utils.Session;
 import javax.swing.JOptionPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,7 +29,6 @@ public class HomeController {
         setPlaceholder(homeView.getEmailField(), "Enter your email address");
         setPlaceholder(homeView.getPasswordField(), "Enter your password");
 
-        // group radio buttons so only one selectable at a time
         javax.swing.ButtonGroup roleGroup = new javax.swing.ButtonGroup();
         roleGroup.add(homeView.getUserbtn());
         roleGroup.add(homeView.getAdminbtn());
@@ -78,6 +78,8 @@ public class HomeController {
                 case "admin":
                     if (adminDao.loginAdmin(email, password)) {
                         adminDao.logAction("Admin logged in");
+                        Session.setEmail(email);
+                        Session.setRole("admin");
                         close();
                         new AdminDashboard().setVisible(true);
                     } else {
@@ -88,8 +90,15 @@ public class HomeController {
 
                 case "technician":
                     if (techDao.loginTechnician(email, password)) {
-                        String techUsername = techDao.getUsernameByEmail(email);
-                        int techId          = techDao.getIdByEmail(email);
+                        String techUsername     = techDao.getUsernameByEmail(email);
+                        int techId              = techDao.getIdByEmail(email);
+                        String specialization   = techDao.getSpecializationByEmail(email);
+
+                        Session.setUserId(techId);
+                        Session.setEmail(email);
+                        Session.setRole("technician");
+                        Session.setSpecialization(specialization);
+
                         close();
                         TechnicianDashboard techDash = new TechnicianDashboard();
                         techDash.setTechnicianId(techId);
@@ -107,9 +116,16 @@ public class HomeController {
                     user.setPassword(password);
                     if (userDao.loginUser(user)) {
                         String username = userDao.getUsernameByEmail(email);
+                        int userId      = userDao.getIdByEmail(email);
+
+                        Session.setUserId(userId);
+                        Session.setEmail(email);
+                        Session.setRole("client");
+
                         close();
                         Dashboard dashboard = new Dashboard();
                         dashboard.setUsername(username);
+                        new DashboardController(dashboard);
                         dashboard.setVisible(true);
                     } else {
                         JOptionPane.showMessageDialog(homeView,

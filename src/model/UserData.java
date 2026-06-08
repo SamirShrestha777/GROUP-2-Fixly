@@ -1,17 +1,18 @@
 package model;
 
 public class UserData {
-
     private int user_id;
     private String username;
     private String email;
     private String password;
-    private String address; 
+    private String address;
+    private String specialization;
+    private String role;
+    private String department;
+    private String empId;
 
-  
     public UserData() {}
 
- 
     public UserData(String username, String email, String password, String address) {
         this.username = username;
         this.email = email;
@@ -31,14 +32,18 @@ public class UserData {
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
 
-    public String getAddress() { return address; } // ✅ fixed — was throwing exception
-    public void setAddress(String address) { this.address = address; } // ✅ added setter
-    private String specialization;
+    public String getAddress() { return address; }
+    public void setAddress(String address) { this.address = address; }
 
-public String getSpecialization() {
-    return specialization;
-}
-public void setSpecialization(String specialization) {
-    this.specialization = specialization;
-}
+    public String getSpecialization() { return specialization; }
+    public void setSpecialization(String specialization) { this.specialization = specialization; }
+
+    public String getRole() { return role; }
+    public void setRole(String role) { this.role = role; }
+
+    public String getDepartment() { return department; }
+    public void setDepartment(String department) { this.department = department; }
+
+    public String getEmpId() { return empId; }
+    public void setEmpId(String empId) { this.empId = empId; }
 }

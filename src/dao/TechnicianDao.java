@@ -2,7 +2,10 @@ package dao;
 
 import database.MySqlConnector;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import model.UserData;
+import model.Appointment;
 
 public class TechnicianDao {
 
@@ -21,6 +24,7 @@ public class TechnicianDao {
                 "otp INT," +
                 "emp_id VARCHAR(30)," +
                 "specialization VARCHAR(100)," +
+                "is_verified BOOLEAN DEFAULT FALSE," +
                 "created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP" +
                 ")";
             try (Statement stmt = conn.createStatement()) {
@@ -107,6 +111,25 @@ public class TechnicianDao {
         }
     }
 
+    public boolean updateProfile(int techId, String username, String email, String password) {
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "UPDATE technicians SET username = ?, email = ?, password = ? WHERE id = ?";
+            try (PreparedStatement pstm = conn.prepareStatement(sql)) {
+                pstm.setString(1, username);
+                pstm.setString(2, email);
+                pstm.setString(3, password);
+                pstm.setInt(4, techId);
+                return pstm.executeUpdate() > 0;
+            }
+        } catch (Exception e) {
+            System.out.println("Error updating profile: " + e.getMessage());
+            return false;
+        } finally {
+            mysql.closeConnection(conn);
+        }
+    }
+
     public String getUsernameByEmail(String email) {
         Connection conn = mysql.openConnection();
         try {
@@ -139,6 +162,201 @@ public class TechnicianDao {
             mysql.closeConnection(conn);
         }
         return -1;
+    }
+
+    public String getSpecializationByEmail(String email) {
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "SELECT specialization FROM technicians WHERE email = ?";
+            try (PreparedStatement pstm = conn.prepareStatement(sql)) {
+                pstm.setString(1, email);
+                ResultSet rs = pstm.executeQuery();
+                if (rs.next()) return rs.getString("specialization");
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally {
+            mysql.closeConnection(conn);
+        }
+        return "";
+    }
+
+    public UserData getTechnicianById(int id) {
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "SELECT * FROM technicians WHERE id = ?";
+            try (PreparedStatement pstm = conn.prepareStatement(sql)) {
+                pstm.setInt(1, id);
+                ResultSet rs = pstm.executeQuery();
+                if (rs.next()) {
+                    UserData u = new UserData();
+                    u.setId(rs.getInt("id"));
+                    u.setUsername(rs.getString("username"));
+                    u.setEmail(rs.getString("email"));
+                    u.setSpecialization(rs.getString("specialization"));
+                    return u;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally {
+            mysql.closeConnection(conn);
+        }
+        return null;
+    }
+
+    public List<UserData> getAllTechnicians() {
+        return getTechniciansBySpecialization(null);
+    }
+
+    public List<UserData> getTechniciansBySpecialization(String specialization) {
+        List<UserData> list = new ArrayList<>();
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = specialization == null
+                ? "SELECT * FROM technicians"
+                : "SELECT * FROM technicians WHERE specialization = ?";
+            try (PreparedStatement pstm = conn.prepareStatement(sql)) {
+                if (specialization != null) pstm.setString(1, specialization);
+                ResultSet rs = pstm.executeQuery();
+                while (rs.next()) {
+                    UserData u = new UserData();
+                    u.setId(rs.getInt("id"));
+                    u.setUsername(rs.getString("username"));
+                    u.setEmail(rs.getString("email"));
+                    u.setSpecialization(rs.getString("specialization"));
+                    list.add(u);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally {
+            mysql.closeConnection(conn);
+        }
+        return list;
+    }
+
+    // fetch pending jobs matching technician's specialization
+    public List<Appointment> getPendingJobs(String specialization) {
+        List<Appointment> list = new ArrayList<>();
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "SELECT a.*, u.username AS client_name " +
+                         "FROM appointments a " +
+                         "JOIN users u ON a.client_id = u.id " +
+                         "WHERE a.service_type = ? AND a.status = 'pending'";
+            try (PreparedStatement pstm = conn.prepareStatement(sql)) {
+                pstm.setString(1, specialization);
+                ResultSet rs = pstm.executeQuery();
+                while (rs.next()) {
+                    Appointment a = new Appointment();
+                    a.setId(rs.getInt("id"));
+                    a.setClientId(rs.getInt("client_id"));
+                    a.setClientName(rs.getString("client_name"));
+                    a.setServiceType(rs.getString("service_type"));
+                    a.setDate(rs.getString("date"));
+                    a.setTime(rs.getString("time"));
+                    a.setAddress(rs.getString("address"));
+                    a.setNotes(rs.getString("notes"));
+                    a.setStatus(rs.getString("status"));
+                    list.add(a);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally {
+            mysql.closeConnection(conn);
+        }
+        return list;
+    }
+
+    // fetch accepted/completed jobs for technician history
+    public List<Appointment> getJobHistory(int technicianId) {
+        List<Appointment> list = new ArrayList<>();
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "SELECT a.*, u.username AS client_name " +
+                         "FROM appointments a " +
+                         "JOIN users u ON a.client_id = u.id " +
+                         "WHERE a.technician_id = ? AND a.status IN ('accepted','completed')";
+            try (PreparedStatement pstm = conn.prepareStatement(sql)) {
+                pstm.setInt(1, technicianId);
+                ResultSet rs = pstm.executeQuery();
+                while (rs.next()) {
+                    Appointment a = new Appointment();
+                    a.setId(rs.getInt("id"));
+                    a.setClientId(rs.getInt("client_id"));
+                    a.setClientName(rs.getString("client_name"));
+                    a.setServiceType(rs.getString("service_type"));
+                    a.setDate(rs.getString("date"));
+                    a.setTime(rs.getString("time"));
+                    a.setAddress(rs.getString("address"));
+                    a.setStatus(rs.getString("status"));
+                    list.add(a);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally {
+            mysql.closeConnection(conn);
+        }
+        return list;
+    }
+
+    // technician accepts a job
+    public boolean acceptJob(int appointmentId, int technicianId) {
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "UPDATE appointments SET status = 'accepted', technician_id = ? " +
+                         "WHERE id = ? AND status = 'pending'";
+            try (PreparedStatement pstm = conn.prepareStatement(sql)) {
+                pstm.setInt(1, technicianId);
+                pstm.setInt(2, appointmentId);
+                return pstm.executeUpdate() > 0;
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            return false;
+        } finally {
+            mysql.closeConnection(conn);
+        }
+    }
+
+    // technician declines a job
+    public boolean declineJob(int appointmentId, int technicianId) {
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "INSERT INTO declined_jobs (appointment_id, technician_id) VALUES (?, ?)";
+            try (PreparedStatement pstm = conn.prepareStatement(sql)) {
+                pstm.setInt(1, appointmentId);
+                pstm.setInt(2, technicianId);
+                return pstm.executeUpdate() > 0;
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            return false;
+        } finally {
+            mysql.closeConnection(conn);
+        }
+    }
+
+    // technician marks job as complete
+    public boolean completeJob(int appointmentId, int technicianId) {
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "UPDATE appointments SET status = 'completed' " +
+                         "WHERE id = ? AND technician_id = ?";
+            try (PreparedStatement pstm = conn.prepareStatement(sql)) {
+                pstm.setInt(1, appointmentId);
+                pstm.setInt(2, technicianId);
+                return pstm.executeUpdate() > 0;
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            return false;
+        } finally {
+            mysql.closeConnection(conn);
+        }
     }
 
     public String generateEmpId() {

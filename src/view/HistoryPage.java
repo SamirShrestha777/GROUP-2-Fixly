@@ -8,16 +8,19 @@ package view;
  *
  * @author A C E R
  */
-public class History extends javax.swing.JFrame {
+public class HistoryPage extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(History.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(HistoryPage.class.getName());
 
     /**
      * Creates new form History
      */
-    public History() {
+    public HistoryPage() {
         initComponents();
     }
+    public HistoryPage(int userId) {
+    initComponents();
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -209,13 +212,15 @@ public class History extends javax.swing.JFrame {
     }//GEN-LAST:event_lgnbtnActionPerformed
 
     private void historybtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historybtnActionPerformed
-        // TODO: open History page
+        // TODO: open HistoryPage page
     }//GEN-LAST:event_historybtnActionPerformed
 
     private void bookingbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookingbtnActionPerformed
         // TODO: open Booking page
     }//GEN-LAST:event_bookingbtnActionPerformed
-
+public void addBackListener(java.awt.event.ActionListener listener) {
+    lgnbtn.addActionListener(listener);
+}
     /**
      * @param args the command line arguments
      */
@@ -238,7 +243,7 @@ public class History extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new History().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new HistoryPage().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

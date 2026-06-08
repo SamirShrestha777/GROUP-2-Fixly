@@ -8,14 +8,14 @@ package view;
  *
  * @author ACER
  */
-public class update extends javax.swing.JFrame {
+public class Update extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(update.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Update.class.getName());
 
     /**
      * Creates new form update
      */
-    public update() {
+    public Update() {
         initComponents();
     }
 
@@ -311,7 +311,9 @@ public class update extends javax.swing.JFrame {
     private void technicianbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_technicianbtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_technicianbtnActionPerformed
-
+public void addBackListener(java.awt.event.ActionListener listener) {
+    lgnbtn.addActionListener(listener);
+}
     /**
      * @param args the command line arguments
      */
@@ -334,7 +336,7 @@ public class update extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new update().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new Update().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

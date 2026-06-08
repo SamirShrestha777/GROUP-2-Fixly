@@ -4,20 +4,32 @@ import dao.AppointmentDao;
 import model.Appointment;
 import view.Bookingpannel;
 import view.HomePage;
-import utils.Session;  
+import utils.Session;
 import javax.swing.JOptionPane;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class BookingController {
-
     private final Bookingpannel view;
     private final AppointmentDao dao;
+    private final Runnable onBack;
 
-    public BookingController(Bookingpannel view) {
-        this.view = view;
-        this.dao  = new AppointmentDao();
+    public BookingController(Bookingpannel view, int userId,
+                             String serviceType, Runnable onBack) {
+        this.view   = view;
+        this.dao    = new AppointmentDao();
+        this.onBack = onBack;
+
+        // pre-select the service type passed from dashboard
+        if (serviceType != null && !serviceType.isEmpty()) {
+            view.setServiceType(serviceType);
+        }
+
         view.addConfirmListener(e -> handleBooking());
+        view.addBackListener(e -> {
+            view.dispose();
+            onBack.run(); // go back to dashboard
+        });
     }
 
     private void handleBooking() {
@@ -37,7 +49,7 @@ public class BookingController {
                 JOptionPane.showMessageDialog(view, "Please select a service type.");
                 return;
             }
-            if (address.isEmpty()) {
+            if (address == null || address.trim().isEmpty()) {
                 JOptionPane.showMessageDialog(view, "Please enter your address.");
                 return;
             }
@@ -60,16 +72,16 @@ public class BookingController {
             appointment.setStatus("pending");
 
             boolean success = dao.saveAppointment(appointment);
-
             if (success) {
                 JOptionPane.showMessageDialog(view,
                     "Booking request sent!\n" +
-                    "Service: "  + serviceType   + "\n" +
-                    "Date: "     + formattedDate  + "\n" +
-                    "Time: "     + time           + "\n" +
+                    "Service: "  + serviceType  + "\n" +
+                    "Date: "     + formattedDate + "\n" +
+                    "Time: "     + time          + "\n" +
                     "A technician will accept your request shortly."
                 );
                 view.dispose();
+                onBack.run(); // go back to dashboard after successful booking
             } else {
                 JOptionPane.showMessageDialog(view, "Booking failed. Please try again.");
             }

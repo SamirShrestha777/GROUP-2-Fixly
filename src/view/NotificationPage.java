@@ -8,16 +8,19 @@ package view;
  *
  * @author ACER
  */
-public class notificationpanel extends javax.swing.JFrame {
+public class NotificationPage extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(notificationpanel.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(NotificationPage.class.getName());
 
     /**
-     * Creates new form notificationpanel
+     * Creates new 
      */
-    public notificationpanel() {
+    public NotificationPage() {
         initComponents();
     }
+    public NotificationPage(int userId) {
+    initComponents();
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -249,7 +252,9 @@ public class notificationpanel extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
-
+public void addBackListener(java.awt.event.ActionListener listener) {
+    lgnbtn.addActionListener(listener);
+}
     /**
      * @param args the command line arguments
      */
@@ -272,7 +277,7 @@ public class notificationpanel extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new notificationpanel().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new NotificationPage().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

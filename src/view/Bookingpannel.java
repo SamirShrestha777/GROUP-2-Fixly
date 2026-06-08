@@ -7,16 +7,24 @@ package view;
 /**
  *
  * @author ACER
- */
-public class Bookingpannel extends javax.swing.JFrame {
-    
+ */public class Bookingpannel extends javax.swing.JFrame {
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Bookingpannel.class.getName());
 
-  
+    private int clientId;
+
     public Bookingpannel() {
         initComponents();
     }
 
+    public Bookingpannel(int clientId, String serviceType) {
+        initComponents();
+        this.clientId = clientId;
+        if (serviceType != null && !serviceType.isEmpty()) {
+            cmbServiceType.setSelectedItem(serviceType);
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -343,7 +351,14 @@ public void addConfirmListener(
     }//GEN-LAST:event_addtxtActionPerformed
 
 
+// pre-selects the service when opening from a service button
+public void setServiceType(String serviceType) {
+    cmbServiceType.setSelectedItem(serviceType);
+}
 
+public void addBackListener(java.awt.event.ActionListener listener) {
+    lgnbtn.addActionListener(listener);
+}
 public javax.swing.JTextArea getNotesField() {
     return notestxt;
 }
