@@ -5,84 +5,85 @@ import java.sql.*;
 import model.Appointment;
 
 public class AppointmentDao {
-
     private final MySqlConnector mysql = new MySqlConnector();
 
-    public void createTable() {
-
+    public boolean saveAppointment(Appointment appointment) {
         Connection conn = mysql.openConnection();
-
         try {
-
-            String sql =
-                "CREATE TABLE IF NOT EXISTS appointments (" +
-                "id INT AUTO_INCREMENT PRIMARY KEY," +
-                "email VARCHAR(100)," +
-                "date VARCHAR(50)," +
-                "time VARCHAR(50)," +
-                "notes TEXT," +
-                "address TEXT" +
-                ")";
-
-            Statement stmt = conn.createStatement();
-            stmt.executeUpdate(sql);
-
+            String sql = "INSERT INTO appointments " +
+                         "(client_id, service_type, date, time, notes, address, status) " +
+                         "VALUES (?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, appointment.getClientId());
+            pstm.setString(2, appointment.getServiceType());
+            pstm.setString(3, appointment.getDate());
+            pstm.setString(4, appointment.getTime());
+            pstm.setString(5, appointment.getNotes());
+            pstm.setString(6, appointment.getAddress());
+            pstm.setString(7, appointment.getStatus());
+            boolean result = pstm.executeUpdate() > 0;
+            if (result) System.out.println("Appointment saved successfully.");
+            return result;
         } catch (Exception e) {
-
-            System.out.println(e.getMessage());
-
+            System.out.println("Error saving appointment: " + e.getMessage());
+            return false;
         } finally {
-
             mysql.closeConnection(conn);
         }
     }
-    public boolean saveAppointment(Appointment appointment) {
-    Connection conn = mysql.openConnection();
-    try {
-        String sql = "INSERT INTO appointments (email, date, time, notes, address) " +
-                     "VALUES (?, ?, ?, ?, ?)";
-        PreparedStatement pstm = conn.prepareStatement(sql);
-        pstm.setString(1, appointment.getEmail());
-        pstm.setString(2, appointment.getDate());
-        pstm.setString(3, appointment.getTime());
-        pstm.setString(4, appointment.getNotes());
-        pstm.setString(5, appointment.getAddress());
-        return pstm.executeUpdate() > 0;
-    } catch (Exception e) {
-        System.out.println(e.getMessage());
-        return false;
-    } finally {
-        mysql.closeConnection(conn);
+
+    public java.util.List<Appointment> getAppointmentsByUser(int clientId) {
+        java.util.List<Appointment> list = new java.util.ArrayList<>();
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "SELECT * FROM appointments WHERE client_id = ? ORDER BY created_at DESC";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, clientId);
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) {
+                Appointment a = new Appointment();
+                a.setId(rs.getInt("id"));
+                a.setClientId(rs.getInt("client_id"));
+                a.setServiceType(rs.getString("service_type"));
+                a.setDate(rs.getString("date"));
+                a.setTime(rs.getString("time"));
+                a.setNotes(rs.getString("notes"));
+                a.setAddress(rs.getString("address"));
+                a.setStatus(rs.getString("status"));
+                list.add(a);
+            }
+        } catch (Exception e) {
+            System.out.println("Error fetching appointments: " + e.getMessage());
+        } finally {
+            mysql.closeConnection(conn);
+        }
+        return list;
     }
-}    public void createAppointment(Appointment appointment) {
 
-    Connection conn = mysql.openConnection();
-
-    try {
-
-        String sql =
-            "INSERT INTO appointments" +
-            "(email,date,time,notes,address)" +
-            "VALUES(?,?,?,?,?)";
-
-        PreparedStatement pstm =
-            conn.prepareStatement(sql);
-
-        pstm.setString(1, appointment.getEmail());
-        pstm.setString(2, appointment.getDate());
-        pstm.setString(3, appointment.getTime());
-        pstm.setString(4, appointment.getNotes());
-        pstm.setString(5, appointment.getAddress());
-
-        pstm.executeUpdate();
-
-    } catch(Exception e) {
-
-        System.out.println(e.getMessage());
-
-    } finally {
-
-        mysql.closeConnection(conn);
+    public java.util.List<Appointment> getPendingAppointments() {
+        java.util.List<Appointment> list = new java.util.ArrayList<>();
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "SELECT * FROM appointments WHERE status = 'pending' ORDER BY created_at DESC";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) {
+                Appointment a = new Appointment();
+                a.setId(rs.getInt("id"));
+                a.setClientId(rs.getInt("client_id"));
+                a.setServiceType(rs.getString("service_type"));
+                a.setDate(rs.getString("date"));
+                a.setTime(rs.getString("time"));
+                a.setNotes(rs.getString("notes"));
+                a.setAddress(rs.getString("address"));
+                a.setStatus(rs.getString("status"));
+                list.add(a);
+            }
+        } catch (Exception e) {
+            System.out.println("Error fetching pending appointments: " + e.getMessage());
+        } finally {
+            mysql.closeConnection(conn);
+        }
+        return list;
     }
-}
 }
