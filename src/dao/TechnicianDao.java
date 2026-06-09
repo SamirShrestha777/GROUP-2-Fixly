@@ -25,6 +25,8 @@ public class TechnicianDao {
                 "emp_id VARCHAR(30)," +
                 "specialization VARCHAR(100)," +
                 "is_verified BOOLEAN DEFAULT FALSE," +
+                "status VARCHAR(20) DEFAULT 'pending'," +
+                "certification_path VARCHAR(500)," +
                 "created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP" +
                 ")";
             try (Statement stmt = conn.createStatement()) {
@@ -61,6 +63,47 @@ public class TechnicianDao {
         }
     }
 
+    public void createTechnicianWithCert(UserData user, String certPath) {
+        Connection conn = mysql.openConnection();
+        try {
+            String sql =
+                "INSERT INTO technicians(username, email, password, specialization, " +
+                "emp_id, certification_path, status, is_verified) " +
+                "VALUES(?, ?, ?, ?, ?, ?, 'pending', FALSE)";
+            try (PreparedStatement pstm = conn.prepareStatement(sql)) {
+                pstm.setString(1, user.getUsername());
+                pstm.setString(2, user.getEmail());
+                pstm.setString(3, user.getPassword());
+                pstm.setString(4, user.getSpecialization());
+                pstm.setString(5, generateEmpId());
+                pstm.setString(6, certPath);
+                pstm.executeUpdate();
+                System.out.println("Technician application submitted.");
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally {
+            mysql.closeConnection(conn);
+        }
+    }
+
+    public boolean isVerified(String email) {
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "SELECT is_verified FROM technicians WHERE email = ?";
+            try (PreparedStatement pstm = conn.prepareStatement(sql)) {
+                pstm.setString(1, email);
+                ResultSet rs = pstm.executeQuery();
+                if (rs.next()) return rs.getBoolean("is_verified");
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally {
+            mysql.closeConnection(conn);
+        }
+        return false;
+    }
+
     public boolean checkTechnician(String email) {
         Connection conn = mysql.openConnection();
         try {
@@ -80,7 +123,7 @@ public class TechnicianDao {
     public boolean loginTechnician(String email, String password) {
         Connection conn = mysql.openConnection();
         try {
-            String sql = "SELECT * FROM technicians WHERE email = ? AND password = ?";
+            String sql = "SELECT * FROM technicians WHERE email = ? AND password = ? AND is_verified = TRUE";
             try (PreparedStatement pstm = conn.prepareStatement(sql)) {
                 pstm.setString(1, email);
                 pstm.setString(2, password);
@@ -236,7 +279,6 @@ public class TechnicianDao {
         return list;
     }
 
-    // fetch pending jobs matching technician's specialization
     public List<Appointment> getPendingJobs(String specialization) {
         List<Appointment> list = new ArrayList<>();
         Connection conn = mysql.openConnection();
@@ -270,7 +312,6 @@ public class TechnicianDao {
         return list;
     }
 
-    // fetch accepted/completed jobs for technician history
     public List<Appointment> getJobHistory(int technicianId) {
         List<Appointment> list = new ArrayList<>();
         Connection conn = mysql.openConnection();
@@ -303,7 +344,6 @@ public class TechnicianDao {
         return list;
     }
 
-    // technician accepts a job
     public boolean acceptJob(int appointmentId, int technicianId) {
         Connection conn = mysql.openConnection();
         try {
@@ -322,7 +362,6 @@ public class TechnicianDao {
         }
     }
 
-    // technician declines a job
     public boolean declineJob(int appointmentId, int technicianId) {
         Connection conn = mysql.openConnection();
         try {
@@ -340,7 +379,6 @@ public class TechnicianDao {
         }
     }
 
-    // technician marks job as complete
     public boolean completeJob(int appointmentId, int technicianId) {
         Connection conn = mysql.openConnection();
         try {
@@ -376,5 +414,61 @@ public class TechnicianDao {
             mysql.closeConnection(conn);
         }
         return "FIXLY-TCH-001";
+    }
+
+    public boolean approveTechnician(int techId) {
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "UPDATE technicians SET is_verified = TRUE, status = 'approved' WHERE id = ?";
+            try (PreparedStatement pstm = conn.prepareStatement(sql)) {
+                pstm.setInt(1, techId);
+                return pstm.executeUpdate() > 0;
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            return false;
+        } finally {
+            mysql.closeConnection(conn);
+        }
+    }
+
+    public boolean rejectTechnician(int techId) {
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "UPDATE technicians SET status = 'rejected' WHERE id = ?";
+            try (PreparedStatement pstm = conn.prepareStatement(sql)) {
+                pstm.setInt(1, techId);
+                return pstm.executeUpdate() > 0;
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            return false;
+        } finally {
+            mysql.closeConnection(conn);
+        }
+    }
+
+    public List<UserData> getPendingTechnicians() {
+        List<UserData> list = new ArrayList<>();
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "SELECT * FROM technicians WHERE status = 'pending'";
+            try (PreparedStatement pstm = conn.prepareStatement(sql)) {
+                ResultSet rs = pstm.executeQuery();
+                while (rs.next()) {
+                    UserData u = new UserData();
+                    u.setId(rs.getInt("id"));
+                    u.setUsername(rs.getString("username"));
+                    u.setEmail(rs.getString("email"));
+                    u.setSpecialization(rs.getString("specialization"));
+                    list.add(u);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally {
+            mysql.closeConnection(conn);
+        }
+        return list;
     }
 }

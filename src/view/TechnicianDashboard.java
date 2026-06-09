@@ -156,25 +156,24 @@ public class TechnicianDashboard extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(51, 51, 51)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
+                    .addComponent(Verifyrequest, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 51, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Verifyrequest, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 121, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(All, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(electrical, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(plm, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(ac, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(195, 195, 195))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(646, 646, 646)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(109, 109, 109)))
+                                .addGap(18, 18, 18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 759, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(205, 205, 205)))
+                        .addComponent(ac, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(195, 195, 195)))
                 .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -193,9 +192,9 @@ public class TechnicianDashboard extends javax.swing.JFrame {
                             .addComponent(electrical)
                             .addComponent(plm)
                             .addComponent(ac))
-                        .addGap(162, 162, 162)
+                        .addGap(49, 49, 49)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 266, Short.MAX_VALUE))
+                        .addGap(0, 379, Short.MAX_VALUE))
                     .addComponent(jScrollBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -228,15 +227,73 @@ public class TechnicianDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_bookingbtnActionPerformed
 private int technicianId;
 private String username;
+private javax.swing.JPanel requestsPanel;
 
 public void setTechnicianId(int technicianId) {
     this.technicianId = technicianId;
 }
+
 public void setUsername(String username) {
     this.username = username;
+}
+
+public void initRequestsPanel() {
+    requestsPanel = new javax.swing.JPanel();
+    requestsPanel.setLayout(new javax.swing.BoxLayout(
+        requestsPanel, javax.swing.BoxLayout.Y_AXIS));
+    requestsPanel.setBackground(new java.awt.Color(30, 41, 59));
+    jScrollPane1.setViewportView(requestsPanel);
+}
+
+public void loadAppointments(java.util.List<model.Appointment> appointments) {
+    requestsPanel.removeAll();
+    if (appointments.isEmpty()) {
+        javax.swing.JLabel empty = new javax.swing.JLabel("No pending requests.");
+        empty.setForeground(java.awt.Color.WHITE);
+        empty.setAlignmentX(java.awt.Component.CENTER_ALIGNMENT);
+        requestsPanel.add(empty);
+    } else {
+        for (model.Appointment a : appointments) {
+            requestsPanel.add(createCard(a));
+            requestsPanel.add(javax.swing.Box.createVerticalStrut(10));
+        }
+    }
+    requestsPanel.revalidate();
+    requestsPanel.repaint();
+}
+
+private javax.swing.JPanel createCard(model.Appointment a) {
+    javax.swing.JPanel card = new javax.swing.JPanel();
+    card.setLayout(new java.awt.GridLayout(0, 1, 5, 5));
+    card.setBackground(new java.awt.Color(51, 65, 85));
+    card.setBorder(javax.swing.BorderFactory.createCompoundBorder(
+        javax.swing.BorderFactory.createLineBorder(
+            new java.awt.Color(29, 78, 216), 1),
+        javax.swing.BorderFactory.createEmptyBorder(10, 15, 10, 15)
+    ));
+    card.setMaximumSize(new java.awt.Dimension(Integer.MAX_VALUE, 160));
+    card.add(makeLabel("🔧  Service: " + a.getServiceType(), true));
+    card.add(makeLabel("📅  Date: "    + a.getDate() + "  🕐  Time: " + a.getTime(), false));
+    card.add(makeLabel("📍  Address: " + a.getAddress(), false));
+    card.add(makeLabel("📝  Notes: "   + a.getNotes(), false));
+    card.add(makeLabel("⚡  Status: "  + a.getStatus(), false));
+    return card;
+}
+
+private javax.swing.JLabel makeLabel(String text, boolean bold) {
+    javax.swing.JLabel lbl = new javax.swing.JLabel(text);
+    lbl.setForeground(java.awt.Color.WHITE);
+    lbl.setFont(new java.awt.Font("Segoe UI",
+        bold ? java.awt.Font.BOLD : java.awt.Font.PLAIN, 13));
+    return lbl;
+}
+
+public void addLogoutListener(java.awt.event.ActionListener l) {
+    lgnbtn.addActionListener(l);
+}
     // optional: update a label on the dashboard
     // lblWelcome.setText("Welcome, " + username);
-}
+
     /**
      * @param args the command line arguments
      */

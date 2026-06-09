@@ -15,7 +15,33 @@ public class signupfortechnician extends javax.swing.JFrame {
     public signupfortechnician() {
         initComponents();
     }
+private String certificationImagePath = "";
 
+public void addSignupListener(java.awt.event.ActionListener l) { 
+    sgnbtn.addActionListener(l); 
+}
+
+public void addLoginListener(java.awt.event.ActionListener l) {
+    // wire back to home if you add a login button
+}
+
+public String getFullName()        { return fullnametxt.getText().trim(); }
+public String getEmail()           { return emailtxt.getText().trim(); }
+public String getPassword()        { return new String(jPasswordField2.getPassword()).trim(); }
+public String getConfirmPassword() { return new String(pswfield2.getPassword()).trim(); }
+public String getSpecialization()  { return (String) specializationDropdown.getSelectedItem(); }
+public String getCertificationPath() { return certificationImagePath; }
+
+public void browseFile() {
+    javax.swing.JFileChooser chooser = new javax.swing.JFileChooser();
+    chooser.setFileFilter(new javax.swing.filechooser.FileNameExtensionFilter(
+        "Image Files", "jpg", "jpeg", "png", "pdf"));
+    int result = chooser.showOpenDialog(this);
+    if (result == javax.swing.JFileChooser.APPROVE_OPTION) {
+        certificationImagePath = chooser.getSelectedFile().getAbsolutePath();
+        certlabel.setText(chooser.getSelectedFile().getName());
+    }
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,10 +64,12 @@ public class signupfortechnician extends javax.swing.JFrame {
         pswfield = new javax.swing.JPasswordField();
         pswcheckbox = new javax.swing.JCheckBox();
         contactlbl = new javax.swing.JLabel();
-        pswfield1 = new javax.swing.JPasswordField();
         pswfield2 = new javax.swing.JPasswordField();
         deptlbl = new javax.swing.JLabel();
         sgnbtn = new javax.swing.JButton();
+        specializationDropdown = new javax.swing.JComboBox<>();
+        certlabel = new javax.swing.JLabel();
+        browsebtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -96,6 +124,14 @@ public class signupfortechnician extends javax.swing.JFrame {
         sgnbtn.setForeground(new java.awt.Color(255, 255, 255));
         sgnbtn.setText("Sign up");
 
+        specializationDropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Your Specialization", "Carpenter", "AC Repair", "Painting", "Plumber", "Electrician", "Cleaning", " " }));
+
+        certlabel.setForeground(new java.awt.Color(255, 255, 255));
+        certlabel.setText("No File Chosen");
+
+        browsebtn.setText("Browse Certification");
+        browsebtn.addActionListener(this::browsebtnActionPerformed);
+
         javax.swing.GroupLayout bgpanelLayout = new javax.swing.GroupLayout(bgpanel);
         bgpanel.setLayout(bgpanelLayout);
         bgpanelLayout.setHorizontalGroup(
@@ -111,6 +147,10 @@ public class signupfortechnician extends javax.swing.JFrame {
             .addGroup(bgpanelLayout.createSequentialGroup()
                 .addGap(496, 496, 496)
                 .addGroup(bgpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(bgpanelLayout.createSequentialGroup()
+                        .addComponent(specializationDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(155, 155, 155)
+                        .addComponent(browsebtn))
                     .addComponent(getstarted)
                     .addGroup(bgpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(emailtxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 617, Short.MAX_VALUE)
@@ -123,9 +163,9 @@ public class signupfortechnician extends javax.swing.JFrame {
                         .addComponent(jPasswordField2, javax.swing.GroupLayout.Alignment.LEADING))
                     .addComponent(pswfield2, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pswfield, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pswfield1, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(confpswlbl)
-                    .addComponent(Createacc))
+                    .addComponent(Createacc)
+                    .addComponent(certlabel))
                 .addGap(0, 440, Short.MAX_VALUE))
         );
         bgpanelLayout.setVerticalGroup(
@@ -159,11 +199,15 @@ public class signupfortechnician extends javax.swing.JFrame {
                 .addComponent(pswfield, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(deptlbl)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(pswfield1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(bgpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(specializationDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(browsebtn))
+                .addGap(18, 18, 18)
+                .addComponent(certlabel)
+                .addGap(12, 12, 12)
                 .addComponent(sgnbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -200,6 +244,10 @@ public class signupfortechnician extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_pswfield2ActionPerformed
 
+    private void browsebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browsebtnActionPerformed
+ browseFile();        // TODO add your handling code here:
+    }//GEN-LAST:event_browsebtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -228,6 +276,8 @@ public class signupfortechnician extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Createacc;
     private javax.swing.JPanel bgpanel;
+    private javax.swing.JButton browsebtn;
+    private javax.swing.JLabel certlabel;
     private javax.swing.JLabel confpswlbl;
     private javax.swing.JLabel contactlbl;
     private javax.swing.JLabel deptlbl;
@@ -240,8 +290,8 @@ public class signupfortechnician extends javax.swing.JFrame {
     private javax.swing.JLabel passwordlbl;
     private javax.swing.JCheckBox pswcheckbox;
     private javax.swing.JPasswordField pswfield;
-    private javax.swing.JPasswordField pswfield1;
     private javax.swing.JPasswordField pswfield2;
     private javax.swing.JButton sgnbtn;
+    private javax.swing.JComboBox<String> specializationDropdown;
     // End of variables declaration//GEN-END:variables
 }

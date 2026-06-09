@@ -13,7 +13,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AdminDashboard.class.getName());
 
     /**
-     * Creates new form Availablerequest
+     * Creates new form
      */
     public AdminDashboard() {
         initComponents();
@@ -43,6 +43,7 @@ public class AdminDashboard extends javax.swing.JFrame {
         Electrical = new javax.swing.JButton();
         HVAC = new javax.swing.JButton();
         scrollpane = new javax.swing.JScrollBar();
+        dynamicdata = new javax.swing.JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -159,21 +160,27 @@ public class AdminDashboard extends javax.swing.JFrame {
             .addComponent(whitepnl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(sidepnl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(47, 47, 47)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Availablerequest, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1336, Short.MAX_VALUE))
+                        .addGap(47, 47, 47)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(Availablerequest, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1336, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(All, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(Plumbing, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(Electrical, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(HVAC, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(192, 192, 192))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(All, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(Plumbing, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(Electrical, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(HVAC, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(192, 192, 192)))
+                        .addGap(111, 111, 111)
+                        .addComponent(dynamicdata, javax.swing.GroupLayout.PREFERRED_SIZE, 1012, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(scrollpane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -191,6 +198,8 @@ public class AdminDashboard extends javax.swing.JFrame {
                             .addComponent(Plumbing)
                             .addComponent(Electrical)
                             .addComponent(HVAC))
+                        .addGap(82, 82, 82)
+                        .addComponent(dynamicdata, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -236,7 +245,84 @@ public class AdminDashboard extends javax.swing.JFrame {
     private void technicianbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_technicianbtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_technicianbtnActionPerformed
+private javax.swing.JPanel requestsPanel;
 
+public void initPendingPanel() {
+    requestsPanel = new javax.swing.JPanel();
+    requestsPanel.setLayout(new javax.swing.BoxLayout(
+        requestsPanel, javax.swing.BoxLayout.Y_AXIS));
+    requestsPanel.setBackground(new java.awt.Color(30, 41, 59));
+    dynamicdata.setViewportView(requestsPanel);
+}
+
+public void loadPendingTechnicians(java.util.List<model.UserData> list,
+        java.util.function.Consumer<Integer> onApprove,
+        java.util.function.Consumer<Integer> onReject) {
+    requestsPanel.removeAll();
+    if (list.isEmpty()) {
+        javax.swing.JLabel empty = new javax.swing.JLabel("No pending applications.");
+        empty.setForeground(java.awt.Color.WHITE);
+        empty.setAlignmentX(java.awt.Component.CENTER_ALIGNMENT);
+        requestsPanel.add(empty);
+    } else {
+        for (model.UserData t : list) {
+            requestsPanel.add(createTechCard(t, onApprove, onReject));
+            requestsPanel.add(javax.swing.Box.createVerticalStrut(10));
+        }
+    }
+    requestsPanel.revalidate();
+    requestsPanel.repaint();
+}
+
+private javax.swing.JPanel createTechCard(model.UserData t,
+        java.util.function.Consumer<Integer> onApprove,
+        java.util.function.Consumer<Integer> onReject) {
+
+    javax.swing.JPanel card = new javax.swing.JPanel(new java.awt.BorderLayout(10, 5));
+    card.setBackground(new java.awt.Color(51, 65, 85));
+    card.setBorder(javax.swing.BorderFactory.createCompoundBorder(
+        javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 78, 216), 1),
+        javax.swing.BorderFactory.createEmptyBorder(10, 15, 10, 15)
+    ));
+    card.setMaximumSize(new java.awt.Dimension(Integer.MAX_VALUE, 100));
+
+    javax.swing.JPanel info = new javax.swing.JPanel(new java.awt.GridLayout(0, 1));
+    info.setBackground(new java.awt.Color(51, 65, 85));
+    info.add(makeLabel("👤  " + t.getUsername()));
+    info.add(makeLabel("✉️  " + t.getEmail()));
+    info.add(makeLabel("🔧  " + t.getSpecialization()));
+
+    javax.swing.JPanel btns = new javax.swing.JPanel(new java.awt.GridLayout(1, 2, 10, 0));
+    btns.setBackground(new java.awt.Color(51, 65, 85));
+
+    javax.swing.JButton approveBtn = new javax.swing.JButton("✅ Approve");
+    approveBtn.setBackground(new java.awt.Color(34, 197, 94));
+    approveBtn.setForeground(java.awt.Color.WHITE);
+    approveBtn.addActionListener(e -> onApprove.accept(t.getId()));
+
+    javax.swing.JButton rejectBtn = new javax.swing.JButton("❌ Reject");
+    rejectBtn.setBackground(new java.awt.Color(239, 68, 68));
+    rejectBtn.setForeground(java.awt.Color.WHITE);
+    rejectBtn.addActionListener(e -> onReject.accept(t.getId()));
+
+    btns.add(approveBtn);
+    btns.add(rejectBtn);
+
+    card.add(info, java.awt.BorderLayout.CENTER);
+    card.add(btns, java.awt.BorderLayout.EAST);
+    return card;
+}
+
+private javax.swing.JLabel makeLabel(String text) {
+    javax.swing.JLabel lbl = new javax.swing.JLabel(text);
+    lbl.setForeground(java.awt.Color.WHITE);
+    lbl.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 13));
+    return lbl;
+}
+
+public void addLogoutListener(java.awt.event.ActionListener l) {
+    lgnbtn.addActionListener(l);
+}
     /**
      * @param args the command line arguments
      */
@@ -270,6 +356,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     private javax.swing.JButton HVAC;
     private javax.swing.JButton Plumbing;
     private javax.swing.JButton bookingbtn;
+    private javax.swing.JScrollPane dynamicdata;
     private javax.swing.JButton historybtn;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton lgnbtn;

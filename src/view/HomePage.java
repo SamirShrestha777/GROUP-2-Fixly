@@ -34,13 +34,13 @@ public class HomePage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        bgpanel = new javax.swing.JPanel();
         enter = new javax.swing.JLabel();
         Forgot = new javax.swing.JLabel();
         EmailTxT = new javax.swing.JLabel();
         txtboxemail = new javax.swing.JTextField();
         sndbutton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        bglabel = new javax.swing.JLabel();
         frgtpswbtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         signupbtn = new javax.swing.JButton();
@@ -49,11 +49,13 @@ public class HomePage extends javax.swing.JFrame {
         userbtn = new javax.swing.JRadioButton();
         adminbtn = new javax.swing.JRadioButton();
         techbtn = new javax.swing.JRadioButton();
+        techlbl = new javax.swing.JLabel();
+        technsgnbtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(30, 41, 59));
-        jPanel1.setForeground(new java.awt.Color(30, 41, 59));
+        bgpanel.setBackground(new java.awt.Color(30, 41, 59));
+        bgpanel.setForeground(new java.awt.Color(30, 41, 59));
 
         enter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fix (1).png"))); // NOI18N
 
@@ -77,8 +79,8 @@ public class HomePage extends javax.swing.JFrame {
         sndbutton.setBorderPainted(false);
         sndbutton.addActionListener(this::sndbuttonActionPerformed);
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("or");
+        bglabel.setForeground(new java.awt.Color(255, 255, 255));
+        bglabel.setText("or");
 
         frgtpswbtn.setBackground(new java.awt.Color(30, 41, 59));
         frgtpswbtn.setForeground(new java.awt.Color(102, 204, 255));
@@ -114,44 +116,53 @@ public class HomePage extends javax.swing.JFrame {
         techbtn.setText("Technician");
         techbtn.setOpaque(true);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        techlbl.setForeground(new java.awt.Color(255, 255, 255));
+        techlbl.setText("Are you a technician?");
+
+        technsgnbtn.setForeground(new java.awt.Color(102, 102, 255));
+        technsgnbtn.setText("Sign up");
+
+        javax.swing.GroupLayout bgpanelLayout = new javax.swing.GroupLayout(bgpanel);
+        bgpanel.setLayout(bgpanelLayout);
+        bgpanelLayout.setHorizontalGroup(
+            bgpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bgpanelLayout.createSequentialGroup()
                 .addGap(557, 557, 557)
                 .addComponent(enter, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(539, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgpanelLayout.createSequentialGroup()
                 .addContainerGap(570, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(bgpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgpanelLayout.createSequentialGroup()
+                        .addGroup(bgpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(bgpanelLayout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addComponent(EmailTxT))
                             .addComponent(Forgot))
                         .addGap(593, 593, 593))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgpanelLayout.createSequentialGroup()
                         .addComponent(frgtpswbtn)
                         .addGap(495, 495, 495))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgpanelLayout.createSequentialGroup()
+                        .addGroup(bgpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel1))
+                            .addComponent(bglabel)
+                            .addComponent(techlbl, javax.swing.GroupLayout.Alignment.LEADING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(signupbtn)
+                        .addGroup(bgpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(signupbtn)
+                            .addComponent(technsgnbtn))
                         .addGap(573, 573, 573))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgpanelLayout.createSequentialGroup()
+                        .addGroup(bgpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(bgpanelLayout.createSequentialGroup()
+                                .addGroup(bgpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(txtboxemail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
                                     .addComponent(sndbutton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
                                     .addComponent(passfield, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(pwcheckbox, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(bgpanelLayout.createSequentialGroup()
                                 .addGap(342, 342, 342)
                                 .addComponent(userbtn)
                                 .addGap(18, 18, 18)
@@ -160,11 +171,11 @@ public class HomePage extends javax.swing.JFrame {
                                 .addComponent(techbtn)))
                         .addGap(210, 210, 210))))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        bgpanelLayout.setVerticalGroup(
+            bgpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bgpanelLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(bgpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(userbtn)
                     .addComponent(adminbtn)
                     .addComponent(techbtn))
@@ -177,7 +188,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(txtboxemail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(bgpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(passfield, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pwcheckbox))
                 .addGap(14, 14, 14)
@@ -185,24 +196,28 @@ public class HomePage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(sndbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1)
+                .addComponent(bglabel)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(bgpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(signupbtn))
-                .addContainerGap(162, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(bgpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(technsgnbtn)
+                    .addComponent(techlbl))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(bgpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bgpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -250,16 +265,18 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel EmailTxT;
     private javax.swing.JLabel Forgot;
     private javax.swing.JRadioButton adminbtn;
+    private javax.swing.JLabel bglabel;
+    private javax.swing.JPanel bgpanel;
     private javax.swing.JLabel enter;
     private javax.swing.JButton frgtpswbtn;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField passfield;
     private javax.swing.JCheckBox pwcheckbox;
     private javax.swing.JButton signupbtn;
     private javax.swing.JButton sndbutton;
     private javax.swing.JRadioButton techbtn;
+    private javax.swing.JLabel techlbl;
+    private javax.swing.JButton technsgnbtn;
     private javax.swing.JTextField txtboxemail;
     private javax.swing.JRadioButton userbtn;
     // End of variables declaration//GEN-END:variables
@@ -278,7 +295,9 @@ public class HomePage extends javax.swing.JFrame {
     public javax.swing.JTextField getEmailField() {
         return txtboxemail;
     }
-
+public void addTechSignupListener(java.awt.event.ActionListener l) {
+    technsgnbtn.addActionListener(l);
+}
 public javax.swing.JPasswordField getPasswordField() {
     return passfield;
 }

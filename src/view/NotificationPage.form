@@ -49,8 +49,8 @@
               <Component id="jPanel9" alignment="0" max="32767" attributes="0"/>
               <Component id="jPanel6" alignment="0" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <EmptySpace min="-2" pref="641" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel1" alignment="1" min="-2" pref="729" max="-2" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jButton1" min="-2" pref="57" max="-2" attributes="0"/>
@@ -61,11 +61,6 @@
                           <EmptySpace min="-2" pref="437" max="-2" attributes="0"/>
                           <Component id="jLabel5" min="-2" pref="37" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="noticie2" alignment="0" max="32767" attributes="0"/>
-                      <Component id="notifice3" max="32767" attributes="0"/>
-                      <Component id="notice4" max="32767" attributes="0"/>
-                      <Component id="notice5" pref="1314" max="32767" attributes="0"/>
-                      <Component id="notice1" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -91,17 +86,7 @@
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                  <Component id="notice1" min="-2" pref="49" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                  <Component id="noticie2" min="-2" pref="49" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                  <Component id="notifice3" min="-2" pref="49" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                  <Component id="notice4" min="-2" pref="49" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                  <Component id="notice5" min="-2" pref="49" max="-2" attributes="0"/>
-                  <EmptySpace pref="47" max="32767" attributes="0"/>
+                  <EmptySpace pref="527" max="32767" attributes="0"/>
                   <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -382,16 +367,6 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JFormattedTextField" name="noticie2">
-        </Component>
-        <Component class="javax.swing.JFormattedTextField" name="notifice3">
-        </Component>
-        <Component class="javax.swing.JFormattedTextField" name="notice4">
-        </Component>
-        <Component class="javax.swing.JFormattedTextField" name="notice5">
-        </Component>
-        <Component class="javax.swing.JFormattedTextField" name="notice1">
         </Component>
       </SubComponents>
     </Container>

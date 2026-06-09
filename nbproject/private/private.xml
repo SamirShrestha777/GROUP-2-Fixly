@@ -4,6 +4,23 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/ACER/Documents/NetBeansProjects/GROUP-2-Fixly/src/controller/BookingController.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/GROUP-2-Fixly/src/dao/AdminDao.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/GROUP-2-Fixly/src/dao/AppointmentDao.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/TechnicianDashboard.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/signupfortechnician.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/NotificationPage.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/HistoryPage.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/GROUP-2-Fixly/src/model/Appointment.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/GROUP-2-Fixly/src/controller/TechnicianController.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/HomePage.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/GROUP-2-Fixly/src/utils/EmailSender.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/GROUP-2-Fixly/src/dao/TechnicianDao.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/GROUP-2-Fixly/src/utils/NotificationEmail.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/GROUP-2-Fixly/src/utils/TechnicianApprovedEmail.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/GROUP-2-Fixly/src/utils/TechnicianRejectedEmail.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/GROUP-2-Fixly/src/controller/TechnicianSignupController.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/GROUP-2-Fixly/src/controller/AdminController.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/Dashboard.java</file>
         </group>
     </open-files>
 </project-private>

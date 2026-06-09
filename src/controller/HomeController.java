@@ -10,6 +10,7 @@ import view.SignupPage;
 import view.ForgotPassword;
 import view.TechnicianDashboard;
 import view.AdminDashboard;
+import view.signupfortechnician;
 import utils.Session;
 import javax.swing.JOptionPane;
 import java.awt.event.ActionEvent;
@@ -23,9 +24,22 @@ public class HomeController {
 
     public HomeController(HomePage homeView) {
         this.homeView = homeView;
+        
         homeView.addLoginListener(new LoginListener());
         homeView.addSignupListener(new SignupListener());
         homeView.addForgotPasswordListener(new ForgotPasswordListener());
+        homeView.addTechSignupListener(e -> {
+            close();
+            signupfortechnician techView = new signupfortechnician();
+            new TechnicianSignupController(techView, homeView);
+            techView.setVisible(true);
+        });
+        homeView.addTechSignupListener(e -> {
+    close();
+    signupfortechnician techView = new signupfortechnician();
+    new TechnicianSignupController(techView, homeView);
+    techView.setVisible(true);
+});
         setPlaceholder(homeView.getEmailField(), "Enter your email address");
 
         javax.swing.ButtonGroup roleGroup = new javax.swing.ButtonGroup();
@@ -80,7 +94,10 @@ public class HomeController {
                         Session.setEmail(email);
                         Session.setRole("admin");
                         close();
-                        new AdminDashboard().setVisible(true);
+                       close();
+AdminDashboard adminDash = new AdminDashboard();
+new AdminController(adminDash);
+adminDash.setVisible(true);
                     } else {
                         JOptionPane.showMessageDialog(homeView,
                             "Invalid admin credentials.");
@@ -88,6 +105,14 @@ public class HomeController {
                     break;
 
                 case "technician":
+                    if (techDao.checkTechnician(email)) {
+                        if (!techDao.isVerified(email)) {
+                            JOptionPane.showMessageDialog(homeView,
+                                "Your account is pending admin approval.\n" +
+                                "You will receive an email once approved.");
+                            return;
+                        }
+                    }
                     if (techDao.loginTechnician(email, password)) {
                         String techUsername   = techDao.getUsernameByEmail(email);
                         int techId            = techDao.getIdByEmail(email);
@@ -102,6 +127,7 @@ public class HomeController {
                         TechnicianDashboard techDash = new TechnicianDashboard();
                         techDash.setTechnicianId(techId);
                         techDash.setUsername(techUsername);
+                        new TechnicianController(techDash);
                         techDash.setVisible(true);
                     } else {
                         JOptionPane.showMessageDialog(homeView,
