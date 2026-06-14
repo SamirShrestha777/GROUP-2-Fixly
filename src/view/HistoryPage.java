@@ -31,7 +31,7 @@ public class HistoryPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        whitebg = new javax.swing.JPanel();
         whitepanel = new javax.swing.JPanel();
         lgnbtn = new javax.swing.JButton();
         Createacc1 = new javax.swing.JLabel();
@@ -45,11 +45,12 @@ public class HistoryPage extends javax.swing.JFrame {
         payment = new javax.swing.JButton();
         Services = new javax.swing.JButton();
         Booking = new javax.swing.JButton();
-        jScrollBar1 = new javax.swing.JScrollBar();
+        thescrollbar = new javax.swing.JScrollBar();
+        scroolpane = new javax.swing.JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(30, 41, 59));
+        whitebg.setBackground(new java.awt.Color(30, 41, 59));
 
         whitepanel.setBackground(new java.awt.Color(255, 255, 255));
         whitepanel.setForeground(new java.awt.Color(204, 204, 204));
@@ -152,43 +153,52 @@ public class HistoryPage extends javax.swing.JFrame {
         Booking.setForeground(new java.awt.Color(255, 255, 255));
         Booking.setText("Bookings");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        scroolpane.setBackground(new java.awt.Color(51, 65, 85));
+        scroolpane.setBorder(null);
+        scroolpane.setForeground(new java.awt.Color(30, 41, 59));
+
+        javax.swing.GroupLayout whitebgLayout = new javax.swing.GroupLayout(whitebg);
+        whitebg.setLayout(whitebgLayout);
+        whitebgLayout.setHorizontalGroup(
+            whitebgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(whitepanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(sidepanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(whitebgLayout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(History)
-                    .addComponent(All))
-                .addGap(29, 29, 29)
-                .addComponent(Booking)
-                .addGap(29, 29, 29)
-                .addComponent(payment)
-                .addGap(29, 29, 29)
-                .addComponent(Services)
+                .addGroup(whitebgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(whitebgLayout.createSequentialGroup()
+                        .addGroup(whitebgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(History)
+                            .addComponent(All))
+                        .addGap(29, 29, 29)
+                        .addComponent(Booking)
+                        .addGap(29, 29, 29)
+                        .addComponent(payment)
+                        .addGap(29, 29, 29)
+                        .addComponent(Services))
+                    .addComponent(scroolpane, javax.swing.GroupLayout.PREFERRED_SIZE, 1497, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(thescrollbar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        whitebgLayout.setVerticalGroup(
+            whitebgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(whitebgLayout.createSequentialGroup()
                 .addComponent(whitepanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(whitebgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(whitebgLayout.createSequentialGroup()
                         .addComponent(History)
                         .addGap(27, 27, 27)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(whitebgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(All)
                             .addComponent(payment)
                             .addComponent(Services)
                             .addComponent(Booking))
-                        .addGap(0, 545, Short.MAX_VALUE))
-                    .addComponent(jScrollBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(49, 49, 49)
+                        .addComponent(scroolpane, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 9, Short.MAX_VALUE))
+                    .addComponent(thescrollbar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(sidepanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -197,11 +207,11 @@ public class HistoryPage extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(whitebg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(whitebg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -226,15 +236,46 @@ public void addHistoryNavListener(java.awt.event.ActionListener l)      { histor
 public void addBookingNavListener(java.awt.event.ActionListener l)      { bookingbtn.addActionListener(l); }
 public void addNotificationNavListener(java.awt.event.ActionListener l) { notificationbtn.addActionListener(l); }
 public void addProfileNavListener(java.awt.event.ActionListener l)      { technicianbtn.addActionListener(l); }
-    /**
-     * @param args the command line arguments
-     */
+
+
+private javax.swing.JPanel historyPanel;
+
+public void initHistoryPanel() {
+    historyPanel = new javax.swing.JPanel();
+    historyPanel.setLayout(new javax.swing.BoxLayout(
+        historyPanel, javax.swing.BoxLayout.Y_AXIS));
+    historyPanel.setBackground(new java.awt.Color(30, 41, 59));
+    scroolpane.setViewportView(historyPanel);
+}
+
+public void loadHistory(java.util.List<model.Appointment> appointments) {
+    historyPanel.removeAll();
+    if (appointments.isEmpty()) {
+        javax.swing.JLabel empty = new javax.swing.JLabel("No booking history found.");
+        empty.setForeground(java.awt.Color.WHITE);
+        empty.setAlignmentX(java.awt.Component.CENTER_ALIGNMENT);
+        historyPanel.add(empty);
+    } else {
+        for (model.Appointment a : appointments) {
+            HistoryCard card = new HistoryCard(
+                a.getServiceType(),
+                "📍 " + a.getAddress() + "  🕐 " + a.getTime() + "  ⚡ " + a.getStatus(),
+                "📅 " + a.getDate()
+            );
+            card.setMaximumSize(new java.awt.Dimension(Integer.MAX_VALUE, 110));
+            card.setAlignmentX(java.awt.Component.LEFT_ALIGNMENT);
+            historyPanel.add(card);
+            historyPanel.add(javax.swing.Box.createVerticalStrut(8));
+        }
+    }
+    historyPanel.revalidate();
+    historyPanel.repaint();
+}
+
+
+
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -250,7 +291,6 @@ public void addProfileNavListener(java.awt.event.ActionListener l)      { techni
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new HistoryPage().setVisible(true));
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton All;
     private javax.swing.JButton Booking;
@@ -259,13 +299,14 @@ public void addProfileNavListener(java.awt.event.ActionListener l)      { techni
     private javax.swing.JButton Services;
     private javax.swing.JButton bookingbtn;
     private javax.swing.JButton historybtn;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JButton lgnbtn;
     private javax.swing.JButton notificationbtn;
     private javax.swing.JButton payment;
+    private javax.swing.JScrollPane scroolpane;
     private javax.swing.JPanel sidepanel;
     private javax.swing.JButton technicianbtn;
+    private javax.swing.JScrollBar thescrollbar;
+    private javax.swing.JPanel whitebg;
     private javax.swing.JPanel whitepanel;
     // End of variables declaration//GEN-END:variables
 }

@@ -10,7 +10,7 @@ public class MySqlConnector implements db{
     public Connection openConnection() {
         try{
         String username="fixly";
-        String password ="12345";
+        String password ="fixly@69";
         String database="credentials";
         Connection connection;
         connection=DriverManager.getConnection(

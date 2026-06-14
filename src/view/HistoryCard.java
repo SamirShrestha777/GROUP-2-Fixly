@@ -37,15 +37,19 @@ public class HistoryCard extends javax.swing.JPanel {
         datelbl = new javax.swing.JLabel();
         detailslbl = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(204, 204, 204));
+        setBackground(new java.awt.Color(51, 65, 85));
+        setForeground(new java.awt.Color(255, 255, 255));
 
-        type.setBackground(new java.awt.Color(51, 102, 255));
+        type.setBackground(new java.awt.Color(51, 65, 85));
+        type.setForeground(new java.awt.Color(255, 255, 255));
         type.setOpaque(true);
 
-        datelbl.setBackground(new java.awt.Color(51, 153, 255));
+        datelbl.setBackground(new java.awt.Color(51, 65, 85));
+        datelbl.setForeground(new java.awt.Color(255, 255, 255));
         datelbl.setOpaque(true);
 
-        detailslbl.setBackground(new java.awt.Color(51, 153, 255));
+        detailslbl.setBackground(new java.awt.Color(51, 65, 85));
+        detailslbl.setForeground(new java.awt.Color(255, 255, 255));
         detailslbl.setOpaque(true);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
