@@ -30,6 +30,7 @@ public class NotificationCard extends javax.swing.JPanel {
         datelbl = new javax.swing.JLabel();
         detailslbl = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(51, 65, 85));
         setPreferredSize(new java.awt.Dimension(1300, 100));
 
         type.setBackground(new java.awt.Color(51, 102, 255));
