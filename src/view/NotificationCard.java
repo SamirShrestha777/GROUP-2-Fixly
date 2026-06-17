@@ -39,7 +39,7 @@ public class NotificationCard extends javax.swing.JPanel {
         datelbl.setBackground(new java.awt.Color(51, 153, 255));
         datelbl.setOpaque(true);
 
-        detailslbl.setBackground(new java.awt.Color(51, 153, 255));
+        detailslbl.setBackground(new java.awt.Color(51, 65, 85));
         detailslbl.setOpaque(true);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
