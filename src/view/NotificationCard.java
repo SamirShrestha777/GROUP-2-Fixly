@@ -36,7 +36,7 @@ public class NotificationCard extends javax.swing.JPanel {
         type.setBackground(new java.awt.Color(51, 65, 85));
         type.setOpaque(true);
 
-        datelbl.setBackground(new java.awt.Color(51, 153, 255));
+        datelbl.setBackground(new java.awt.Color(51, 65, 85));
         datelbl.setOpaque(true);
 
         detailslbl.setBackground(new java.awt.Color(51, 65, 85));
