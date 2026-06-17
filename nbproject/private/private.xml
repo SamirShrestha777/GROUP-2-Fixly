@@ -23,6 +23,11 @@
             <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/database/MySqlConnector.java</file>
             <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/HistoryCard.java</file>
             <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/utils/StripeConfig.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/utils/NotificationEmail.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/utils/EmailSender.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/utils/OTPService.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/utils/TechnicianRejectedEmail.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/utils/TechnicianApprovedEmail.java</file>
         </group>
     </open-files>
 </project-private>

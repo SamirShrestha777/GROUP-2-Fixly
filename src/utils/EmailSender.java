@@ -6,8 +6,8 @@ import java.util.Properties;
 
 public class EmailSender {
 
-    private static final String FROM_EMAIL = "samirstha4253@gmail.com";
-    private static final String APP_PASSWORD = "ponxrswxauipnxkn";
+    private static final String FROM_EMAIL = "fixlynepal@gmail.com";
+    private static final String APP_PASSWORD = "sqxfmhiltfisicjm";
 
     public static void sendEmail(String toEmail, String subject, String body) throws MessagingException {
         Properties props = new Properties();
