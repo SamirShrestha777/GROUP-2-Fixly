@@ -27,3 +27,4 @@ Thumbs.db
 
 #database ignore
 src/database
+StripeConfig.java
