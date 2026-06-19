@@ -3,9 +3,36 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/A%20C%20E%20R/OneDrive/Desktop/GROUP-2-Fixly/src/view/NotificationCard.java</file>
-            <file>file:/C:/Users/A%20C%20E%20R/OneDrive/Desktop/GROUP-2-Fixly/src/view/NotificationPage.java</file>
-            <file>file:/C:/Users/A%20C%20E%20R/OneDrive/Desktop/GROUP-2-Fixly/src/view/TechNoti.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/Dashboard.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/controller/DashboardController.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/HomePage.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/HistoryPage.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/NotificationPage.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/Bookingpannel.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/update.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/controller/HomeController.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/dao/UserDao.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/dao/TechnicianDao.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/model/UserData.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/controller/HistoryController.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/controller/NotificationController.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/controller/UpdateController.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/controller/BookingController.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/NotificationCard.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/database/MySqlConnector.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/HistoryCard.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/utils/StripeConfig.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/utils/NotificationEmail.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/utils/EmailSender.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/utils/OTPService.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/utils/TechnicianRejectedEmail.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/utils/TechnicianApprovedEmail.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/AdminDashboard.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/TechnicianDashboard.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/SignupPage.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/signupfortechnician.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/dao/AppointmentDao.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/TechNoti.java</file>
         </group>
     </open-files>
 </project-private>
