@@ -39,9 +39,6 @@ public class Dashboard extends javax.swing.JFrame {
         acrepairbtn = new javax.swing.JButton();
         plumbingbtn = new javax.swing.JButton();
         caprenterbtn = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -197,12 +194,6 @@ public class Dashboard extends javax.swing.JFrame {
         caprenterbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/carp.png"))); // NOI18N
         caprenterbtn.addActionListener(this::caprenterbtnActionPerformed);
 
-        jLabel1.setText("jLabel1");
-
-        jButton1.setText("jButton1");
-
-        jRadioButton1.setText("jRadioButton1");
-
         javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
         background.setLayout(backgroundLayout);
         backgroundLayout.setHorizontalGroup(
@@ -230,17 +221,7 @@ public class Dashboard extends javax.swing.JFrame {
                     .addGroup(backgroundLayout.createSequentialGroup()
                         .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(services)
-                            .addGroup(backgroundLayout.createSequentialGroup()
-                                .addComponent(wlclabel, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(backgroundLayout.createSequentialGroup()
-                                        .addGap(388, 388, 388)
-                                        .addComponent(jLabel1)
-                                        .addGap(202, 202, 202)
-                                        .addComponent(jRadioButton1))
-                                    .addGroup(backgroundLayout.createSequentialGroup()
-                                        .addGap(147, 147, 147)
-                                        .addComponent(jButton1)))))
+                            .addComponent(wlclabel, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         backgroundLayout.setVerticalGroup(
@@ -252,17 +233,9 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGap(389, 389, 389)
                         .addComponent(border, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(backgroundLayout.createSequentialGroup()
-                        .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(backgroundLayout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(wlclabel, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jRadioButton1)))
-                            .addGroup(backgroundLayout.createSequentialGroup()
-                                .addGap(85, 85, 85)
-                                .addComponent(jButton1)))
-                        .addGap(17, 17, 17)
+                        .addGap(29, 29, 29)
+                        .addComponent(wlclabel, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25)
                         .addComponent(services)
                         .addGap(38, 38, 38)
                         .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -337,9 +310,6 @@ private void historybtnActionPerformed(java.awt.event.ActionEvent evt) {}
     private javax.swing.JButton cleaningbtn;
     private javax.swing.JButton elecbtn;
     private javax.swing.JButton historybtn;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JButton lgnbtn;
     private javax.swing.JButton notificationbtn;
     private javax.swing.JButton painterbtn;
