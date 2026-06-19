@@ -61,7 +61,6 @@ public void browseFile() {
         passwordlbl = new javax.swing.JLabel();
         jPasswordField2 = new javax.swing.JPasswordField();
         confpswlbl = new javax.swing.JLabel();
-        pswfield = new javax.swing.JPasswordField();
         pswcheckbox = new javax.swing.JCheckBox();
         contactlbl = new javax.swing.JLabel();
         pswfield2 = new javax.swing.JPasswordField();
@@ -70,6 +69,7 @@ public void browseFile() {
         specializationDropdown = new javax.swing.JComboBox<>();
         certlabel = new javax.swing.JLabel();
         browsebtn = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -132,6 +132,8 @@ public void browseFile() {
         browsebtn.setText("Browse Certification");
         browsebtn.addActionListener(this::browsebtnActionPerformed);
 
+        jTextField1.setText("jTextField1");
+
         javax.swing.GroupLayout bgpanelLayout = new javax.swing.GroupLayout(bgpanel);
         bgpanel.setLayout(bgpanelLayout);
         bgpanelLayout.setHorizontalGroup(
@@ -146,7 +148,7 @@ public void browseFile() {
                 .addGap(338, 338, 338))
             .addGroup(bgpanelLayout.createSequentialGroup()
                 .addGap(496, 496, 496)
-                .addGroup(bgpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(bgpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(bgpanelLayout.createSequentialGroup()
                         .addComponent(specializationDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(155, 155, 155)
@@ -161,11 +163,11 @@ public void browseFile() {
                         .addComponent(contactlbl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(fullnametxt, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPasswordField2, javax.swing.GroupLayout.Alignment.LEADING))
-                    .addComponent(pswfield2, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pswfield, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pswfield2, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
                     .addComponent(confpswlbl)
                     .addComponent(Createacc)
-                    .addComponent(certlabel))
+                    .addComponent(certlabel)
+                    .addComponent(jTextField1))
                 .addGap(0, 440, Short.MAX_VALUE))
         );
         bgpanelLayout.setVerticalGroup(
@@ -195,9 +197,9 @@ public void browseFile() {
                 .addComponent(pswfield2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23)
                 .addComponent(contactlbl)
-                .addGap(9, 9, 9)
-                .addComponent(pswfield, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(deptlbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(bgpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -286,10 +288,10 @@ public void browseFile() {
     private javax.swing.JTextField fullnametxt;
     private javax.swing.JLabel getstarted;
     private javax.swing.JPasswordField jPasswordField2;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel namelabel;
     private javax.swing.JLabel passwordlbl;
     private javax.swing.JCheckBox pswcheckbox;
-    private javax.swing.JPasswordField pswfield;
     private javax.swing.JPasswordField pswfield2;
     private javax.swing.JButton sgnbtn;
     private javax.swing.JComboBox<String> specializationDropdown;
