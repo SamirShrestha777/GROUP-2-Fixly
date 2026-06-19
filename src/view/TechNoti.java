@@ -86,7 +86,7 @@ public class TechNoti extends javax.swing.JFrame {
 
         historybtn.setBackground(new java.awt.Color(30, 41, 59));
         historybtn.setForeground(new java.awt.Color(255, 255, 255));
-        historybtn.setText("🕓   History");
+        historybtn.setText("Request");
         historybtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 65, 85)));
         historybtn.addActionListener(this::historybtnActionPerformed);
 
@@ -160,17 +160,16 @@ public class TechNoti extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(52, 52, 52)
                         .addComponent(scrollpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1429, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGap(637, 637, 637)
-                            .addComponent(all, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(30, 30, 30)
-                            .addComponent(update)
-                            .addGap(18, 18, 18)
-                            .addComponent(alerts))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGap(645, 645, 645)
-                            .addComponent(notification, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(637, 637, 637)
+                        .addComponent(all, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(update)
+                        .addGap(18, 18, 18)
+                        .addComponent(alerts))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(645, 645, 645)
+                        .addComponent(notification, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
