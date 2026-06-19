@@ -89,7 +89,6 @@ public class Update extends javax.swing.JFrame {
 
         usernamebtn.addActionListener(this::usernamebtnActionPerformed);
 
-        emailbtn.setText("✉️");
         emailbtn.addActionListener(this::emailbtnActionPerformed);
 
         updatebtn.setBackground(new java.awt.Color(0, 51, 153));
@@ -102,6 +101,7 @@ public class Update extends javax.swing.JFrame {
         logoutbtn.addActionListener(this::logoutbtnActionPerformed);
 
         PasswordFieldbtn.setText("jPasswordField1");
+        PasswordFieldbtn.addActionListener(this::PasswordFieldbtnActionPerformed);
 
         jPanel6.setBackground(new java.awt.Color(30, 41, 59));
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(170, 182, 193)));
@@ -320,6 +320,10 @@ public class Update extends javax.swing.JFrame {
     private void emailbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailbtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_emailbtnActionPerformed
+
+    private void PasswordFieldbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordFieldbtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PasswordFieldbtnActionPerformed
 public void addBackListener(java.awt.event.ActionListener listener) {
     lgnbtn.addActionListener(listener);
 }
