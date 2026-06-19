@@ -92,7 +92,7 @@ public class TechNoti extends javax.swing.JFrame {
 
         bookingbtn.setBackground(new java.awt.Color(30, 41, 59));
         bookingbtn.setForeground(new java.awt.Color(255, 255, 255));
-        bookingbtn.setText("📅   Booking");
+        bookingbtn.setText("🕓   History");
         bookingbtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 65, 85)));
         bookingbtn.addActionListener(this::bookingbtnActionPerformed);
 
