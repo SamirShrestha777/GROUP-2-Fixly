@@ -45,6 +45,7 @@ public class NotificationPage extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        usernotiscroll = new javax.swing.JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -164,17 +165,22 @@ public class NotificationPage extends javax.swing.JFrame {
             .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(641, 641, 641)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 729, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(437, 437, 437)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(641, 641, 641)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 729, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(33, 33, 33)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(437, 437, 437)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(usernotiscroll, javax.swing.GroupLayout.PREFERRED_SIZE, 1494, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -193,7 +199,9 @@ public class NotificationPage extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(jLabel5)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 527, Short.MAX_VALUE)
+                .addGap(14, 14, 14)
+                .addComponent(usernotiscroll, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -242,6 +250,37 @@ public void addProfileNavListener(java.awt.event.ActionListener l)      { techni
     /**
      * @param args the command line arguments
      */
+private javax.swing.JPanel notificationPanel;
+
+public void initNotificationPanel() {
+    notificationPanel = new javax.swing.JPanel();
+    notificationPanel.setLayout(new javax.swing.BoxLayout(
+        notificationPanel, javax.swing.BoxLayout.Y_AXIS));
+    notificationPanel.setBackground(new java.awt.Color(30, 41, 59));
+    usernotiscroll.setViewportView(notificationPanel);
+    usernotiscroll.setBorder(null);
+    usernotiscroll.getViewport().setBackground(new java.awt.Color(30, 41, 59));
+}
+
+public void loadNotifications(java.util.List<String[]> notifications) {
+    notificationPanel.removeAll();
+    if (notifications.isEmpty()) {
+        javax.swing.JLabel empty = new javax.swing.JLabel("No notifications yet.");
+        empty.setForeground(java.awt.Color.WHITE);
+        empty.setAlignmentX(java.awt.Component.CENTER_ALIGNMENT);
+        notificationPanel.add(empty);
+    } else {
+        for (String[] n : notifications) {
+            NotificationCard card = new NotificationCard(n[0], n[1], n[2]);
+            card.setMaximumSize(new java.awt.Dimension(Integer.MAX_VALUE, 110));
+            card.setAlignmentX(java.awt.Component.LEFT_ALIGNMENT);
+            notificationPanel.add(card);
+            notificationPanel.add(javax.swing.Box.createVerticalStrut(10));
+        }
+    }
+    notificationPanel.revalidate();
+    notificationPanel.repaint();
+}
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -279,5 +318,6 @@ public void addProfileNavListener(java.awt.event.ActionListener l)      { techni
     private javax.swing.JButton lgnbtn;
     private javax.swing.JButton notificationbtn;
     private javax.swing.JButton technicianbtn;
+    private javax.swing.JScrollPane usernotiscroll;
     // End of variables declaration//GEN-END:variables
 }

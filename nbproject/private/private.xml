@@ -18,7 +18,6 @@
             <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/controller/NotificationController.java</file>
             <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/controller/UpdateController.java</file>
             <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/controller/BookingController.java</file>
-            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/utils/Session.java</file>
             <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/NotificationCard.java</file>
             <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/database/MySqlConnector.java</file>
             <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/HistoryCard.java</file>
@@ -28,6 +27,11 @@
             <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/utils/OTPService.java</file>
             <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/utils/TechnicianRejectedEmail.java</file>
             <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/utils/TechnicianApprovedEmail.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/AdminDashboard.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/TechnicianDashboard.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/SignupPage.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/view/signupfortechnician.java</file>
+            <file>file:/C:/Users/Omne/Documents/NetBeansProjects/GROUP-2-Fixly/src/dao/AppointmentDao.java</file>
         </group>
     </open-files>
 </project-private>

@@ -86,4 +86,33 @@ public class AppointmentDao {
         }
         return list;
     }
+
+    public java.util.List<Appointment> getPendingAppointmentsByService(String serviceType) {
+        java.util.List<Appointment> list = new java.util.ArrayList<>();
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "SELECT * FROM appointments WHERE service_type = ? " +
+                         "AND status = 'pending' ORDER BY created_at DESC";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1, serviceType);
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) {
+                Appointment a = new Appointment();
+                a.setId(rs.getInt("id"));
+                a.setClientId(rs.getInt("client_id"));
+                a.setServiceType(rs.getString("service_type"));
+                a.setDate(rs.getString("date"));
+                a.setTime(rs.getString("time"));
+                a.setNotes(rs.getString("notes"));
+                a.setAddress(rs.getString("address"));
+                a.setStatus(rs.getString("status"));
+                list.add(a);
+            }
+        } catch (Exception e) {
+            System.out.println("Error fetching appointments by service: " + e.getMessage());
+        } finally {
+            mysql.closeConnection(conn);
+        }
+        return list;
+    }
 }

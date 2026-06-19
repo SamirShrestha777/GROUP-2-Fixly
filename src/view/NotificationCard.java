@@ -16,6 +16,12 @@ public class NotificationCard extends javax.swing.JPanel {
     public NotificationCard() {
         initComponents();
     }
+    public NotificationCard(String typeText, String detailsText, String dateText) {
+    initComponents();
+    type.setText(typeText);
+    detailslbl.setText(detailsText);
+    datelbl.setText(dateText);
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -34,12 +40,15 @@ public class NotificationCard extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1300, 100));
 
         type.setBackground(new java.awt.Color(51, 65, 85));
+        type.setForeground(new java.awt.Color(255, 255, 255));
         type.setOpaque(true);
 
         datelbl.setBackground(new java.awt.Color(51, 65, 85));
+        datelbl.setForeground(new java.awt.Color(255, 255, 255));
         datelbl.setOpaque(true);
 
         detailslbl.setBackground(new java.awt.Color(51, 65, 85));
+        detailslbl.setForeground(new java.awt.Color(255, 255, 255));
         detailslbl.setOpaque(true);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
