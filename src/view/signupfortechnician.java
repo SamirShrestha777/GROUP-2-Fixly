@@ -69,7 +69,7 @@ public void browseFile() {
         specializationDropdown = new javax.swing.JComboBox<>();
         certlabel = new javax.swing.JLabel();
         browsebtn = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        contactfld = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -132,8 +132,6 @@ public void browseFile() {
         browsebtn.setText("Browse Certification");
         browsebtn.addActionListener(this::browsebtnActionPerformed);
 
-        jTextField1.setText("jTextField1");
-
         javax.swing.GroupLayout bgpanelLayout = new javax.swing.GroupLayout(bgpanel);
         bgpanel.setLayout(bgpanelLayout);
         bgpanelLayout.setHorizontalGroup(
@@ -167,7 +165,7 @@ public void browseFile() {
                     .addComponent(confpswlbl)
                     .addComponent(Createacc)
                     .addComponent(certlabel)
-                    .addComponent(jTextField1))
+                    .addComponent(contactfld))
                 .addGap(0, 440, Short.MAX_VALUE))
         );
         bgpanelLayout.setVerticalGroup(
@@ -198,7 +196,7 @@ public void browseFile() {
                 .addGap(23, 23, 23)
                 .addComponent(contactlbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(contactfld, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(deptlbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -281,6 +279,7 @@ public void browseFile() {
     private javax.swing.JButton browsebtn;
     private javax.swing.JLabel certlabel;
     private javax.swing.JLabel confpswlbl;
+    private javax.swing.JTextField contactfld;
     private javax.swing.JLabel contactlbl;
     private javax.swing.JLabel deptlbl;
     private javax.swing.JLabel emaillbl;
@@ -288,7 +287,6 @@ public void browseFile() {
     private javax.swing.JTextField fullnametxt;
     private javax.swing.JLabel getstarted;
     private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel namelabel;
     private javax.swing.JLabel passwordlbl;
     private javax.swing.JCheckBox pswcheckbox;
