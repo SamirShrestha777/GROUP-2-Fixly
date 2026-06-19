@@ -90,6 +90,7 @@ public class Update extends javax.swing.JFrame {
         usernamebtn.addActionListener(this::usernamebtnActionPerformed);
 
         emailbtn.setText("✉️");
+        emailbtn.addActionListener(this::emailbtnActionPerformed);
 
         updatebtn.setBackground(new java.awt.Color(0, 51, 153));
         updatebtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -315,6 +316,10 @@ public class Update extends javax.swing.JFrame {
     private void usernamebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernamebtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_usernamebtnActionPerformed
+
+    private void emailbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailbtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emailbtnActionPerformed
 public void addBackListener(java.awt.event.ActionListener listener) {
     lgnbtn.addActionListener(listener);
 }
