@@ -39,7 +39,6 @@ public class TechNoti extends javax.swing.JFrame {
         notificationbtn = new javax.swing.JButton();
         technicianbtn = new javax.swing.JButton();
         notification = new javax.swing.JLabel();
-        usernotiscroll = new javax.swing.JPanel();
         all = new javax.swing.JButton();
         update = new javax.swing.JButton();
         alerts = new javax.swing.JButton();
@@ -133,17 +132,6 @@ public class TechNoti extends javax.swing.JFrame {
         notification.setForeground(new java.awt.Color(255, 255, 255));
         notification.setText("Notification & Updates");
 
-        javax.swing.GroupLayout usernotiscrollLayout = new javax.swing.GroupLayout(usernotiscroll);
-        usernotiscroll.setLayout(usernotiscrollLayout);
-        usernotiscrollLayout.setHorizontalGroup(
-            usernotiscrollLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1494, Short.MAX_VALUE)
-        );
-        usernotiscrollLayout.setVerticalGroup(
-            usernotiscrollLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 495, Short.MAX_VALUE)
-        );
-
         all.setBackground(new java.awt.Color(30, 41, 59));
         all.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         all.setForeground(new java.awt.Color(255, 255, 255));
@@ -177,10 +165,7 @@ public class TechNoti extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addComponent(update)
                         .addGap(18, 18, 18)
-                        .addComponent(alerts))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(usernotiscroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(alerts)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -194,9 +179,7 @@ public class TechNoti extends javax.swing.JFrame {
                     .addComponent(all, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(update, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(alerts, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(usernotiscroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 540, Short.MAX_VALUE)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -271,6 +254,5 @@ public class TechNoti extends javax.swing.JFrame {
     private javax.swing.JButton notificationbtn;
     private javax.swing.JButton technicianbtn;
     private javax.swing.JButton update;
-    private javax.swing.JPanel usernotiscroll;
     // End of variables declaration//GEN-END:variables
 }
