@@ -28,3 +28,8 @@ Thumbs.db
 #database ignore
 src/database
 StripeConfig.java
+replacements.txt
+*.txt
+src/utils/StripeConfig.java
+build/
+dist/
