@@ -87,7 +87,7 @@ public class Update extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Password");
 
-        usernamebtn.setText("👤 ");
+        usernamebtn.addActionListener(this::usernamebtnActionPerformed);
 
         emailbtn.setText("✉️");
 
@@ -311,6 +311,10 @@ public class Update extends javax.swing.JFrame {
     private void technicianbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_technicianbtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_technicianbtnActionPerformed
+
+    private void usernamebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernamebtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usernamebtnActionPerformed
 public void addBackListener(java.awt.event.ActionListener listener) {
     lgnbtn.addActionListener(listener);
 }
