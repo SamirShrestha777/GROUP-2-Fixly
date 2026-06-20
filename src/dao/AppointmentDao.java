@@ -11,8 +11,8 @@ public class AppointmentDao {
         Connection conn = mysql.openConnection();
         try {
             String sql = "INSERT INTO appointments " +
-                         "(client_id, service_type, date, time, notes, address, status) " +
-                         "VALUES (?, ?, ?, ?, ?, ?, ?)";
+                         "(client_id, service_type, date, time, notes, address, status, payment_method) " +
+                         "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setInt(1, appointment.getClientId());
             pstm.setString(2, appointment.getServiceType());
@@ -21,6 +21,7 @@ public class AppointmentDao {
             pstm.setString(5, appointment.getNotes());
             pstm.setString(6, appointment.getAddress());
             pstm.setString(7, appointment.getStatus());
+            pstm.setString(8, appointment.getPaymentMethod());
             boolean result = pstm.executeUpdate() > 0;
             if (result) System.out.println("Appointment saved successfully.");
             return result;
@@ -50,6 +51,7 @@ public class AppointmentDao {
                 a.setNotes(rs.getString("notes"));
                 a.setAddress(rs.getString("address"));
                 a.setStatus(rs.getString("status"));
+                a.setPaymentMethod(rs.getString("payment_method"));
                 list.add(a);
             }
         } catch (Exception e) {
@@ -77,6 +79,7 @@ public class AppointmentDao {
                 a.setNotes(rs.getString("notes"));
                 a.setAddress(rs.getString("address"));
                 a.setStatus(rs.getString("status"));
+                a.setPaymentMethod(rs.getString("payment_method"));
                 list.add(a);
             }
         } catch (Exception e) {
@@ -106,6 +109,7 @@ public class AppointmentDao {
                 a.setNotes(rs.getString("notes"));
                 a.setAddress(rs.getString("address"));
                 a.setStatus(rs.getString("status"));
+                a.setPaymentMethod(rs.getString("payment_method"));
                 list.add(a);
             }
         } catch (Exception e) {
