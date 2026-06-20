@@ -7,7 +7,6 @@ import view.HomePage;
 import java.util.List;
 
 public class AdminController {
-
     private final AdminDashboard view;
     private final TechnicianDao techDao = new TechnicianDao();
 
@@ -35,8 +34,13 @@ public class AdminController {
         if (tech != null && tech.getEmail() != null) {
             try {
                 new utils.TechnicianApprovedEmail(tech.getEmail(), tech.getUsername()).send();
+                javax.swing.JOptionPane.showMessageDialog(view,
+                    "Technician approved!\nNotification email sent to " + tech.getEmail(),
+                    "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE);
             } catch (jakarta.mail.MessagingException ex) {
-                System.out.println("Failed to send approval email: " + ex.getMessage());
+                javax.swing.JOptionPane.showMessageDialog(view,
+                    "Technician approved, but email failed to send.\n" + ex.getMessage(),
+                    "Email Error", javax.swing.JOptionPane.WARNING_MESSAGE);
             }
         }
 
@@ -50,8 +54,13 @@ public class AdminController {
         if (tech != null && tech.getEmail() != null) {
             try {
                 new utils.TechnicianRejectedEmail(tech.getEmail(), tech.getUsername()).send();
+                javax.swing.JOptionPane.showMessageDialog(view,
+                    "Technician rejected.\nNotification email sent to " + tech.getEmail(),
+                    "Done", javax.swing.JOptionPane.INFORMATION_MESSAGE);
             } catch (jakarta.mail.MessagingException ex) {
-                System.out.println("Failed to send rejection email: " + ex.getMessage());
+                javax.swing.JOptionPane.showMessageDialog(view,
+                    "Technician rejected, but email failed to send.\n" + ex.getMessage(),
+                    "Email Error", javax.swing.JOptionPane.WARNING_MESSAGE);
             }
         }
 
