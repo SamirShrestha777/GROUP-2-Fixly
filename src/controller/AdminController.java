@@ -40,7 +40,7 @@ public class AdminController {
 
     private void viewCertificate(int techId) {
         String certPath = techDao.getCertificationPathById(techId);
-        view.showCertificatePreview(certPath);
+        new view.CertificatePreviewDialog(view, certPath).setVisible(true);
     }
 
     private void handleLogout() {

@@ -321,9 +321,13 @@ private javax.swing.JPanel createTechCard(model.UserData t,
     return card;
 }
 
-public void showCertificatePreview(String certPath) {
-    new CertificatePreviewDialog(this, certPath).setVisible(true);
+private javax.swing.JLabel makeLabel(String text) {
+    javax.swing.JLabel lbl = new javax.swing.JLabel(text);
+    lbl.setForeground(java.awt.Color.WHITE);
+    lbl.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 13));
+    return lbl;
 }
+
 
 public void addLogoutListener(java.awt.event.ActionListener l) {
     lgnbtn.addActionListener(l);
