@@ -46,7 +46,7 @@ public class TechnicianDashboard extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         AC = new javax.swing.JButton();
         Painter = new javax.swing.JButton();
-        plumber = new javax.swing.JButton();
+        cleaner = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -163,9 +163,9 @@ public class TechnicianDashboard extends javax.swing.JFrame {
         Painter.setText("Painter");
         Painter.setToolTipText("");
 
-        plumber.setBackground(new java.awt.Color(30, 41, 59));
-        plumber.setForeground(new java.awt.Color(255, 255, 255));
-        plumber.setText("Plumber");
+        cleaner.setBackground(new java.awt.Color(30, 41, 59));
+        cleaner.setForeground(new java.awt.Color(255, 255, 255));
+        cleaner.setText("Cleaner");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -189,7 +189,7 @@ public class TechnicianDashboard extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(Carpenter, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(plumber, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cleaner, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1431, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Verifyrequest, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
@@ -213,7 +213,7 @@ public class TechnicianDashboard extends javax.swing.JFrame {
                             .addComponent(Carpenter)
                             .addComponent(AC)
                             .addComponent(Painter)
-                            .addComponent(plumber))
+                            .addComponent(cleaner))
                         .addGap(34, 34, 34)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 42, Short.MAX_VALUE))
@@ -366,15 +366,17 @@ public void addFilterPlumbingListener(java.awt.event.ActionListener l) { Plumbin
 public void addFilterAcListener(java.awt.event.ActionListener l) { AC.addActionListener(l); }
 public void addFilterPainterListener(java.awt.event.ActionListener l) { Painter.addActionListener(l); }
 public void addFilterCarpenterListener(java.awt.event.ActionListener l) { Carpenter.addActionListener(l); }
+public void addFilterCleanerListener(java.awt.event.ActionListener l) { cleaner.addActionListener(l); }
 
 public void hideFilterButtons() {
-    All.setVisible(false);
+     All.setVisible(false);
     electrical.setVisible(false);
     Plumbing.setVisible(false);
     AC.setVisible(false);
     Painter.setVisible(false);
     Carpenter.setVisible(false);
-    plumber.setVisible(false);
+    cleaner.setVisible(false);   
+   
 }
 
     /**
@@ -385,7 +387,283 @@ public void hideFilterButtons() {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+   package dao;
+
+import database.MySqlConnector;
+import java.sql.*;
+import model.Appointment;
+
+public class AppointmentDao {
+    private final MySqlConnector mysql = new MySqlConnector();
+
+    public boolean saveAppointment(Appointment appointment) {
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "INSERT INTO appointments " +
+                         "(client_id, service_type, date, time, notes, address, status, payment_method, technician_id) " +
+                         "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, appointment.getClientId());
+            pstm.setString(2, appointment.getServiceType());
+            pstm.setString(3, appointment.getDate());
+            pstm.setString(4, appointment.getTime());
+            pstm.setString(5, appointment.getNotes());
+            pstm.setString(6, appointment.getAddress());
+            pstm.setString(7, appointment.getStatus());
+            pstm.setString(8, appointment.getPaymentMethod());
+            if (appointment.getTechnicianId() > 0) {
+                pstm.setInt(9, appointment.getTechnicianId());
+            } else {
+                pstm.setNull(9, java.sql.Types.INTEGER);
+            }
+            boolean result = pstm.executeUpdate() > 0;
+            if (result) System.out.println("Appointment saved successfully.");
+            return result;
+        } catch (Exception e) {
+            System.out.println("Error saving appointment: " + e.getMessage());
+            return false;
+        } finally {
+            mysql.closeConnection(conn);
+        }
+    }
+
+    public boolean hasPendingDirectHire(int clientId, int technicianId) {
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "SELECT COUNT(*) FROM appointments WHERE client_id = ? AND technician_id = ? AND status IN ('pending', 'accepted')";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, clientId);
+            pstm.setInt(2, technicianId);
+            ResultSet rs = pstm.executeQuery();
+            return rs.next() && rs.getInt(1) > 0;
+        } catch (Exception e) {
+            System.out.println("Error checking direct hire: " + e.getMessage());
+            return false;
+        } finally {
+            mysql.closeConnection(conn);
+        }
+    }
+
+    public boolean submitPaymentProof(int appointmentId, String screenshotPath) {
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "UPDATE appointments SET payment_proof_path = ?, status = 'payment_submitted' WHERE id = ?";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1, screenshotPath);
+            pstm.setInt(2, appointmentId);
+            boolean result = pstm.executeUpdate() > 0;
+            if (result) System.out.println("Payment proof submitted successfully.");
+            return result;
+        } catch (Exception e) {
+            System.out.println("Error submitting payment proof: " + e.getMessage());
+            return false;
+        } finally {
+            mysql.closeConnection(conn);
+        }
+    }
+
+    public java.util.List<Appointment> getAppointmentsByStatus(String status) {
+        java.util.List<Appointment> list = new java.util.ArrayList<>();
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "SELECT * FROM appointments WHERE status = ? ORDER BY created_at DESC";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1, status);
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) {
+                list.add(mapRow(rs));
+            }
+        } catch (Exception e) {
+            System.out.println("Error fetching appointments by status: " + e.getMessage());
+        } finally {
+            mysql.closeConnection(conn);
+        }
+        return list;
+    }
+
+    public boolean updateAppointmentStatus(int appointmentId, String status) {
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "UPDATE appointments SET status = ? WHERE id = ?";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1, status);
+            pstm.setInt(2, appointmentId);
+            return pstm.executeUpdate() > 0;
+        } catch (Exception e) {
+            System.out.println("Error updating appointment status: " + e.getMessage());
+            return false;
+        } finally {
+            mysql.closeConnection(conn);
+        }
+    }
+
+    public String getPaymentProofPathById(int appointmentId) {
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "SELECT payment_proof_path FROM appointments WHERE id = ?";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, appointmentId);
+            ResultSet rs = pstm.executeQuery();
+            if (rs.next()) {
+                return rs.getString("payment_proof_path");
+            }
+        } catch (Exception e) {
+            System.out.println("Error fetching payment proof path: " + e.getMessage());
+        } finally {
+            mysql.closeConnection(conn);
+        }
+        return null;
+    }
+
+    public java.util.List<Appointment> getAppointmentsByUser(int clientId) {
+        java.util.List<Appointment> list = new java.util.ArrayList<>();
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "SELECT * FROM appointments WHERE client_id = ? ORDER BY created_at DESC";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, clientId);
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) {
+                list.add(mapRow(rs));
+            }
+        } catch (Exception e) {
+            System.out.println("Error fetching appointments: " + e.getMessage());
+        } finally {
+            mysql.closeConnection(conn);
+        }
+        return list;
+    }
+
+    public java.util.List<Appointment> getPendingAppointments() {
+        java.util.List<Appointment> list = new java.util.ArrayList<>();
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "SELECT * FROM appointments WHERE status = 'pending' ORDER BY created_at DESC";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) {
+                list.add(mapRow(rs));
+            }
+        } catch (Exception e) {
+            System.out.println("Error fetching pending appointments: " + e.getMessage());
+        } finally {
+            mysql.closeConnection(conn);
+        }
+        return list;
+    }
+
+    public java.util.List<Appointment> getPendingAppointmentsByService(String serviceType) {
+        java.util.List<Appointment> list = new java.util.ArrayList<>();
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "SELECT * FROM appointments WHERE service_type = ? " +
+                         "AND status = 'pending' ORDER BY created_at DESC";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1, serviceType);
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) {
+                list.add(mapRow(rs));
+            }
+        } catch (Exception e) {
+            System.out.println("Error fetching appointments by service: " + e.getMessage());
+        } finally {
+            mysql.closeConnection(conn);
+        }
+        return list;
+    }
+
+    public java.util.List<Appointment> getPendingAndAcceptedAppointments(int techId) {
+        java.util.List<Appointment> list = new java.util.ArrayList<>();
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "SELECT * FROM appointments WHERE status IN ('pending','accepted') AND (technician_id IS NULL OR technician_id = ?) ORDER BY created_at DESC";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, techId);
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) { list.add(mapRow(rs)); }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally { mysql.closeConnection(conn); }
+        return list;
+    }
+
+    public java.util.List<Appointment> getPendingAndAcceptedByService(String serviceType, int techId) {
+        java.util.List<Appointment> list = new java.util.ArrayList<>();
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "SELECT * FROM appointments WHERE service_type = ? AND status IN ('pending','accepted') AND (technician_id IS NULL OR technician_id = ?) ORDER BY created_at DESC";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1, serviceType);
+            pstm.setInt(2, techId);
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) { list.add(mapRow(rs)); }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally { mysql.closeConnection(conn); }
+        return list;
+    }
+
+    public java.util.List<Appointment> getAllAppointmentsByService(String serviceType) {
+        java.util.List<Appointment> list = new java.util.ArrayList<>();
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "SELECT * FROM appointments WHERE service_type = ? ORDER BY created_at DESC";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1, serviceType);
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) { list.add(mapRow(rs)); }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally { mysql.closeConnection(conn); }
+        return list;
+    }
+
+    public java.util.List<Appointment> getAllAppointmentsByServiceForTech(String serviceType, int techId) {
+        java.util.List<Appointment> list = new java.util.ArrayList<>();
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "SELECT * FROM appointments WHERE service_type = ? " +
+                         "AND (technician_id IS NULL OR technician_id = ?) ORDER BY created_at DESC";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1, serviceType);
+            pstm.setInt(2, techId);
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) { list.add(mapRow(rs)); }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally { mysql.closeConnection(conn); }
+        return list;
+    }
+
+    public java.util.List<Appointment> getPendingPayments() {
+        java.util.List<Appointment> list = new java.util.ArrayList<>();
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "SELECT * FROM appointments WHERE status IN ('payment_submitted', 'awaiting_payment') ORDER BY created_at DESC";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) { list.add(mapRow(rs)); }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally { mysql.closeConnection(conn); }
+        return list;
+    }
+
+    private Appointment mapRow(ResultSet rs) throws Exception {
+        Appointment a = new Appointment();
+        a.setId(rs.getInt("id"));
+        a.setClientId(rs.getInt("client_id"));
+        a.setServiceType(rs.getString("service_type"));
+        a.setDate(rs.getString("date"));
+        a.setTime(rs.getString("time"));
+        a.setNotes(rs.getString("notes"));
+        a.setAddress(rs.getString("address"));
+        a.setStatus(rs.getString("status"));
+        a.setPaymentMethod(rs.getString("payment_method"));
+        try { a.setTechnicianId(rs.getInt("technician_id")); } catch (Exception ignored) {}
+        return a;
+    }
+}      */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -411,6 +689,7 @@ public void hideFilterButtons() {
     private javax.swing.JButton Plumbing;
     private javax.swing.JLabel Verifyrequest;
     private javax.swing.JButton bookingbtn;
+    private javax.swing.JButton cleaner;
     private javax.swing.JButton electrical;
     private javax.swing.JButton historybtn;
     private javax.swing.JPanel jPanel1;
@@ -420,7 +699,6 @@ public void hideFilterButtons() {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton lgnbtn;
     private javax.swing.JButton notificationbtn;
-    private javax.swing.JButton plumber;
     private javax.swing.JButton technicianbtn;
     // End of variables declaration//GEN-END:variables
 }

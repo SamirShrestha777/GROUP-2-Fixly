@@ -248,7 +248,7 @@ package view;
         addlbl1.setForeground(new java.awt.Color(255, 255, 255));
         addlbl1.setText("Service Type");
 
-        cmbServiceType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Service Type", "Plumber", "Electrician", "Carpenter", "AC Repair", "Painting", "Cleaninig" }));
+        cmbServiceType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Service Type", "Plumber", "Electrician", "Carpenter", "AC Repair", "Painting", "Cleaning", " " }));
 
         javax.swing.GroupLayout bg2Layout = new javax.swing.GroupLayout(bg2);
         bg2.setLayout(bg2Layout);

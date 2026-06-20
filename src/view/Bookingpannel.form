@@ -547,14 +547,15 @@
         <Component class="javax.swing.JComboBox" name="cmbServiceType">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="7">
+              <StringArray count="8">
                 <StringItem index="0" value="Select Service Type"/>
                 <StringItem index="1" value="Plumber"/>
                 <StringItem index="2" value="Electrician"/>
                 <StringItem index="3" value="Carpenter"/>
                 <StringItem index="4" value="AC Repair"/>
                 <StringItem index="5" value="Painting"/>
-                <StringItem index="6" value="Cleaninig"/>
+                <StringItem index="6" value="Cleaning"/>
+                <StringItem index="7" value=" "/>
               </StringArray>
             </Property>
           </Properties>

@@ -127,6 +127,7 @@ public class TechnicianController {
         view.addFilterAcListener(e ->         { currentFilter = "AC Repair";   loadPendingRequests(); });
         view.addFilterPainterListener(e ->    { currentFilter = "Painting";    loadPendingRequests(); });
         view.addFilterCarpenterListener(e ->  { currentFilter = "Carpenter";   loadPendingRequests(); });
+        view.addFilterCleanerListener(e -> { currentFilter = "Cleaning"; loadPendingRequests(); });
     }
 
 

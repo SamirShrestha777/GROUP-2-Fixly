@@ -12,11 +12,13 @@ public class TechNotiController {
     private final TechNoti view;
     private final AppointmentDao appointmentDao;
     private final Runnable onBack;
+    private final int technicianId;
     private Timer pollingTimer;
     private String currentFilter = "All";
 
     public TechNotiController(TechNoti view, int technicianId, Runnable onBack) {
         this.view           = view;
+        this.technicianId   = technicianId;
         this.onBack         = onBack;
         this.appointmentDao = new AppointmentDao();
 
@@ -28,13 +30,12 @@ public class TechNotiController {
 
     private void loadNotifications() {
         String specialization = Session.getSpecialization();
-        // Fetch all appointments for the technician's service to support filtering by all statuses
-        List<Appointment> jobs = appointmentDao.getAllAppointmentsByService(specialization);
+        List<Appointment> jobs = appointmentDao.getAllAppointmentsByServiceForTech(specialization, technicianId);
         List<String[]> notifications = new ArrayList<>();
 
         for (Appointment a : jobs) {
             if (!matchesFilter(a.getStatus())) continue;
-            
+
             String type = "New " + a.getServiceType() + " Request (" + a.getStatus().toUpperCase() + ")";
             String details = a.getAddress() + "   " + a.getTime();
             String date = a.getDate();
@@ -46,9 +47,9 @@ public class TechNotiController {
 
     private boolean matchesFilter(String status) {
         if ("All".equals(currentFilter)) return true;
-        if ("Pending".equals(currentFilter)) return "pending".equalsIgnoreCase(status);
+        if ("Pending".equals(currentFilter))  return "pending".equalsIgnoreCase(status);
         if ("Approved".equals(currentFilter)) return "accepted".equalsIgnoreCase(status);
-        if ("Declined".equals(currentFilter)) return "declined".equalsIgnoreCase(status);
+        if ("Declined".equals(currentFilter)) return "rejected".equalsIgnoreCase(status);
         return true;
     }
 
@@ -74,15 +75,12 @@ public class TechNotiController {
                 homeView.setVisible(true);
             }
         });
+
         view.addProfileNavListener(e -> {
             pollingTimer.stop();
             view.dispose();
-            // Assuming navigation logic would go here
+            // Navigation logic placeholder
         });
 
-        view.addAllFilterListener(e -> { currentFilter = "All"; loadNotifications(); });
-        view.addApprovedFilterListener(e -> { currentFilter = "Approved"; loadNotifications(); });
-        view.addDeclinedFilterListener(e -> { currentFilter = "Declined"; loadNotifications(); });
-        view.addPendingFilterListener(e -> { currentFilter = "Pending"; loadNotifications(); });
     }
 }

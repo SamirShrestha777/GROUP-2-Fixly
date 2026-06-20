@@ -229,6 +229,23 @@ public class AppointmentDao {
         return list;
     }
 
+    public java.util.List<Appointment> getAllAppointmentsByServiceForTech(String serviceType, int techId) {
+        java.util.List<Appointment> list = new java.util.ArrayList<>();
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "SELECT * FROM appointments WHERE service_type = ? " +
+                         "AND (technician_id IS NULL OR technician_id = ?) ORDER BY created_at DESC";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1, serviceType);
+            pstm.setInt(2, techId);
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) { list.add(mapRow(rs)); }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally { mysql.closeConnection(conn); }
+        return list;
+    }
+
     public java.util.List<Appointment> getPendingPayments() {
         java.util.List<Appointment> list = new java.util.ArrayList<>();
         Connection conn = mysql.openConnection();
@@ -254,8 +271,7 @@ public class AppointmentDao {
         a.setAddress(rs.getString("address"));
         a.setStatus(rs.getString("status"));
         a.setPaymentMethod(rs.getString("payment_method"));
-        // technician_id may be null if not yet accepted
         try { a.setTechnicianId(rs.getInt("technician_id")); } catch (Exception ignored) {}
         return a;
     }
-}
+}

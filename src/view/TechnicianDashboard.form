@@ -61,7 +61,7 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="Carpenter" min="-2" pref="180" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="plumber" min="-2" pref="180" max="-2" attributes="0"/>
+                          <Component id="cleaner" min="-2" pref="180" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jScrollPane1" alignment="0" min="-2" pref="1431" max="-2" attributes="0"/>
                       <Component id="Verifyrequest" alignment="0" min="-2" pref="361" max="-2" attributes="0"/>
@@ -89,7 +89,7 @@
                               <Component id="Carpenter" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="AC" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="Painter" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="plumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cleaner" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                           <Component id="jScrollPane1" min="-2" pref="452" max="-2" attributes="0"/>
@@ -372,7 +372,7 @@
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="plumber">
+        <Component class="javax.swing.JButton" name="cleaner">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="3b" green="29" red="1e" type="rgb"/>
@@ -380,7 +380,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Plumber"/>
+            <Property name="text" type="java.lang.String" value="Cleaner"/>
           </Properties>
         </Component>
       </SubComponents>
