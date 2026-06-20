@@ -138,4 +138,21 @@ public class TechnicianApplicationCard extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel type;
     // End of variables declaration//GEN-END:variables
+public void setCardData(String specialization, String details, String dateApplied) {
+    type.setText(specialization);
+    detailslbl.setText(details);
+    datelbl.setText(dateApplied);
+}
+
+public void addApproveListener(java.awt.event.ActionListener listener) {
+    apprvbtn.addActionListener(listener);
+}
+
+public void addDeclineListener(java.awt.event.ActionListener listener) {
+    decbtn.addActionListener(listener);
+}
+
+public void addViewCertificateListener(java.awt.event.ActionListener listener) {
+    certbtn.addActionListener(listener);
+}
 }

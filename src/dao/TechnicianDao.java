@@ -224,6 +224,23 @@ public class TechnicianDao {
         return "";
     }
 
+    public String getCertificationPathById(int id) {
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "SELECT certification_path FROM technicians WHERE id = ?";
+            try (PreparedStatement pstm = conn.prepareStatement(sql)) {
+                pstm.setInt(1, id);
+                ResultSet rs = pstm.executeQuery();
+                if (rs.next()) return rs.getString("certification_path");
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally {
+            mysql.closeConnection(conn);
+        }
+        return null;
+    }
+
     public UserData getTechnicianById(int id) {
         Connection conn = mysql.openConnection();
         try {
@@ -237,6 +254,7 @@ public class TechnicianDao {
                     u.setUsername(rs.getString("username"));
                     u.setEmail(rs.getString("email"));
                     u.setSpecialization(rs.getString("specialization"));
+                    u.setCertificationPath(rs.getString("certification_path"));
                     return u;
                 }
             }
@@ -461,6 +479,7 @@ public class TechnicianDao {
                     u.setUsername(rs.getString("username"));
                     u.setEmail(rs.getString("email"));
                     u.setSpecialization(rs.getString("specialization"));
+                    u.setCertificationPath(rs.getString("certification_path"));
                     list.add(u);
                 }
             }

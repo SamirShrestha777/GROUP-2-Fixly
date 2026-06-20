@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import java.util.List;
 
 public class AdminController {
+
     private final AdminDashboard view;
     private final TechnicianDao techDao = new TechnicianDao();
 
@@ -24,7 +25,7 @@ public class AdminController {
 
     private void loadPending() {
         List<UserData> pending = techDao.getPendingTechnicians();
-        view.loadPendingTechnicians(pending, this::approveTechnician, this::rejectTechnician);
+        view.loadPendingTechnicians(pending, this::approveTechnician, this::rejectTechnician, this::viewCertificate);
     }
 
     private void approveTechnician(int techId) {
@@ -69,6 +70,19 @@ public class AdminController {
             }
             loadPending();
         }
+    }
+
+    private void viewCertificate(int techId) {
+        UserData tech = techDao.getTechnicianById(techId);
+        if (tech == null) return;
+
+        String certPath = tech.getCertificationPath();
+        if (certPath == null || certPath.isBlank()) {
+            JOptionPane.showMessageDialog(view,
+                tech.getUsername() + " has no certification file on record.");
+            return;
+        }
+        view.showCertificatePreview(certPath);
     }
 
     private void wireButtons() {

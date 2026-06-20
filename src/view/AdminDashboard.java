@@ -257,7 +257,8 @@ public void initPendingPanel() {
 
 public void loadPendingTechnicians(java.util.List<model.UserData> list,
         java.util.function.Consumer<Integer> onApprove,
-        java.util.function.Consumer<Integer> onReject) {
+        java.util.function.Consumer<Integer> onReject,
+        java.util.function.Consumer<Integer> onViewCertificate) {
     requestsPanel.removeAll();
     if (list.isEmpty()) {
         javax.swing.JLabel empty = new javax.swing.JLabel("No pending applications.");
@@ -266,7 +267,7 @@ public void loadPendingTechnicians(java.util.List<model.UserData> list,
         requestsPanel.add(empty);
     } else {
         for (model.UserData t : list) {
-            requestsPanel.add(createTechCard(t, onApprove, onReject));
+            requestsPanel.add(createTechCard(t, onApprove, onReject, onViewCertificate));
             requestsPanel.add(javax.swing.Box.createVerticalStrut(10));
         }
     }
@@ -276,7 +277,8 @@ public void loadPendingTechnicians(java.util.List<model.UserData> list,
 
 private javax.swing.JPanel createTechCard(model.UserData t,
         java.util.function.Consumer<Integer> onApprove,
-        java.util.function.Consumer<Integer> onReject) {
+        java.util.function.Consumer<Integer> onReject,
+        java.util.function.Consumer<Integer> onViewCertificate) {
 
     javax.swing.JPanel card = new javax.swing.JPanel(new java.awt.BorderLayout(10, 5));
     card.setBackground(new java.awt.Color(51, 65, 85));
@@ -292,8 +294,13 @@ private javax.swing.JPanel createTechCard(model.UserData t,
     info.add(makeLabel("✉️  " + t.getEmail()));
     info.add(makeLabel("🔧  " + t.getSpecialization()));
 
-    javax.swing.JPanel btns = new javax.swing.JPanel(new java.awt.GridLayout(1, 2, 10, 0));
+    javax.swing.JPanel btns = new javax.swing.JPanel(new java.awt.GridLayout(1, 3, 8, 0));
     btns.setBackground(new java.awt.Color(51, 65, 85));
+
+    javax.swing.JButton certBtn = new javax.swing.JButton("📄 Certificate");
+    certBtn.setBackground(new java.awt.Color(59, 130, 246));
+    certBtn.setForeground(java.awt.Color.WHITE);
+    certBtn.addActionListener(e -> onViewCertificate.accept(t.getId()));
 
     javax.swing.JButton approveBtn = new javax.swing.JButton("✅ Approve");
     approveBtn.setBackground(new java.awt.Color(34, 197, 94));
@@ -305,6 +312,7 @@ private javax.swing.JPanel createTechCard(model.UserData t,
     rejectBtn.setForeground(java.awt.Color.WHITE);
     rejectBtn.addActionListener(e -> onReject.accept(t.getId()));
 
+    btns.add(certBtn);
     btns.add(approveBtn);
     btns.add(rejectBtn);
 
@@ -313,15 +321,11 @@ private javax.swing.JPanel createTechCard(model.UserData t,
     return card;
 }
 
-private javax.swing.JLabel makeLabel(String text) {
-    javax.swing.JLabel lbl = new javax.swing.JLabel(text);
-    lbl.setForeground(java.awt.Color.WHITE);
-    lbl.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 13));
-    return lbl;
-}
-
 public void addLogoutListener(java.awt.event.ActionListener l) {
     lgnbtn.addActionListener(l);
+}
+public void showCertificatePreview(String certPath) {
+    new CertificatePreviewDialog(this, certPath).setVisible(true);
 }
     /**
      * @param args the command line arguments
