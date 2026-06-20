@@ -252,6 +252,10 @@ public class HomePage extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         try {
+            javax.swing.UIManager.put("TextComponent.arc", 10);
+            javax.swing.UIManager.put("Button.arc", 15);
+            javax.swing.UIManager.put("Component.arc", 10);
+            javax.swing.UIManager.put("ProgressBar.arc", 10);
             javax.swing.UIManager.setLookAndFeel(new com.formdev.flatlaf.FlatLightLaf());
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             logger.log(java.util.logging.Level.SEVERE, null, ex);

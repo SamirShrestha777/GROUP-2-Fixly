@@ -9,6 +9,22 @@ import view.HomePage;
 public class GROUP2Fixly {
 
     public static void main(String[] args) {
+        try {
+            // Apply a modern, moderate curve to text fields (ID and PW)
+            javax.swing.UIManager.put("TextComponent.arc", 10);
+            
+            // Apply a nice curve to buttons without making them full pills
+            javax.swing.UIManager.put("Button.arc", 15);
+            
+            // Keep general components consistent
+            javax.swing.UIManager.put("Component.arc", 10);
+            javax.swing.UIManager.put("ProgressBar.arc", 10);
+            
+            javax.swing.UIManager.setLookAndFeel(new com.formdev.flatlaf.FlatLightLaf());
+        } catch (Exception ex) {
+            System.err.println("Failed to initialize FlatLaf");
+        }
+
         db data = new MySqlConnector();
         if (data.openConnection() != null) {
             System.out.println("Connection successful");
