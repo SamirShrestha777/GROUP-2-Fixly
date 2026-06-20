@@ -144,7 +144,7 @@ public class updateTechnician extends javax.swing.JFrame {
 
         username.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         username.setForeground(new java.awt.Color(255, 255, 255));
-        username.setText("username");
+        username.setText("Username");
 
         usertext.addActionListener(this::usertextActionPerformed);
 
