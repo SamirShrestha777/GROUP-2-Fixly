@@ -7,7 +7,7 @@ public class AdminDao {
 
     private final MySqlConnector mysql = new MySqlConnector();
 
-    private static final String ADMIN_ID = "6767";
+    private static final String ADMIN_ID = "fixlynepal@gmail.com";
     private static final String ADMIN_PASSWORD = "fixly@69";
 
     public void initTable() {

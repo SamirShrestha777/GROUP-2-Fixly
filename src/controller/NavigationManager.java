@@ -26,6 +26,7 @@ public class NavigationManager {
             goToDashboard();
         });
         wireNavButtons(view);
+        wireDashButton(view);
         view.setLocationRelativeTo(null);
         view.setVisible(true);
     }
@@ -38,6 +39,7 @@ public class NavigationManager {
             goToDashboard();
         });
         wireNavButtons(view);
+        wireDashButton(view);
         view.setLocationRelativeTo(null);
         view.setVisible(true);
     }
@@ -50,6 +52,7 @@ public class NavigationManager {
             goToDashboard();
         });
         wireNavButtons(view);
+        wireDashButton(view);
         view.setLocationRelativeTo(null);
         view.setVisible(true);
     }
@@ -62,10 +65,12 @@ public class NavigationManager {
             goToDashboard();
         });
         wireNavButtons(view);
+        wireDashButton(view);
         view.setLocationRelativeTo(null);
         view.setVisible(true);
     }
 
+    // ── nav bar buttons ──────────────────────────────────────────
     private void wireNavButtons(Bookingpannel view) {
         view.addHistoryNavListener(e -> { view.dispose(); goToHistory(dashboard); });
         view.addBookingNavListener(e -> { view.dispose(); goToBooking(dashboard, ""); });
@@ -92,5 +97,22 @@ public class NavigationManager {
         view.addBookingNavListener(e -> { view.dispose(); goToBooking(dashboard, ""); });
         view.addNotificationNavListener(e -> { view.dispose(); goToNotification(dashboard); });
         view.addProfileNavListener(e -> { view.dispose(); goToProfile(dashboard); });
+    }
+
+    // ── dashboard button ─────────────────────────────────────────
+    private void wireDashButton(Bookingpannel view) {
+        view.addDashboardListener(e -> { view.dispose(); goToDashboard(); });
+    }
+
+    private void wireDashButton(HistoryPage view) {
+        view.addDashboardListener(e -> { view.dispose(); goToDashboard(); });
+    }
+
+    private void wireDashButton(NotificationPage view) {
+        view.addDashboardListener(e -> { view.dispose(); goToDashboard(); });
+    }
+
+    private void wireDashButton(Update view) {
+        view.addDashboardListener(e -> { view.dispose(); goToDashboard(); });
     }
 }

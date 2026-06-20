@@ -18,6 +18,12 @@ public class TechnicianSignupController {
         this.homeView = homeView;
         view.addSignupListener(e -> handleSignup());
 
+        // wire login button → go back to homepage
+        view.addLoginListener(e -> {
+            view.dispose();
+            homeView.setVisible(true);
+        });
+
         setPasswordPlaceholder(view.getPasswordField(), "Enter your password");
         setPasswordPlaceholder(view.getConfirmPasswordField(), "Confirm your password");
 

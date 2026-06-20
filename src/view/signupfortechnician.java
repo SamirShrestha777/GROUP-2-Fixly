@@ -22,9 +22,8 @@ public void addSignupListener(java.awt.event.ActionListener l) {
 }
 
 public void addLoginListener(java.awt.event.ActionListener l) {
-    // wire back to home if you add a login button
+    lgnbtn.addActionListener(l);
 }
-
 public String getFullName()        { return fullnametxt.getText().trim(); }
 public String getEmail()           { return emailtxt.getText().trim(); }
 public String getPassword()        { return new String(psw1.getPassword()).trim(); }
@@ -272,6 +271,7 @@ public javax.swing.JPasswordField getConfirmPasswordField() {
 public javax.swing.JCheckBox getShowPasswordCheckbox() {
     return pswcheckbox;
 }
+
 
     /**
      * @param args the command line arguments

@@ -293,6 +293,9 @@ card.setMaximumSize(new java.awt.Dimension(Integer.MAX_VALUE, 110));
     notificationPanel.revalidate();
     notificationPanel.repaint();
 }
+public void addDashboardListener(java.awt.event.ActionListener l) {
+    dashbtn.addActionListener(l);
+}
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

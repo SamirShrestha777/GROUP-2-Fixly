@@ -286,6 +286,9 @@ public void loadHistory(java.util.List<model.Appointment> appointments,
     historyPanel.revalidate();
     historyPanel.repaint();
 }
+public void addDashboardListener(java.awt.event.ActionListener l) {
+    dashbtn.addActionListener(l);
+}
 
 
 

@@ -405,6 +405,9 @@ public String getAddress() {
 public String getServiceType() {
     return (String) cmbServiceType.getSelectedItem();
 }
+public void addDashboardListener(java.awt.event.ActionListener l) {
+    dashbtn.addActionListener(l);
+}
     /**
      * @param args the command line arguments
      */

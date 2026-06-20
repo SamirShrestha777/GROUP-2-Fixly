@@ -339,6 +339,9 @@ public class Update extends javax.swing.JFrame {
 public void addBackListener(java.awt.event.ActionListener listener) {
     lgnbtn.addActionListener(listener);
 }
+public void addDashboardListener(java.awt.event.ActionListener l) {
+    dashbtn.addActionListener(l);
+}
 public void addHistoryNavListener(java.awt.event.ActionListener l)      { historybtn.addActionListener(l); }
 public void addBookingNavListener(java.awt.event.ActionListener l)      { bookingbtn.addActionListener(l); }
 public void addNotificationNavListener(java.awt.event.ActionListener l) { notificationbtn.addActionListener(l); }
