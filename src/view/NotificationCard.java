@@ -21,6 +21,40 @@ public class NotificationCard extends javax.swing.JPanel {
     type.setText(typeText);
     detailslbl.setText(detailsText);
     datelbl.setText(dateText);
+    
+}
+    public NotificationCard(String typeText, String detailsText, String dateText, String status) {
+    initComponents();
+    type.setText(typeText);
+    detailslbl.setText(detailsText);
+    datelbl.setText(dateText);
+    applyStatusColor(status);
+}
+
+private void applyStatusColor(String status) {
+    java.awt.Color statusColor;
+    if (status == null) status = "";
+    switch (status.toLowerCase()) {
+        case "pending":
+            statusColor = new java.awt.Color(234, 179, 8); // yellow
+            break;
+        case "rejected":
+        case "declined":
+            statusColor = new java.awt.Color(239, 68, 68); // red
+            break;
+        case "accepted":
+        case "approved":
+        case "completed":
+            statusColor = new java.awt.Color(34, 197, 94); // green
+            break;
+        default:
+            statusColor = new java.awt.Color(29, 78, 216); // default blue
+    }
+    type.setBackground(statusColor);
+    setBorder(javax.swing.BorderFactory.createCompoundBorder(
+        javax.swing.BorderFactory.createLineBorder(statusColor, 1),
+        javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5)
+    ));
 }
 
     /**
