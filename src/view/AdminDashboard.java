@@ -275,57 +275,24 @@ public void loadPendingTechnicians(java.util.List<model.UserData> list,
     requestsPanel.repaint();
 }
 
-private javax.swing.JPanel createTechCard(model.UserData t,
+private TechnicianApplicationCard createTechCard(model.UserData t,
         java.util.function.Consumer<Integer> onApprove,
         java.util.function.Consumer<Integer> onReject,
         java.util.function.Consumer<Integer> onViewCertificate) {
 
-    javax.swing.JPanel card = new javax.swing.JPanel(new java.awt.BorderLayout(10, 5));
-    card.setBackground(new java.awt.Color(51, 65, 85));
-    card.setBorder(javax.swing.BorderFactory.createCompoundBorder(
-        javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 78, 216), 1),
-        javax.swing.BorderFactory.createEmptyBorder(10, 15, 10, 15)
-    ));
-    card.setMaximumSize(new java.awt.Dimension(Integer.MAX_VALUE, 100));
+    TechnicianApplicationCard card = new TechnicianApplicationCard();
+    card.setCardData(
+        t.getSpecialization(),
+        t.getUsername(),
+        t.getEmail(),
+        "Applied recently"
+    );
 
-    javax.swing.JPanel info = new javax.swing.JPanel(new java.awt.GridLayout(0, 1));
-    info.setBackground(new java.awt.Color(51, 65, 85));
-    info.add(makeLabel("👤  " + t.getUsername()));
-    info.add(makeLabel("✉️  " + t.getEmail()));
-    info.add(makeLabel("🔧  " + t.getSpecialization()));
+    card.addApproveListener(e -> onApprove.accept(t.getId()));
+    card.addDeclineListener(e -> onReject.accept(t.getId()));
+    card.addViewCertificateListener(e -> onViewCertificate.accept(t.getId()));
 
-    javax.swing.JPanel btns = new javax.swing.JPanel(new java.awt.GridLayout(1, 3, 8, 0));
-    btns.setBackground(new java.awt.Color(51, 65, 85));
-
-    javax.swing.JButton certBtn = new javax.swing.JButton("📄 Certificate");
-    certBtn.setBackground(new java.awt.Color(59, 130, 246));
-    certBtn.setForeground(java.awt.Color.WHITE);
-    certBtn.addActionListener(e -> onViewCertificate.accept(t.getId()));
-
-    javax.swing.JButton approveBtn = new javax.swing.JButton("✅ Approve");
-    approveBtn.setBackground(new java.awt.Color(34, 197, 94));
-    approveBtn.setForeground(java.awt.Color.WHITE);
-    approveBtn.addActionListener(e -> onApprove.accept(t.getId()));
-
-    javax.swing.JButton rejectBtn = new javax.swing.JButton("❌ Reject");
-    rejectBtn.setBackground(new java.awt.Color(239, 68, 68));
-    rejectBtn.setForeground(java.awt.Color.WHITE);
-    rejectBtn.addActionListener(e -> onReject.accept(t.getId()));
-
-    btns.add(certBtn);
-    btns.add(approveBtn);
-    btns.add(rejectBtn);
-
-    card.add(info, java.awt.BorderLayout.CENTER);
-    card.add(btns, java.awt.BorderLayout.EAST);
     return card;
-}
-
-private javax.swing.JLabel makeLabel(String text) {
-    javax.swing.JLabel lbl = new javax.swing.JLabel(text);
-    lbl.setForeground(java.awt.Color.WHITE);
-    lbl.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 13));
-    return lbl;
 }
 
 

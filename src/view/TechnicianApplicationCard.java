@@ -33,6 +33,7 @@ public class TechnicianApplicationCard extends javax.swing.JPanel {
         apprvbtn = new javax.swing.JButton();
         decbtn = new javax.swing.JButton();
         certbtn = new javax.swing.JButton();
+        emailbl = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(51, 65, 85));
         jPanel1.setPreferredSize(new java.awt.Dimension(1300, 100));
@@ -68,7 +69,9 @@ public class TechnicianApplicationCard extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 905, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(emailbl, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(datelbl, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -80,7 +83,7 @@ public class TechnicianApplicationCard extends javax.swing.JPanel {
                 .addComponent(decbtn)
                 .addGap(46, 46, 46)
                 .addComponent(certbtn)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(322, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,7 +94,9 @@ public class TechnicianApplicationCard extends javax.swing.JPanel {
                         .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(datelbl, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(datelbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(emailbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -135,12 +140,14 @@ public class TechnicianApplicationCard extends javax.swing.JPanel {
     private javax.swing.JLabel datelbl;
     private javax.swing.JButton decbtn;
     private javax.swing.JLabel detailslbl;
+    private javax.swing.JLabel emailbl;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel type;
     // End of variables declaration//GEN-END:variables
-public void setCardData(String specialization, String details, String dateApplied) {
+public void setCardData(String specialization, String username, String email, String dateApplied) {
     type.setText(specialization);
-    detailslbl.setText(details);
+    detailslbl.setText(username);
+    emailbl.setText(email);
     datelbl.setText(dateApplied);
 }
 

@@ -56,7 +56,9 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="type" min="-2" pref="174" max="-2" attributes="0"/>
-                  <EmptySpace pref="905" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="emailbl" min="-2" pref="310" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="datelbl" min="-2" pref="209" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -69,7 +71,7 @@
                   <Component id="decbtn" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                   <Component id="certbtn" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="322" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -83,7 +85,10 @@
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="datelbl" min="-2" pref="38" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="datelbl" alignment="1" min="-2" pref="38" max="-2" attributes="0"/>
+                              <Component id="emailbl" alignment="1" min="-2" pref="38" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -172,6 +177,8 @@
             </Property>
             <Property name="text" type="java.lang.String" value="View Certification"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="emailbl">
         </Component>
       </SubComponents>
     </Container>
