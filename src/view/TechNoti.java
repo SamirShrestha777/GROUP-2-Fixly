@@ -224,7 +224,45 @@ public class TechNoti extends javax.swing.JFrame {
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_updateActionPerformed
+private javax.swing.JPanel notiPanel;
 
+public void initNotificationPanel() {
+    notiPanel = new javax.swing.JPanel();
+    notiPanel.setLayout(new javax.swing.BoxLayout(notiPanel, javax.swing.BoxLayout.Y_AXIS));
+    notiPanel.setBackground(new java.awt.Color(30, 41, 59));
+    scrollpanel.setViewportView(notiPanel);
+    scrollpanel.setBorder(null);
+    scrollpanel.getViewport().setBackground(new java.awt.Color(30, 41, 59));
+}
+
+public void loadNotifications(java.util.List<String[]> notifications) {
+    notiPanel.removeAll();
+    if (notifications.isEmpty()) {
+        javax.swing.JLabel empty = new javax.swing.JLabel("No notifications yet.");
+        empty.setForeground(java.awt.Color.WHITE);
+        empty.setAlignmentX(java.awt.Component.CENTER_ALIGNMENT);
+        notiPanel.add(empty);
+    } else {
+        for (String[] n : notifications) {
+            NotificationCard card = new NotificationCard(n[0], n[1], n[2], n[3]);
+            card.setMaximumSize(new java.awt.Dimension(Integer.MAX_VALUE, 110));
+            card.setAlignmentX(java.awt.Component.LEFT_ALIGNMENT);
+            notiPanel.add(card);
+            notiPanel.add(javax.swing.Box.createVerticalStrut(10));
+        }
+    }
+    notiPanel.revalidate();
+    notiPanel.repaint();
+}
+
+public void addBackListener(java.awt.event.ActionListener l) {
+    lgnbtn.addActionListener(l);
+}
+
+public void addHistoryNavListener(java.awt.event.ActionListener l)      { historybtn.addActionListener(l); }
+public void addBookingNavListener(java.awt.event.ActionListener l)      { bookingbtn.addActionListener(l); }
+public void addNotificationNavListener(java.awt.event.ActionListener l) { notificationbtn.addActionListener(l); }
+public void addProfileNavListener(java.awt.event.ActionListener l)      { technicianbtn.addActionListener(l); }
     /**
      * @param args the command line arguments
      */
