@@ -16,14 +16,37 @@ public class HistoryCard extends javax.swing.JPanel {
     public HistoryCard() {
         initComponents();
     }
-        public HistoryCard(String typeText, String detailsText, String dateText) {
-        initComponents();
+    public HistoryCard(String typeText, String detailsText, String dateText) {
+    this(typeText, detailsText, dateText, null);
+}
 
-        type.setText(typeText);
-        detailslbl.setText(detailsText);
-        datelbl.setText(dateText);
+public HistoryCard(String typeText, String detailsText, String dateText, String status) {
+    initComponents();
+
+    type.setText(typeText);
+    detailslbl.setText(detailsText);
+    datelbl.setText(dateText);
+
+    applyStatus(status);
+}
+
+private void applyStatus(String status) {
+    if ("awaiting_payment".equals(status)) {
+        confbtn.setVisible(true);
+        confbtn.setEnabled(true);
+        confbtn.setText("Already Paid");
+    } else if ("payment_submitted".equals(status)) {
+        confbtn.setVisible(true);
+        confbtn.setEnabled(false);
+        confbtn.setText("Payment Submitted — Awaiting Verification");
+    } else {
+        confbtn.setVisible(false);
     }
+}
 
+public void addConfirmListener(java.awt.event.ActionListener listener) {
+    confbtn.addActionListener(listener);
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
