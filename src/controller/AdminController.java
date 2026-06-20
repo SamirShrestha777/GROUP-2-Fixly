@@ -71,7 +71,7 @@ public class AdminController {
 
     private void viewCertificate(int techId) {
         String certPath = techDao.getCertificationPathById(techId);
-        new view.CertificatePreviewDialog(view, certPath).setVisible(true);
+        new utils.CertificatePreviewDialog(view, certPath).setVisible(true);
     }
 
     private void loadPendingPayments() {
@@ -100,7 +100,7 @@ public class AdminController {
 
     private void viewPaymentProof(int appointmentId) {
         String proofPath = appointmentDao.getPaymentProofPathById(appointmentId);
-        new view.CertificatePreviewDialog(view, proofPath).setVisible(true);
+        new utils.CertificatePreviewDialog(view, proofPath).setVisible(true);
     }
 
     private void handleLogout() {

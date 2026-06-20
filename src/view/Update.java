@@ -53,6 +53,7 @@ public class Update extends javax.swing.JFrame {
         jPanel9 = new javax.swing.JPanel();
         lgnbtn = new javax.swing.JButton();
         Createacc1 = new javax.swing.JLabel();
+        dashbtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -164,6 +165,10 @@ public class Update extends javax.swing.JFrame {
         Createacc1.setForeground(new java.awt.Color(29, 78, 216));
         Createacc1.setText("Fixly");
 
+        dashbtn.setForeground(new java.awt.Color(29, 78, 216));
+        dashbtn.setText("Dashboard");
+        dashbtn.addActionListener(this::dashbtnActionPerformed);
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
@@ -172,6 +177,8 @@ public class Update extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addComponent(Createacc1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(dashbtn)
+                .addGap(18, 18, 18)
                 .addComponent(lgnbtn)
                 .addGap(47, 47, 47))
         );
@@ -181,7 +188,8 @@ public class Update extends javax.swing.JFrame {
                 .addGap(6, 6, 6)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lgnbtn)
-                    .addComponent(Createacc1))
+                    .addComponent(Createacc1)
+                    .addComponent(dashbtn))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -324,6 +332,10 @@ public class Update extends javax.swing.JFrame {
     private void PasswordFieldbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordFieldbtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PasswordFieldbtnActionPerformed
+
+    private void dashbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashbtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dashbtnActionPerformed
 public void addBackListener(java.awt.event.ActionListener listener) {
     lgnbtn.addActionListener(listener);
 }
@@ -360,6 +372,7 @@ public void addProfileNavListener(java.awt.event.ActionListener l)      { techni
     private javax.swing.JLabel Createacc1;
     private javax.swing.JPasswordField PasswordFieldbtn;
     private javax.swing.JButton bookingbtn;
+    private javax.swing.JButton dashbtn;
     private javax.swing.JTextField emailbtn;
     private javax.swing.JButton historybtn;
     private javax.swing.JLabel jLabel1;

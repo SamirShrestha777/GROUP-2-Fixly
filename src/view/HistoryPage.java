@@ -35,6 +35,7 @@ public class HistoryPage extends javax.swing.JFrame {
         whitepanel = new javax.swing.JPanel();
         lgnbtn = new javax.swing.JButton();
         Createacc1 = new javax.swing.JLabel();
+        dashbtn = new javax.swing.JButton();
         sidepanel = new javax.swing.JPanel();
         historybtn = new javax.swing.JButton();
         bookingbtn = new javax.swing.JButton();
@@ -64,6 +65,10 @@ public class HistoryPage extends javax.swing.JFrame {
         Createacc1.setForeground(new java.awt.Color(29, 78, 216));
         Createacc1.setText("Fixly");
 
+        dashbtn.setForeground(new java.awt.Color(29, 78, 216));
+        dashbtn.setText("Dashboard");
+        dashbtn.addActionListener(this::dashbtnActionPerformed);
+
         javax.swing.GroupLayout whitepanelLayout = new javax.swing.GroupLayout(whitepanel);
         whitepanel.setLayout(whitepanelLayout);
         whitepanelLayout.setHorizontalGroup(
@@ -71,7 +76,9 @@ public class HistoryPage extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, whitepanelLayout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addComponent(Createacc1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1271, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(dashbtn)
+                .addGap(18, 18, 18)
                 .addComponent(lgnbtn)
                 .addGap(47, 47, 47))
         );
@@ -81,7 +88,8 @@ public class HistoryPage extends javax.swing.JFrame {
                 .addGap(6, 6, 6)
                 .addGroup(whitepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lgnbtn)
-                    .addComponent(Createacc1))
+                    .addComponent(Createacc1)
+                    .addComponent(dashbtn))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -177,7 +185,7 @@ public class HistoryPage extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addComponent(Services))
                     .addComponent(scroolpane, javax.swing.GroupLayout.PREFERRED_SIZE, 1497, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addComponent(thescrollbar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -228,6 +236,10 @@ public class HistoryPage extends javax.swing.JFrame {
     private void bookingbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookingbtnActionPerformed
         // TODO: open Booking page
     }//GEN-LAST:event_bookingbtnActionPerformed
+
+    private void dashbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashbtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dashbtnActionPerformed
 public void addBackListener(java.awt.event.ActionListener listener) {
     lgnbtn.addActionListener(listener);
 }
@@ -301,6 +313,7 @@ public void loadHistory(java.util.List<model.Appointment> appointments,
     private javax.swing.JLabel History;
     private javax.swing.JButton Services;
     private javax.swing.JButton bookingbtn;
+    private javax.swing.JButton dashbtn;
     private javax.swing.JButton historybtn;
     private javax.swing.JButton lgnbtn;
     private javax.swing.JButton notificationbtn;

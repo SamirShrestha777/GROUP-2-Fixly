@@ -37,6 +37,7 @@ public class NotificationPage extends javax.swing.JFrame {
         jPanel9 = new javax.swing.JPanel();
         lgnbtn = new javax.swing.JButton();
         Createacc1 = new javax.swing.JLabel();
+        dashbtn = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         historybtn = new javax.swing.JButton();
         bookingbtn = new javax.swing.JButton();
@@ -69,6 +70,10 @@ public class NotificationPage extends javax.swing.JFrame {
         Createacc1.setForeground(new java.awt.Color(29, 78, 216));
         Createacc1.setText("Fixly");
 
+        dashbtn.setForeground(new java.awt.Color(29, 78, 216));
+        dashbtn.setText("Dashboard");
+        dashbtn.addActionListener(this::dashbtnActionPerformed);
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
@@ -76,7 +81,9 @@ public class NotificationPage extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addComponent(Createacc1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1271, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(dashbtn)
+                .addGap(18, 18, 18)
                 .addComponent(lgnbtn)
                 .addGap(47, 47, 47))
         );
@@ -86,7 +93,8 @@ public class NotificationPage extends javax.swing.JFrame {
                 .addGap(6, 6, 6)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lgnbtn)
-                    .addComponent(Createacc1))
+                    .addComponent(Createacc1)
+                    .addComponent(dashbtn))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -181,7 +189,7 @@ public class NotificationPage extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(usernotiscroll, javax.swing.GroupLayout.PREFERRED_SIZE, 1494, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,6 +248,10 @@ public class NotificationPage extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void dashbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashbtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dashbtnActionPerformed
 public void addBackListener(java.awt.event.ActionListener listener) {
     lgnbtn.addActionListener(listener);
 }
@@ -306,6 +318,7 @@ card.setMaximumSize(new java.awt.Dimension(Integer.MAX_VALUE, 110));
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Createacc1;
     private javax.swing.JButton bookingbtn;
+    private javax.swing.JButton dashbtn;
     private javax.swing.JButton historybtn;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

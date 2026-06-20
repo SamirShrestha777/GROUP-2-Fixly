@@ -261,13 +261,7 @@ public class SignupPage extends javax.swing.JFrame {
      // ✅ Show/hide password toggle
 
     private void pswcheckboxActionPerformed(java.awt.event.ActionEvent evt) {
-        if (pswcheckbox.isSelected()) {
-            pswfld.setEchoChar((char) 0); // show password
-            pswfield.setEchoChar((char) 0); // show confirm password
-        } else {
-            pswfld.setEchoChar('●'); // hide password
-            pswfield.setEchoChar('●'); // hide confirm password
-        }
+  
     }
 
     // ✅ Placeholder helper
@@ -360,5 +354,8 @@ public javax.swing.JPasswordField getCPasswordField() {
         return addtxt;
 
     }
+    public javax.swing.JCheckBox getShowPasswordCheckbox() {
+    return pswcheckbox;
+}
 
 }

@@ -57,7 +57,7 @@ public class HomeController {
             public void focusGained(java.awt.event.FocusEvent e) {
                 if (field.getText().equals(placeholder)) {
                     field.setText("");
-                    field.setForeground(java.awt.Color.WHITE);
+                    field.setForeground(java.awt.Color.BLACK);
                 }
             }
             @Override
@@ -79,7 +79,7 @@ public class HomeController {
             public void focusGained(java.awt.event.FocusEvent e) {
                 if (new String(field.getPassword()).equals(placeholder)) {
                     field.setText("");
-                    field.setForeground(java.awt.Color.WHITE);
+                    field.setForeground(java.awt.Color.BLACK);
                     field.setEchoChar('●');
                 }
             }

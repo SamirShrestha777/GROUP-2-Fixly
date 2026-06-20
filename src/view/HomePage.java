@@ -67,7 +67,6 @@ public class HomePage extends javax.swing.JFrame {
         EmailTxT.setForeground(new java.awt.Color(248, 250, 252));
         EmailTxT.setText("Login into your account");
 
-        txtboxemail.setForeground(new java.awt.Color(204, 204, 204));
         txtboxemail.setText("Enter your email address");
         txtboxemail.addActionListener(this::txtboxemailActionPerformed);
 

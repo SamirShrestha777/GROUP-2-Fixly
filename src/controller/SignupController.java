@@ -21,6 +21,18 @@ public class SignupController {
 
         setPasswordPlaceholder(userView.getPasswordField(), "Enter your password");
         setPasswordPlaceholder(userView.getCPasswordField(), "Confirm your password");
+
+        userView.getShowPasswordCheckbox().addActionListener(e -> {
+            boolean show = userView.getShowPasswordCheckbox().isSelected();
+            String psw  = new String(userView.getPasswordField().getPassword());
+            String cpsw = new String(userView.getCPasswordField().getPassword());
+            if (!psw.equals("Enter your password")) {
+                userView.getPasswordField().setEchoChar(show ? (char) 0 : '●');
+            }
+            if (!cpsw.equals("Confirm your password")) {
+                userView.getCPasswordField().setEchoChar(show ? (char) 0 : '●');
+            }
+        });
     }
 
     public void open()  { this.userView.setVisible(true); }
@@ -60,23 +72,20 @@ public class SignupController {
                 String cpassword = new String(userView.getCPasswordField().getPassword()).trim();
                 String address   = userView.getAddressField().getText().trim();
 
-                // Empty / placeholder check
-                if (name.isEmpty()    || name.equals("Enter your full name") ||
-                    email.isEmpty()   || email.equals("Enter your email address") ||
-                    password.isEmpty()|| password.equals("Enter your password") ||
-                    address.isEmpty() || address.equals("Enter your address")) {
+                if (name.isEmpty()     || name.equals("Enter your full name") ||
+                    email.isEmpty()    || email.equals("Enter your email address") ||
+                    password.isEmpty() || password.equals("Enter your password") ||
+                    address.isEmpty()  || address.equals("Enter your address")) {
                     JOptionPane.showMessageDialog(userView, "Please fill in all fields.");
                     return;
                 }
 
-                // Email format check
                 if (!email.matches("^[\\w._%+\\-]+@[\\w.\\-]+\\.[a-zA-Z]{2,}$")) {
                     JOptionPane.showMessageDialog(userView,
                         "Please enter a valid email address (e.g. example@gmail.com).");
                     return;
                 }
 
-                // Password strength check
                 if (!password.matches("^(?=.*[A-Z])(?=.*\\d).{8,}$")) {
                     JOptionPane.showMessageDialog(userView,
                         "Password must be at least 8 characters,\n" +
@@ -84,7 +93,6 @@ public class SignupController {
                     return;
                 }
 
-                // Confirm password check
                 if (!password.equals(cpassword)) {
                     JOptionPane.showMessageDialog(userView, "Passwords do not match.");
                     return;

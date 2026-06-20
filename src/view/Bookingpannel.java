@@ -45,6 +45,7 @@ package view;
         whitepanel = new javax.swing.JPanel();
         lgnbtn = new javax.swing.JButton();
         Createacc1 = new javax.swing.JLabel();
+        dashbtn = new javax.swing.JButton();
         sidepnl = new javax.swing.JPanel();
         historybtn = new javax.swing.JButton();
         bookingbtn = new javax.swing.JButton();
@@ -114,6 +115,10 @@ package view;
         Createacc1.setForeground(new java.awt.Color(29, 78, 216));
         Createacc1.setText("Fixly");
 
+        dashbtn.setForeground(new java.awt.Color(29, 78, 216));
+        dashbtn.setText("Dashboard");
+        dashbtn.addActionListener(this::dashbtnActionPerformed);
+
         javax.swing.GroupLayout whitepanelLayout = new javax.swing.GroupLayout(whitepanel);
         whitepanel.setLayout(whitepanelLayout);
         whitepanelLayout.setHorizontalGroup(
@@ -122,6 +127,8 @@ package view;
                 .addGap(48, 48, 48)
                 .addComponent(Createacc1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(dashbtn)
+                .addGap(18, 18, 18)
                 .addComponent(lgnbtn)
                 .addGap(47, 47, 47))
         );
@@ -131,7 +138,8 @@ package view;
                 .addGap(6, 6, 6)
                 .addGroup(whitepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lgnbtn)
-                    .addComponent(Createacc1))
+                    .addComponent(Createacc1)
+                    .addComponent(dashbtn))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -350,6 +358,10 @@ public void addConfirmListener(
         // TODO add your handling code here:
     }//GEN-LAST:event_addtxtActionPerformed
 
+    private void dashbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashbtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dashbtnActionPerformed
+
 
 // pre-selects the service when opening from a service button
 public void setServiceType(String serviceType) {
@@ -431,6 +443,7 @@ public String getServiceType() {
     private javax.swing.JComboBox<String> cmbServiceType;
     private javax.swing.JComboBox<String> cmbTime;
     private javax.swing.JButton confbtn;
+    private javax.swing.JButton dashbtn;
     private javax.swing.JLabel datelbl;
     private javax.swing.JPanel dateppnl;
     private javax.swing.JButton historybtn;

@@ -27,7 +27,7 @@ public void addLoginListener(java.awt.event.ActionListener l) {
 
 public String getFullName()        { return fullnametxt.getText().trim(); }
 public String getEmail()           { return emailtxt.getText().trim(); }
-public String getPassword()        { return new String(jPasswordField2.getPassword()).trim(); }
+public String getPassword()        { return new String(psw1.getPassword()).trim(); }
 public String getConfirmPassword() { return new String(pswfield2.getPassword()).trim(); }
 public String getSpecialization()  { return (String) specializationDropdown.getSelectedItem(); }
 public String getCertificationPath() { return certificationImagePath; }
@@ -59,7 +59,7 @@ public void browseFile() {
         emaillbl = new javax.swing.JLabel();
         emailtxt = new javax.swing.JTextField();
         passwordlbl = new javax.swing.JLabel();
-        jPasswordField2 = new javax.swing.JPasswordField();
+        psw1 = new javax.swing.JPasswordField();
         confpswlbl = new javax.swing.JLabel();
         pswcheckbox = new javax.swing.JCheckBox();
         contactlbl = new javax.swing.JLabel();
@@ -70,6 +70,7 @@ public void browseFile() {
         certlabel = new javax.swing.JLabel();
         browsebtn = new javax.swing.JButton();
         contactfld = new javax.swing.JTextField();
+        lgnbtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -132,6 +133,10 @@ public void browseFile() {
         browsebtn.setText("Browse Certification");
         browsebtn.addActionListener(this::browsebtnActionPerformed);
 
+        lgnbtn.setForeground(new java.awt.Color(29, 78, 216));
+        lgnbtn.setText("Login");
+        lgnbtn.addActionListener(this::lgnbtnActionPerformed);
+
         javax.swing.GroupLayout bgpanelLayout = new javax.swing.GroupLayout(bgpanel);
         bgpanel.setLayout(bgpanelLayout);
         bgpanelLayout.setHorizontalGroup(
@@ -140,10 +145,6 @@ public void browseFile() {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(sgnbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(579, 579, 579))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgpanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(pswcheckbox)
-                .addGap(338, 338, 338))
             .addGroup(bgpanelLayout.createSequentialGroup()
                 .addGap(496, 496, 496)
                 .addGroup(bgpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -152,26 +153,36 @@ public void browseFile() {
                         .addGap(155, 155, 155)
                         .addComponent(browsebtn))
                     .addComponent(getstarted)
-                    .addGroup(bgpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(emailtxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 617, Short.MAX_VALUE)
-                        .addComponent(deptlbl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(passwordlbl, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(emaillbl, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(namelabel, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(contactlbl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(fullnametxt, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPasswordField2, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(emailtxt, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
+                    .addComponent(deptlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passwordlbl)
+                    .addComponent(emaillbl)
+                    .addComponent(namelabel)
+                    .addComponent(contactlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fullnametxt)
+                    .addComponent(psw1)
                     .addComponent(pswfield2, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
                     .addComponent(confpswlbl)
                     .addComponent(Createacc)
                     .addComponent(certlabel)
                     .addComponent(contactfld))
                 .addGap(0, 440, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgpanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(bgpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgpanelLayout.createSequentialGroup()
+                        .addComponent(pswcheckbox)
+                        .addGap(338, 338, 338))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgpanelLayout.createSequentialGroup()
+                        .addComponent(lgnbtn)
+                        .addGap(57, 57, 57))))
         );
         bgpanelLayout.setVerticalGroup(
             bgpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bgpanelLayout.createSequentialGroup()
-                .addGap(118, 118, 118)
+                .addGap(20, 20, 20)
+                .addComponent(lgnbtn)
+                .addGap(75, 75, 75)
                 .addComponent(Createacc)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(getstarted)
@@ -186,7 +197,7 @@ public void browseFile() {
                 .addGap(18, 18, 18)
                 .addComponent(passwordlbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(psw1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pswcheckbox)
                 .addGap(5, 5, 5)
@@ -248,6 +259,20 @@ public void browseFile() {
  browseFile();        // TODO add your handling code here:
     }//GEN-LAST:event_browsebtnActionPerformed
 
+    private void lgnbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lgnbtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lgnbtnActionPerformed
+public javax.swing.JPasswordField getPasswordField() { 
+    return psw1; 
+}
+
+public javax.swing.JPasswordField getConfirmPasswordField() { 
+    return pswfield2; 
+}
+public javax.swing.JCheckBox getShowPasswordCheckbox() {
+    return pswcheckbox;
+}
+
     /**
      * @param args the command line arguments
      */
@@ -286,9 +311,10 @@ public void browseFile() {
     private javax.swing.JTextField emailtxt;
     private javax.swing.JTextField fullnametxt;
     private javax.swing.JLabel getstarted;
-    private javax.swing.JPasswordField jPasswordField2;
+    private javax.swing.JButton lgnbtn;
     private javax.swing.JLabel namelabel;
     private javax.swing.JLabel passwordlbl;
+    private javax.swing.JPasswordField psw1;
     private javax.swing.JCheckBox pswcheckbox;
     private javax.swing.JPasswordField pswfield2;
     private javax.swing.JButton sgnbtn;

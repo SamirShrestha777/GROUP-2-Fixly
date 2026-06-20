@@ -438,6 +438,8 @@
                       <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                       <Component id="Createacc1" min="-2" pref="99" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="dashbtn" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="lgnbtn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                   </Group>
@@ -450,6 +452,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lgnbtn" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="Createacc1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="dashbtn" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="21" max="32767" attributes="0"/>
                   </Group>
@@ -481,6 +484,17 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Fixly"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="dashbtn">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="d8" green="4e" red="1d" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Dashboard"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dashbtnActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

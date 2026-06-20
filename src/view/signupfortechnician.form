@@ -57,11 +57,6 @@
                   <Component id="sgnbtn" min="-2" pref="375" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="579" max="-2" attributes="0"/>
               </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="pswcheckbox" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="338" max="-2" attributes="0"/>
-              </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="496" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -71,16 +66,14 @@
                           <Component id="browsebtn" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="getstarted" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="emailtxt" alignment="0" pref="617" max="32767" attributes="0"/>
-                          <Component id="deptlbl" alignment="0" min="-2" pref="123" max="-2" attributes="0"/>
-                          <Component id="passwordlbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="emaillbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="namelabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="contactlbl" alignment="0" min="-2" pref="123" max="-2" attributes="0"/>
-                          <Component id="fullnametxt" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jPasswordField2" alignment="0" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="emailtxt" alignment="0" pref="620" max="32767" attributes="0"/>
+                      <Component id="deptlbl" alignment="0" min="-2" pref="123" max="-2" attributes="0"/>
+                      <Component id="passwordlbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="emaillbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="namelabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="contactlbl" alignment="0" min="-2" pref="123" max="-2" attributes="0"/>
+                      <Component id="fullnametxt" alignment="0" max="32767" attributes="0"/>
+                      <Component id="psw1" alignment="0" max="32767" attributes="0"/>
                       <Component id="pswfield2" alignment="0" pref="620" max="32767" attributes="0"/>
                       <Component id="confpswlbl" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="Createacc" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -89,12 +82,27 @@
                   </Group>
                   <EmptySpace min="0" pref="440" max="32767" attributes="0"/>
               </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="pswcheckbox" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="338" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="lgnbtn" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="lgnbtn" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                   <Component id="Createacc" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="getstarted" min="-2" max="-2" attributes="0"/>
@@ -109,7 +117,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="passwordlbl" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jPasswordField2" min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="psw1" min="-2" pref="33" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="pswcheckbox" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
@@ -202,7 +210,7 @@
             <Property name="text" type="java.lang.String" value="Password"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="jPasswordField2">
+        <Component class="javax.swing.JPasswordField" name="psw1">
         </Component>
         <Component class="javax.swing.JLabel" name="confpswlbl">
           <Properties>
@@ -304,6 +312,17 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="contactfld">
+        </Component>
+        <Component class="javax.swing.JButton" name="lgnbtn">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="d8" green="4e" red="1d" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Login"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lgnbtnActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
