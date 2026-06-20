@@ -30,11 +30,31 @@ public class AdminController {
 
     private void approveTechnician(int techId) {
         techDao.approveTechnician(techId);
+
+        UserData tech = techDao.getTechnicianById(techId);
+        if (tech != null && tech.getEmail() != null) {
+            try {
+                new utils.TechnicianApprovedEmail(tech.getEmail(), tech.getUsername()).send();
+            } catch (jakarta.mail.MessagingException ex) {
+                System.out.println("Failed to send approval email: " + ex.getMessage());
+            }
+        }
+
         loadPending();
     }
 
     private void rejectTechnician(int techId) {
         techDao.rejectTechnician(techId);
+
+        UserData tech = techDao.getTechnicianById(techId);
+        if (tech != null && tech.getEmail() != null) {
+            try {
+                new utils.TechnicianRejectedEmail(tech.getEmail(), tech.getUsername()).send();
+            } catch (jakarta.mail.MessagingException ex) {
+                System.out.println("Failed to send rejection email: " + ex.getMessage());
+            }
+        }
+
         loadPending();
     }
 
