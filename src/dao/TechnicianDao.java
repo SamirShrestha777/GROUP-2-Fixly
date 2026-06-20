@@ -14,21 +14,21 @@ public class TechnicianDao {
     public void initTable() {
         Connection conn = mysql.openConnection();
         try {
-            String sql =
-                "CREATE TABLE IF NOT EXISTS technicians (" +
-                "id INT AUTO_INCREMENT PRIMARY KEY," +
-                "username VARCHAR(50) NOT NULL," +
-                "email VARCHAR(100) NOT NULL UNIQUE," +
-                "password VARCHAR(100) NOT NULL," +
-                "address VARCHAR(255)," +
-                "otp INT," +
-                "emp_id VARCHAR(30)," +
-                "specialization VARCHAR(100)," +
-                "is_verified BOOLEAN DEFAULT FALSE," +
-                "status VARCHAR(20) DEFAULT 'pending'," +
-                "certification_path VARCHAR(500)," +
-                "created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP" +
-                ")";
+            String sql = "CREATE TABLE IF NOT EXISTS technicians (" +
+                    "id INT AUTO_INCREMENT PRIMARY KEY," +
+                    "username VARCHAR(50) NOT NULL," +
+                    "email VARCHAR(100) NOT NULL UNIQUE," +
+                    "password VARCHAR(100) NOT NULL," +
+                    "address VARCHAR(255)," +
+                    "otp INT," +
+                    "emp_id VARCHAR(30)," +
+                    "specialization VARCHAR(100)," +
+                    "is_verified BOOLEAN DEFAULT FALSE," +
+                    "status VARCHAR(20) DEFAULT 'pending'," +
+                    "account_status VARCHAR(20) DEFAULT 'active'," +
+                    "certification_path VARCHAR(500)," +
+                    "created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP" +
+                    ")";
             try (Statement stmt = conn.createStatement()) {
                 stmt.executeUpdate(sql);
                 System.out.println("Technicians table ready.");
@@ -38,14 +38,25 @@ public class TechnicianDao {
         } finally {
             mysql.closeConnection(conn);
         }
+        ensureAccountStatusColumn();
+    }
+
+    private void ensureAccountStatusColumn() {
+        Connection conn = mysql.openConnection();
+        try (Statement stmt = conn.createStatement()) {
+            stmt.executeUpdate("ALTER TABLE technicians ADD COLUMN account_status VARCHAR(20) DEFAULT 'active'");
+        } catch (Exception e) {
+            // Column already exists - safe to ignore.
+        } finally {
+            mysql.closeConnection(conn);
+        }
     }
 
     public void createTechnician(UserData user) {
         Connection conn = mysql.openConnection();
         try {
-            String sql =
-                "INSERT INTO technicians(username, email, password, address, emp_id, specialization) " +
-                "VALUES(?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO technicians(username, email, password, address, emp_id, specialization) " +
+                    "VALUES(?, ?, ?, ?, ?, ?)";
             try (PreparedStatement pstm = conn.prepareStatement(sql)) {
                 pstm.setString(1, user.getUsername());
                 pstm.setString(2, user.getEmail());
@@ -66,10 +77,9 @@ public class TechnicianDao {
     public void createTechnicianWithCert(UserData user, String certPath) {
         Connection conn = mysql.openConnection();
         try {
-            String sql =
-                "INSERT INTO technicians(username, email, password, specialization, " +
-                "emp_id, certification_path, status, is_verified) " +
-                "VALUES(?, ?, ?, ?, ?, ?, 'pending', FALSE)";
+            String sql = "INSERT INTO technicians(username, email, password, specialization, " +
+                    "emp_id, certification_path, status, is_verified) " +
+                    "VALUES(?, ?, ?, ?, ?, ?, 'pending', FALSE)";
             try (PreparedStatement pstm = conn.prepareStatement(sql)) {
                 pstm.setString(1, user.getUsername());
                 pstm.setString(2, user.getEmail());
@@ -94,7 +104,8 @@ public class TechnicianDao {
             try (PreparedStatement pstm = conn.prepareStatement(sql)) {
                 pstm.setString(1, email);
                 ResultSet rs = pstm.executeQuery();
-                if (rs.next()) return rs.getBoolean("is_verified");
+                if (rs.next())
+                    return rs.getBoolean("is_verified");
             }
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
@@ -180,7 +191,8 @@ public class TechnicianDao {
             try (PreparedStatement pstm = conn.prepareStatement(sql)) {
                 pstm.setString(1, email);
                 ResultSet rs = pstm.executeQuery();
-                if (rs.next()) return rs.getString("username");
+                if (rs.next())
+                    return rs.getString("username");
             }
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
@@ -197,7 +209,8 @@ public class TechnicianDao {
             try (PreparedStatement pstm = conn.prepareStatement(sql)) {
                 pstm.setString(1, email);
                 ResultSet rs = pstm.executeQuery();
-                if (rs.next()) return rs.getInt("id");
+                if (rs.next())
+                    return rs.getInt("id");
             }
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
@@ -214,7 +227,8 @@ public class TechnicianDao {
             try (PreparedStatement pstm = conn.prepareStatement(sql)) {
                 pstm.setString(1, email);
                 ResultSet rs = pstm.executeQuery();
-                if (rs.next()) return rs.getString("specialization");
+                if (rs.next())
+                    return rs.getString("specialization");
             }
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
@@ -231,7 +245,8 @@ public class TechnicianDao {
             try (PreparedStatement pstm = conn.prepareStatement(sql)) {
                 pstm.setInt(1, id);
                 ResultSet rs = pstm.executeQuery();
-                if (rs.next()) return rs.getString("certification_path");
+                if (rs.next())
+                    return rs.getString("certification_path");
             }
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
@@ -275,10 +290,11 @@ public class TechnicianDao {
         Connection conn = mysql.openConnection();
         try {
             String sql = specialization == null
-                ? "SELECT * FROM technicians"
-                : "SELECT * FROM technicians WHERE specialization = ?";
+                    ? "SELECT * FROM technicians"
+                    : "SELECT * FROM technicians WHERE specialization = ?";
             try (PreparedStatement pstm = conn.prepareStatement(sql)) {
-                if (specialization != null) pstm.setString(1, specialization);
+                if (specialization != null)
+                    pstm.setString(1, specialization);
                 ResultSet rs = pstm.executeQuery();
                 while (rs.next()) {
                     UserData u = new UserData();
@@ -302,9 +318,9 @@ public class TechnicianDao {
         Connection conn = mysql.openConnection();
         try {
             String sql = "SELECT a.*, u.username AS client_name " +
-                         "FROM appointments a " +
-                         "JOIN users u ON a.client_id = u.id " +
-                         "WHERE a.service_type = ? AND a.status = 'pending'";
+                    "FROM appointments a " +
+                    "JOIN users u ON a.client_id = u.id " +
+                    "WHERE a.service_type = ? AND a.status = 'pending'";
             try (PreparedStatement pstm = conn.prepareStatement(sql)) {
                 pstm.setString(1, specialization);
                 ResultSet rs = pstm.executeQuery();
@@ -335,9 +351,9 @@ public class TechnicianDao {
         Connection conn = mysql.openConnection();
         try {
             String sql = "SELECT a.*, u.username AS client_name " +
-                         "FROM appointments a " +
-                         "JOIN users u ON a.client_id = u.id " +
-                         "WHERE a.technician_id = ? AND a.status IN ('accepted','completed')";
+                    "FROM appointments a " +
+                    "JOIN users u ON a.client_id = u.id " +
+                    "WHERE a.technician_id = ? AND a.status IN ('accepted','completed')";
             try (PreparedStatement pstm = conn.prepareStatement(sql)) {
                 pstm.setInt(1, technicianId);
                 ResultSet rs = pstm.executeQuery();
@@ -366,7 +382,7 @@ public class TechnicianDao {
         Connection conn = mysql.openConnection();
         try {
             String sql = "UPDATE appointments SET status = 'accepted', technician_id = ? " +
-                         "WHERE id = ? AND status = 'pending'";
+                    "WHERE id = ? AND status = 'pending'";
             try (PreparedStatement pstm = conn.prepareStatement(sql)) {
                 pstm.setInt(1, technicianId);
                 pstm.setInt(2, appointmentId);
@@ -401,7 +417,7 @@ public class TechnicianDao {
         Connection conn = mysql.openConnection();
         try {
             String sql = "UPDATE appointments SET status = 'completed' " +
-                         "WHERE id = ? AND technician_id = ?";
+                    "WHERE id = ? AND technician_id = ?";
             try (PreparedStatement pstm = conn.prepareStatement(sql)) {
                 pstm.setInt(1, appointmentId);
                 pstm.setInt(2, technicianId);
@@ -489,5 +505,47 @@ public class TechnicianDao {
             mysql.closeConnection(conn);
         }
         return list;
+    }
+
+    public List<UserData> getApprovedTechnicians() {
+        List<UserData> list = new ArrayList<>();
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "SELECT * FROM technicians WHERE status = 'approved'";
+            try (PreparedStatement pstm = conn.prepareStatement(sql)) {
+                ResultSet rs = pstm.executeQuery();
+                while (rs.next()) {
+                    UserData u = new UserData();
+                    u.setId(rs.getInt("id"));
+                    u.setUsername(rs.getString("username"));
+                    u.setEmail(rs.getString("email"));
+                    u.setSpecialization(rs.getString("specialization"));
+                    u.setAccountStatus(rs.getString("account_status"));
+                    list.add(u);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally {
+            mysql.closeConnection(conn);
+        }
+        return list;
+    }
+
+    public boolean updateAccountStatus(int techId, String accountStatus) {
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "UPDATE technicians SET account_status = ? WHERE id = ?";
+            try (PreparedStatement pstm = conn.prepareStatement(sql)) {
+                pstm.setString(1, accountStatus);
+                pstm.setInt(2, techId);
+                return pstm.executeUpdate() > 0;
+            }
+        } catch (Exception e) {
+            System.out.println("Error updating account status: " + e.getMessage());
+            return false;
+        } finally {
+            mysql.closeConnection(conn);
+        }
     }
 }

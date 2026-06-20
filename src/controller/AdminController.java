@@ -17,20 +17,35 @@ public class AdminController {
         this.view = view;
         view.initPendingPanel();
         view.initMonitorPanel();
+        view.initTechnicianPanel();
         view.addLogoutListener(e -> handleLogout());
-        view.addVerifyNavListener(e -> { view.showVerifyPanel(); loadPending(); });
-        view.addMonitorNavListener(e -> { view.showMonitorPanel(); loadPendingPayments(); });
+        view.addVerifyNavListener(e -> {
+            view.showVerifyPanel();
+            loadPending();
+        });
+        view.addMonitorNavListener(e -> {
+            view.showMonitorPanel();
+            loadPendingPayments();
+        });
+        view.addTechnicianNavListener(e -> {
+            view.showTechnicianPanel();
+            loadTechnicians();
+        });
         loadPending();
     }
 
     private void loadPending() {
         List<UserData> pending = techDao.getPendingTechnicians();
         view.loadPendingTechnicians(
-            pending,
-            this::approveTechnician,
-            this::rejectTechnician,
-            this::viewCertificate
-        );
+                pending,
+                this::approveTechnician,
+                this::rejectTechnician,
+                this::viewCertificate);
+    }
+
+    private void loadTechnicians() {
+        List<UserData> technicians = techDao.getApprovedTechnicians();
+        view.loadTechnicians(technicians);
     }
 
     private void approveTechnician(int techId) {
@@ -40,12 +55,12 @@ public class AdminController {
             try {
                 new utils.TechnicianApprovedEmail(tech.getEmail(), tech.getUsername()).send();
                 javax.swing.JOptionPane.showMessageDialog(view,
-                    "Technician approved!\nNotification email sent to " + tech.getEmail(),
-                    "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                        "Technician approved!\nNotification email sent to " + tech.getEmail(),
+                        "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE);
             } catch (jakarta.mail.MessagingException ex) {
                 javax.swing.JOptionPane.showMessageDialog(view,
-                    "Technician approved, but email failed to send.\n" + ex.getMessage(),
-                    "Email Error", javax.swing.JOptionPane.WARNING_MESSAGE);
+                        "Technician approved, but email failed to send.\n" + ex.getMessage(),
+                        "Email Error", javax.swing.JOptionPane.WARNING_MESSAGE);
             }
         }
         loadPending();
@@ -58,12 +73,12 @@ public class AdminController {
             try {
                 new utils.TechnicianRejectedEmail(tech.getEmail(), tech.getUsername()).send();
                 javax.swing.JOptionPane.showMessageDialog(view,
-                    "Technician rejected.\nNotification email sent to " + tech.getEmail(),
-                    "Done", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                        "Technician rejected.\nNotification email sent to " + tech.getEmail(),
+                        "Done", javax.swing.JOptionPane.INFORMATION_MESSAGE);
             } catch (jakarta.mail.MessagingException ex) {
                 javax.swing.JOptionPane.showMessageDialog(view,
-                    "Technician rejected, but email failed to send.\n" + ex.getMessage(),
-                    "Email Error", javax.swing.JOptionPane.WARNING_MESSAGE);
+                        "Technician rejected, but email failed to send.\n" + ex.getMessage(),
+                        "Email Error", javax.swing.JOptionPane.WARNING_MESSAGE);
             }
         }
         loadPending();
@@ -77,24 +92,23 @@ public class AdminController {
     private void loadPendingPayments() {
         List<Appointment> payments = appointmentDao.getAppointmentsByStatus("payment_submitted");
         view.loadPendingPayments(
-            payments,
-            this::approvePayment,
-            this::rejectPayment,
-            this::viewPaymentProof
-        );
+                payments,
+                this::approvePayment,
+                this::rejectPayment,
+                this::viewPaymentProof);
     }
 
     private void approvePayment(int appointmentId) {
         appointmentDao.updateAppointmentStatus(appointmentId, "paid");
         javax.swing.JOptionPane.showMessageDialog(view,
-            "Payment approved.", "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                "Payment approved.", "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE);
         loadPendingPayments();
     }
 
     private void rejectPayment(int appointmentId) {
         appointmentDao.updateAppointmentStatus(appointmentId, "awaiting_payment");
         javax.swing.JOptionPane.showMessageDialog(view,
-            "Payment proof rejected. Client can resubmit.", "Done", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                "Payment proof rejected. Client can resubmit.", "Done", javax.swing.JOptionPane.INFORMATION_MESSAGE);
         loadPendingPayments();
     }
 
@@ -105,9 +119,8 @@ public class AdminController {
 
     private void handleLogout() {
         int confirm = javax.swing.JOptionPane.showConfirmDialog(
-            view, "Are you sure you want to logout?",
-            "Logout", javax.swing.JOptionPane.YES_NO_OPTION
-        );
+                view, "Are you sure you want to logout?",
+                "Logout", javax.swing.JOptionPane.YES_NO_OPTION);
         if (confirm == javax.swing.JOptionPane.YES_OPTION) {
             view.dispose();
             HomePage homeView = new HomePage();
