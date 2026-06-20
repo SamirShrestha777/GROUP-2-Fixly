@@ -330,6 +330,12 @@ public void showVerifyPanel() {
 
 public void showMonitorPanel() {
     dynamicdata.setViewportView(monitorPanel);
+    dynamicdata.getViewport().setBackground(new java.awt.Color(30, 41, 59));
+    dynamicdata.setBackground(new java.awt.Color(30, 41, 59));
+    dynamicdata.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 65, 85)));
+    dynamicdata.setOpaque(true);
+    monitorPanel.revalidate();
+    monitorPanel.repaint();
 }
 
 public void loadPendingPayments(java.util.List<model.Appointment> list,

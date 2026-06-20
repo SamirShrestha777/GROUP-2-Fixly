@@ -16,7 +16,7 @@ public class AdminMonitorCard extends javax.swing.JPanel {
     public AdminMonitorCard() {
         initComponents();
     }
- public AdminMonitorCard(String typeText, String emailText, String detailsText, String dateText) {
+public AdminMonitorCard(String typeText, String emailText, String detailsText, String dateText) {
     initComponents();
     type.setText(typeText);
     emailbl.setText(emailText);
@@ -27,6 +27,15 @@ public class AdminMonitorCard extends javax.swing.JPanel {
     this.setOpaque(true);
     jPanel1.setBackground(new java.awt.Color(30, 41, 59));
     jPanel1.setOpaque(true);
+
+    // Force card to stretch full width in BoxLayout
+    setAlignmentX(java.awt.Component.LEFT_ALIGNMENT);
+    setMaximumSize(new java.awt.Dimension(Integer.MAX_VALUE, getPreferredSize().height));
+}
+
+@Override
+public java.awt.Dimension getMaximumSize() {
+    return new java.awt.Dimension(Integer.MAX_VALUE, getPreferredSize().height);
 }
 
 public void addApproveListener(java.awt.event.ActionListener listener) {
