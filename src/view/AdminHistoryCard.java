@@ -16,6 +16,17 @@ public class AdminHistoryCard extends javax.swing.JPanel {
      */
     public AdminHistoryCard() {
         initComponents();
+        fixBackground();
+    }
+
+    private void fixBackground() {
+        java.awt.Color dark = new java.awt.Color(30, 41, 59);
+        setBackground(dark);
+        setOpaque(true);
+        jPanel1.setBackground(dark);
+        jPanel1.setOpaque(true);
+        jPanel2.setBackground(dark);
+        jPanel2.setOpaque(true);
     }
 
     public void setCardData(String typeText, String emailText, String dateText, String detailsText) {
@@ -56,6 +67,8 @@ public class AdminHistoryCard extends javax.swing.JPanel {
         detailslbl.setBackground(new java.awt.Color(51, 65, 85));
         detailslbl.setForeground(new java.awt.Color(255, 255, 255));
         detailslbl.setOpaque(true);
+
+        emailbl.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);

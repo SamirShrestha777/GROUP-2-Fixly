@@ -40,10 +40,13 @@ public class TechnicianDashboard extends javax.swing.JFrame {
         Verifyrequest = new javax.swing.JLabel();
         All = new javax.swing.JButton();
         electrical = new javax.swing.JButton();
-        plm = new javax.swing.JButton();
-        ac = new javax.swing.JButton();
+        Plumbing = new javax.swing.JButton();
+        Carpenter = new javax.swing.JButton();
         jScrollBar1 = new javax.swing.JScrollBar();
         jScrollPane1 = new javax.swing.JScrollPane();
+        AC = new javax.swing.JButton();
+        Painter = new javax.swing.JButton();
+        plumber = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -142,13 +145,27 @@ public class TechnicianDashboard extends javax.swing.JFrame {
         electrical.setForeground(new java.awt.Color(255, 255, 255));
         electrical.setText("Electrical");
 
-        plm.setBackground(new java.awt.Color(30, 41, 59));
-        plm.setForeground(new java.awt.Color(255, 255, 255));
-        plm.setText("Plumbing");
+        Plumbing.setBackground(new java.awt.Color(30, 41, 59));
+        Plumbing.setForeground(new java.awt.Color(255, 255, 255));
+        Plumbing.setText("Plumbing");
 
-        ac.setBackground(new java.awt.Color(30, 41, 59));
-        ac.setForeground(new java.awt.Color(255, 255, 255));
-        ac.setText("AC");
+        Carpenter.setBackground(new java.awt.Color(30, 41, 59));
+        Carpenter.setForeground(new java.awt.Color(255, 255, 255));
+        Carpenter.setText("Carpenter");
+
+        AC.setBackground(new java.awt.Color(30, 41, 59));
+        AC.setForeground(new java.awt.Color(255, 255, 255));
+        AC.setText("AC");
+        AC.setToolTipText("");
+
+        Painter.setBackground(new java.awt.Color(30, 41, 59));
+        Painter.setForeground(new java.awt.Color(255, 255, 255));
+        Painter.setText("Painter");
+        Painter.setToolTipText("");
+
+        plumber.setBackground(new java.awt.Color(30, 41, 59));
+        plumber.setForeground(new java.awt.Color(255, 255, 255));
+        plumber.setText("Plumber");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -159,21 +176,23 @@ public class TechnicianDashboard extends javax.swing.JFrame {
                 .addGap(51, 51, 51)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Verifyrequest, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 121, Short.MAX_VALUE)
-                        .addComponent(All, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(All, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(electrical, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(electrical, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(plm, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Plumbing, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(ac, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(195, 195, 195))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1431, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(AC, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Painter, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Carpenter, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(plumber, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1431, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Verifyrequest, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -190,8 +209,11 @@ public class TechnicianDashboard extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(All)
                             .addComponent(electrical)
-                            .addComponent(plm)
-                            .addComponent(ac))
+                            .addComponent(Plumbing)
+                            .addComponent(Carpenter)
+                            .addComponent(AC)
+                            .addComponent(Painter)
+                            .addComponent(plumber))
                         .addGap(34, 34, 34)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 42, Short.MAX_VALUE))
@@ -228,75 +250,123 @@ public class TechnicianDashboard extends javax.swing.JFrame {
 private int technicianId;
 private String username;
 private javax.swing.JPanel requestsPanel;
+private javax.swing.JPanel historyPanel;
 
-public void setTechnicianId(int technicianId) {
-    this.technicianId = technicianId;
-}
+public void setTechnicianId(int technicianId) { this.technicianId = technicianId; }
+public void setUsername(String username) { this.username = username; }
 
-public void setUsername(String username) {
-    this.username = username;
-}
-
+// ── Requests Panel ──────────────────────────────────────────────────────────
 public void initRequestsPanel() {
     requestsPanel = new javax.swing.JPanel();
-    requestsPanel.setLayout(new javax.swing.BoxLayout(
-        requestsPanel, javax.swing.BoxLayout.Y_AXIS));
+    requestsPanel.setLayout(new javax.swing.BoxLayout(requestsPanel, javax.swing.BoxLayout.Y_AXIS));
     requestsPanel.setBackground(new java.awt.Color(30, 41, 59));
+    requestsPanel.setOpaque(true);
+    jScrollPane1.setBorder(null);
+    jScrollPane1.getViewport().setBackground(new java.awt.Color(30, 41, 59));
     jScrollPane1.setViewportView(requestsPanel);
+    Verifyrequest.setText("📋 Pending Requests");
 }
 
-public void loadAppointments(java.util.List<model.Appointment> appointments) {
+public void showRequestPanel() {
+    jScrollPane1.setViewportView(requestsPanel);
+    Verifyrequest.setText("📋 Pending Requests");
+    requestsPanel.revalidate();
+    requestsPanel.repaint();
+}
+
+public void loadAppointments(java.util.List<model.Appointment> appointments, 
+                             java.util.function.Consumer<Integer> onAccept, 
+                             java.util.function.Consumer<Integer> onReject,
+                             java.util.function.Consumer<Integer> onComplete) {
     requestsPanel.removeAll();
     if (appointments.isEmpty()) {
-        javax.swing.JLabel empty = new javax.swing.JLabel("No pending requests.");
+        javax.swing.JLabel empty = new javax.swing.JLabel("No requests found.");
         empty.setForeground(java.awt.Color.WHITE);
         empty.setAlignmentX(java.awt.Component.CENTER_ALIGNMENT);
         requestsPanel.add(empty);
     } else {
         for (model.Appointment a : appointments) {
-            requestsPanel.add(createCard(a));
-            requestsPanel.add(javax.swing.Box.createVerticalStrut(10));
+            TechnicianRequestCard card = new TechnicianRequestCard();
+            card.setCardData(a.getServiceType(), a.getAddress(), a.getDate() + "   " + a.getTime(), a.getStatus(), a.getNotes());
+            
+            if ("accepted".equalsIgnoreCase(a.getStatus())) {
+                card.showAcceptedButtons();
+                if (onComplete != null) card.addCompleteListener(e -> onComplete.accept(a.getId()));
+            } else {
+                card.showPendingButtons();
+                if (onAccept != null) card.addAcceptListener(e -> onAccept.accept(a.getId()));
+                if (onReject != null) card.addDeclineListener(e -> onReject.accept(a.getId()));
+            }
+            
+            card.setMaximumSize(new java.awt.Dimension(Integer.MAX_VALUE, 150));
+            card.setAlignmentX(java.awt.Component.LEFT_ALIGNMENT);
+            requestsPanel.add(card);
+            javax.swing.Box.Filler gap = new javax.swing.Box.Filler(
+                new java.awt.Dimension(0, 6), new java.awt.Dimension(0, 6), new java.awt.Dimension(Short.MAX_VALUE, 6));
+            gap.setBackground(new java.awt.Color(30, 41, 59));
+            gap.setOpaque(true);
+            requestsPanel.add(gap);
         }
     }
     requestsPanel.revalidate();
     requestsPanel.repaint();
 }
 
-private javax.swing.JPanel createCard(model.Appointment a) {
-    javax.swing.JPanel card = new javax.swing.JPanel();
-    card.setLayout(new java.awt.GridLayout(0, 1, 5, 5));
-    card.setBackground(new java.awt.Color(51, 65, 85));
-    card.setBorder(javax.swing.BorderFactory.createCompoundBorder(
-        javax.swing.BorderFactory.createLineBorder(
-            new java.awt.Color(29, 78, 216), 1),
-        javax.swing.BorderFactory.createEmptyBorder(10, 15, 10, 15)
-    ));
-    card.setMaximumSize(new java.awt.Dimension(Integer.MAX_VALUE, 160));
-    card.add(makeLabel("🔧  Service: " + a.getServiceType(), true));
-    card.add(makeLabel("📅  Date: "    + a.getDate() + "  🕐  Time: " + a.getTime(), false));
-    card.add(makeLabel("📍  Address: " + a.getAddress(), false));
-    card.add(makeLabel("📝  Notes: "   + a.getNotes(), false));
-    card.add(makeLabel("⚡  Status: "  + a.getStatus(), false));
-    return card;
+// ── History Panel ────────────────────────────────────────────────────────────
+public void initHistoryPanel() {
+    historyPanel = new javax.swing.JPanel();
+    historyPanel.setLayout(new javax.swing.BoxLayout(historyPanel, javax.swing.BoxLayout.Y_AXIS));
+    historyPanel.setBackground(new java.awt.Color(30, 41, 59));
+    historyPanel.setOpaque(true);
 }
 
-private javax.swing.JLabel makeLabel(String text, boolean bold) {
-    javax.swing.JLabel lbl = new javax.swing.JLabel(text);
-    lbl.setForeground(java.awt.Color.WHITE);
-    lbl.setFont(new java.awt.Font("Segoe UI",
-        bold ? java.awt.Font.BOLD : java.awt.Font.PLAIN, 13));
-    return lbl;
+public void showHistoryPanel() {
+    jScrollPane1.setViewportView(historyPanel);
+    Verifyrequest.setText("🕓 Job History");
+    historyPanel.revalidate();
+    historyPanel.repaint();
 }
 
-public void addLogoutListener(java.awt.event.ActionListener l) {
-    lgnbtn.addActionListener(l);
+public void loadHistory(java.util.List<model.Appointment> jobs) {
+    historyPanel.removeAll();
+    if (jobs.isEmpty()) {
+        javax.swing.JLabel empty = new javax.swing.JLabel("No history found.");
+        empty.setForeground(java.awt.Color.WHITE);
+        empty.setAlignmentX(java.awt.Component.CENTER_ALIGNMENT);
+        historyPanel.add(empty);
+    } else {
+        for (model.Appointment a : jobs) {
+            TechnicianHistory card = new TechnicianHistory();
+            card.setCardData(a.getServiceType(), a.getAddress(), a.getDate() + "  🕐 " + a.getTime(), a.getStatus(), a.getNotes());
+            card.setMaximumSize(new java.awt.Dimension(Integer.MAX_VALUE, 150));
+            card.setAlignmentX(java.awt.Component.LEFT_ALIGNMENT);
+            historyPanel.add(card);
+            
+            javax.swing.Box.Filler gap = new javax.swing.Box.Filler(
+                new java.awt.Dimension(0, 6), new java.awt.Dimension(0, 6), new java.awt.Dimension(Short.MAX_VALUE, 6));
+            gap.setBackground(new java.awt.Color(30, 41, 59));
+            gap.setOpaque(true);
+            historyPanel.add(gap);
+        }
+    }
+    historyPanel.revalidate();
+    historyPanel.repaint();
 }
 
-public void addNotificationNavListener(java.awt.event.ActionListener l) {
-    notificationbtn.addActionListener(l);
-}
-    // optional: update a label on the dashboard
-    // lblWelcome.setText("Welcome, " + username);
+// ── Listener Methods (View exposes, Controller wires) ──────────────────────
+public void addLogoutListener(java.awt.event.ActionListener l) { lgnbtn.addActionListener(l); }
+public void addRequestNavListener(java.awt.event.ActionListener l) { historybtn.addActionListener(l); }
+public void addHistoryNavListener(java.awt.event.ActionListener l) { bookingbtn.addActionListener(l); }
+public void addNotificationNavListener(java.awt.event.ActionListener l) { notificationbtn.addActionListener(l); }
+public void addProfileNavListener(java.awt.event.ActionListener l) { technicianbtn.addActionListener(l); }
+
+public void addFilterAllListener(java.awt.event.ActionListener l) { All.addActionListener(l); }
+public void addFilterElectricalListener(java.awt.event.ActionListener l) { electrical.addActionListener(l); }
+public void addFilterPlumbingListener(java.awt.event.ActionListener l) { Plumbing.addActionListener(l); }
+public void addFilterAcListener(java.awt.event.ActionListener l) { AC.addActionListener(l); }
+public void addFilterPainterListener(java.awt.event.ActionListener l) { Painter.addActionListener(l); }
+public void addFilterCarpenterListener(java.awt.event.ActionListener l) { Carpenter.addActionListener(l); }
+
 
     /**
      * @param args the command line arguments
@@ -324,10 +394,13 @@ public void addNotificationNavListener(java.awt.event.ActionListener l) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AC;
     private javax.swing.JButton All;
+    private javax.swing.JButton Carpenter;
     private javax.swing.JLabel Createacc1;
+    private javax.swing.JButton Painter;
+    private javax.swing.JButton Plumbing;
     private javax.swing.JLabel Verifyrequest;
-    private javax.swing.JButton ac;
     private javax.swing.JButton bookingbtn;
     private javax.swing.JButton electrical;
     private javax.swing.JButton historybtn;
@@ -338,7 +411,7 @@ public void addNotificationNavListener(java.awt.event.ActionListener l) {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton lgnbtn;
     private javax.swing.JButton notificationbtn;
-    private javax.swing.JButton plm;
+    private javax.swing.JButton plumber;
     private javax.swing.JButton technicianbtn;
     // End of variables declaration//GEN-END:variables
 }

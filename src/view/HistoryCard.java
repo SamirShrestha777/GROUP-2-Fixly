@@ -47,6 +47,21 @@ private void applyStatus(String status) {
 public void addConfirmListener(java.awt.event.ActionListener listener) {
     confbtn.addActionListener(listener);
 }
+
+/** Wire the "Review Technician" button. */
+public void addReviewListener(java.awt.event.ActionListener listener) {
+    confbtn1.addActionListener(listener);
+}
+
+/** Show/hide the Review button based on whether job is completed. */
+public void showReviewButton(boolean show) {
+    confbtn1.setVisible(show);
+    if (show) {
+        confbtn1.setBackground(new java.awt.Color(59, 130, 246));
+        confbtn1.setForeground(java.awt.Color.WHITE);
+    }
+}
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -60,6 +75,7 @@ public void addConfirmListener(java.awt.event.ActionListener listener) {
         datelbl = new javax.swing.JLabel();
         detailslbl = new javax.swing.JLabel();
         confbtn = new javax.swing.JButton();
+        confbtn1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(51, 65, 85));
         setForeground(new java.awt.Color(255, 255, 255));
@@ -80,6 +96,10 @@ public void addConfirmListener(java.awt.event.ActionListener listener) {
         confbtn.setForeground(new java.awt.Color(255, 255, 255));
         confbtn.setText("Already Paid");
 
+        confbtn1.setBackground(new java.awt.Color(51, 65, 85));
+        confbtn1.setForeground(new java.awt.Color(255, 255, 255));
+        confbtn1.setText("Review Technician");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -92,10 +112,12 @@ public void addConfirmListener(java.awt.event.ActionListener listener) {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addComponent(detailslbl, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(detailslbl, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(confbtn)
-                .addGap(226, 226, 226))
+                .addGap(18, 18, 18)
+                .addComponent(confbtn1)
+                .addGap(112, 112, 112))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,7 +125,9 @@ public void addConfirmListener(java.awt.event.ActionListener listener) {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(confbtn))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(confbtn)
+                            .addComponent(confbtn1)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -121,6 +145,7 @@ public void addConfirmListener(java.awt.event.ActionListener listener) {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton confbtn;
+    private javax.swing.JButton confbtn1;
     private javax.swing.JLabel datelbl;
     private javax.swing.JLabel detailslbl;
     private javax.swing.JLabel type;

@@ -6,16 +6,16 @@ package view;
 
 /**
  *
- * @author ACER
+ * @author Omne
  */
-public class Update extends javax.swing.JFrame {
+public class SpecificTechnician extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Update.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(SpecificTechnician.class.getName());
 
     /**
-     * Creates new form update
+     * Creates new form SpecificTechnician
      */
-    public Update() {
+    public SpecificTechnician() {
         initComponents();
     }
 
@@ -30,21 +30,12 @@ public class Update extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        usernamebtn = new javax.swing.JTextField();
-        emailbtn = new javax.swing.JTextField();
-        updatebtn = new javax.swing.JButton();
-        logoutbtn = new javax.swing.JButton();
-        PasswordFieldbtn = new javax.swing.JPasswordField();
         jPanel6 = new javax.swing.JPanel();
         historybtn = new javax.swing.JButton();
         bookingbtn = new javax.swing.JButton();
@@ -54,6 +45,7 @@ public class Update extends javax.swing.JFrame {
         lgnbtn = new javax.swing.JButton();
         Createacc1 = new javax.swing.JLabel();
         dashbtn = new javax.swing.JButton();
+        usernotiscroll = new javax.swing.JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,44 +57,7 @@ public class Update extends javax.swing.JFrame {
         jLabel4.setBackground(new java.awt.Color(51, 51, 51));
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Edit profile");
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Update your account information");
-
-        jLabel3.setBackground(new java.awt.Color(30, 41, 59));
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Username");
-        jLabel3.setOpaque(true);
-
-        jLabel6.setBackground(new java.awt.Color(30, 41, 59));
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Email");
-        jLabel6.setOpaque(true);
-
-        jLabel10.setBackground(new java.awt.Color(30, 41, 59));
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Password");
-
-        usernamebtn.addActionListener(this::usernamebtnActionPerformed);
-
-        emailbtn.addActionListener(this::emailbtnActionPerformed);
-
-        updatebtn.setBackground(new java.awt.Color(0, 51, 153));
-        updatebtn.setForeground(new java.awt.Color(255, 255, 255));
-        updatebtn.setText(" 👤 Update Profile");
-
-        logoutbtn.setForeground(new java.awt.Color(255, 0, 51));
-        logoutbtn.setText("➜] Logout");
-        logoutbtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 22, 22)));
-        logoutbtn.addActionListener(this::logoutbtnActionPerformed);
-
-        PasswordFieldbtn.setText("jPasswordField1");
-        PasswordFieldbtn.addActionListener(this::PasswordFieldbtnActionPerformed);
+        jLabel4.setText("Choose Your Technician");
 
         jPanel6.setBackground(new java.awt.Color(30, 41, 59));
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(170, 182, 193)));
@@ -200,46 +155,32 @@ public class Update extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(usernotiscroll, javax.swing.GroupLayout.PREFERRED_SIZE, 1494, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(360, 360, 360)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel11)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(373, 373, 373)
-                                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(135, 135, 135)
-                                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(87, 87, 87)
-                                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(updatebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 835, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(366, 366, 366))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(logoutbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(emailbtn)
-                            .addComponent(PasswordFieldbtn, javax.swing.GroupLayout.DEFAULT_SIZE, 835, Short.MAX_VALUE)
-                            .addComponent(usernamebtn))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel11)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(733, 733, 733)
+                                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(135, 135, 135)
+                                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(87, 87, 87)
+                                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(1439, 1439, 1439)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(366, 366, 366))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,41 +188,24 @@ public class Update extends javax.swing.JFrame {
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
-                .addGap(0, 0, 0)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(118, 118, 118)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(usernamebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(emailbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PasswordFieldbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel11))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel20)
-                            .addComponent(jLabel23)
-                            .addComponent(jLabel24))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel8)
+                        .addGap(536, 536, 536))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(updatebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(logoutbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addComponent(usernotiscroll)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel11))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel20)
+                    .addComponent(jLabel23)
+                    .addComponent(jLabel24))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -301,17 +225,9 @@ public class Update extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void logoutbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutbtnActionPerformed
+    private void dashbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashbtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_logoutbtnActionPerformed
-
-    private void historybtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historybtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_historybtnActionPerformed
-
-    private void bookingbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookingbtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bookingbtnActionPerformed
+    }//GEN-LAST:event_dashbtnActionPerformed
 
     private void lgnbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lgnbtnActionPerformed
         // TODO add your handling code here:
@@ -321,38 +237,63 @@ public class Update extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_technicianbtnActionPerformed
 
-    private void usernamebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernamebtnActionPerformed
+    private void bookingbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookingbtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_usernamebtnActionPerformed
+    }//GEN-LAST:event_bookingbtnActionPerformed
 
-    private void emailbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailbtnActionPerformed
+    private void historybtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historybtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_emailbtnActionPerformed
+    }//GEN-LAST:event_historybtnActionPerformed
 
-    private void PasswordFieldbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordFieldbtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PasswordFieldbtnActionPerformed
+    public void addHistoryListener(java.awt.event.ActionListener l) { historybtn.addActionListener(l); }
+    public void addBookingListener(java.awt.event.ActionListener l) { bookingbtn.addActionListener(l); }
+    public void addNotificationListener(java.awt.event.ActionListener l) { notificationbtn.addActionListener(l); }
+    public void addProfileListener(java.awt.event.ActionListener l) { technicianbtn.addActionListener(l); }
+    public void addDashboardListener(java.awt.event.ActionListener l) { dashbtn.addActionListener(l); }
+    public void addLogoutListener(java.awt.event.ActionListener l) { lgnbtn.addActionListener(l); }
 
-    private void dashbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashbtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dashbtnActionPerformed
-public void addLogoutListener(java.awt.event.ActionListener listener) {
-    lgnbtn.addActionListener(listener);
-    logoutbtn.addActionListener(listener);
-}
-public void addDashboardListener(java.awt.event.ActionListener l) {
-    dashbtn.addActionListener(l);
-}
-public void addHistoryNavListener(java.awt.event.ActionListener l)      { historybtn.addActionListener(l); }
-public void addBookingNavListener(java.awt.event.ActionListener l)      { bookingbtn.addActionListener(l); }
-public void addNotificationNavListener(java.awt.event.ActionListener l) { notificationbtn.addActionListener(l); }
-public void addProfileNavListener(java.awt.event.ActionListener l)      { technicianbtn.addActionListener(l); }
-public void addUpdateListener(java.awt.event.ActionListener l)          { updatebtn.addActionListener(l); }
+    private javax.swing.JPanel listPanel;
 
-// Getters for form fields
-public String getUsernameText() { return usernamebtn.getText(); }
-public String getEmailText()    { return emailbtn.getText(); }
-public String getPasswordText() { return new String(PasswordFieldbtn.getPassword()); }
+    public void initListPanel() {
+        listPanel = new javax.swing.JPanel();
+        listPanel.setLayout(new javax.swing.BoxLayout(listPanel, javax.swing.BoxLayout.Y_AXIS));
+        listPanel.setBackground(new java.awt.Color(30, 41, 59));
+        usernotiscroll.setViewportView(listPanel);
+        usernotiscroll.setBorder(null);
+        usernotiscroll.getViewport().setBackground(new java.awt.Color(30, 41, 59));
+    }
+
+    public void setHeaderTitle(String title) {
+        jLabel4.setText(title);
+    }
+
+    public void loadTechnicians(java.util.List<model.UserData> technicians,
+                                java.util.function.Function<Integer, Boolean> checkHired,
+                                java.util.function.Consumer<model.UserData> onHire,
+                                java.util.function.Consumer<model.UserData> onReviews) {
+        listPanel.removeAll();
+        if (technicians.isEmpty()) {
+            javax.swing.JLabel empty = new javax.swing.JLabel("No technicians available right now.");
+            empty.setForeground(java.awt.Color.WHITE);
+            empty.setAlignmentX(java.awt.Component.CENTER_ALIGNMENT);
+            listPanel.add(empty);
+        } else {
+            for (model.UserData t : technicians) {
+                SpecificTechnicians card = new SpecificTechnicians();
+                card.setCardData(t.getSpecialization(), t.getUsername(), t.getEmail(), t.getAddress());
+                card.setHireButtonState(checkHired.apply(t.getId()));
+                card.addHireListener(e -> onHire.accept(t));
+                card.addReviewsListener(e -> onReviews.accept(t));
+                card.setMaximumSize(new java.awt.Dimension(Integer.MAX_VALUE, 150));
+                card.setAlignmentX(java.awt.Component.LEFT_ALIGNMENT);
+                listPanel.add(card);
+                listPanel.add(javax.swing.Box.createVerticalStrut(8));
+            }
+        }
+        listPanel.revalidate();
+        listPanel.repaint();
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -375,35 +316,27 @@ public String getPasswordText() { return new String(PasswordFieldbtn.getPassword
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new Update().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new SpecificTechnician().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Createacc1;
-    private javax.swing.JPasswordField PasswordFieldbtn;
     private javax.swing.JButton bookingbtn;
     private javax.swing.JButton dashbtn;
-    private javax.swing.JTextField emailbtn;
     private javax.swing.JButton historybtn;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JButton lgnbtn;
-    private javax.swing.JButton logoutbtn;
     private javax.swing.JButton notificationbtn;
     private javax.swing.JButton technicianbtn;
-    private javax.swing.JButton updatebtn;
-    private javax.swing.JTextField usernamebtn;
+    private javax.swing.JScrollPane usernotiscroll;
     // End of variables declaration//GEN-END:variables
 }

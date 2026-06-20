@@ -21,12 +21,13 @@ public class DashboardController {
         view.addProfileListener(e -> nav.goToProfile(view));
         view.addBookingListener(e -> nav.goToBooking(view, ""));
 
-        view.addPlumbingListener(e ->   nav.goToBooking(view, "Plumbing"));
-        view.addElectricalListener(e -> nav.goToBooking(view, "Electrical"));
-        view.addCleaningListener(e ->   nav.goToBooking(view, "Cleaning"));
-        view.addCarpentryListener(e ->  nav.goToBooking(view, "Carpentry"));
-        view.addPaintingListener(e ->   nav.goToBooking(view, "Painting"));
-        view.addACRepairListener(e ->   nav.goToBooking(view, "AC Repair"));
+        // 6 service buttons → open specific technician page with filter
+        view.addPlumbingListener(e ->   nav.goToSpecificTechnician(view, "Plumber"));
+        view.addElectricalListener(e -> nav.goToSpecificTechnician(view, "Electrician"));
+        view.addCleaningListener(e ->   nav.goToSpecificTechnician(view, "Cleaning"));
+        view.addCarpentryListener(e ->  nav.goToSpecificTechnician(view, "Carpenter"));
+        view.addPaintingListener(e ->   nav.goToSpecificTechnician(view, "Painting"));
+        view.addACRepairListener(e ->   nav.goToSpecificTechnician(view, "AC Repair"));
 
         view.addLogoutListener(e -> {
             int confirm = JOptionPane.showConfirmDialog(

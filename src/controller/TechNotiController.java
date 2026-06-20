@@ -51,5 +51,10 @@ public class TechNotiController {
             view.dispose();
             onBack.run();
         });
+        view.addProfileNavListener(e -> {
+            pollingTimer.stop();
+            view.dispose();
+            // Assuming navigation logic would go here
+        });
     }
 }

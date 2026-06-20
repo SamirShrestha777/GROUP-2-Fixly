@@ -245,6 +245,18 @@ public class updateTechnician extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void addHistoryNavListener(java.awt.event.ActionListener l) { historybtn.addActionListener(l); }
+    public void addBookingNavListener(java.awt.event.ActionListener l) { bookingbtn.addActionListener(l); }
+    public void addNotificationNavListener(java.awt.event.ActionListener l) { notificationbtn.addActionListener(l); }
+    public void addProfileNavListener(java.awt.event.ActionListener l) { technicianbtn.addActionListener(l); }
+    public void addLogoutListener(java.awt.event.ActionListener l) { logout.addActionListener(l); lgnbtn.addActionListener(l); }
+    public void addUpdateListener(java.awt.event.ActionListener l) { update.addActionListener(l); }
+
+    public String getUsernameText() { return usertext.getText(); }
+    public String getEmailText() { return emailtext.getText(); }
+    public String getPasswordText() { return new String(Passwordtext.getPassword()); }
+    public String getStatus() { return (String) cmbbx.getSelectedItem(); }
+
     private void lgnbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lgnbtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_lgnbtnActionPerformed

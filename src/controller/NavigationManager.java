@@ -70,6 +70,18 @@ public class NavigationManager {
         view.setVisible(true);
     }
 
+    public void goToSpecificTechnician(java.awt.Window current, String service) {
+        current.setVisible(false);
+        view.SpecificTechnician view = new view.SpecificTechnician();
+        new SpecificTechnicianController(view, service, () -> {
+            view.dispose();
+            goToDashboard();
+        });
+        wireNavButtons(view);
+        view.setLocationRelativeTo(null);
+        view.setVisible(true);
+    }
+
     // ── nav bar buttons ──────────────────────────────────────────
     private void wireNavButtons(Bookingpannel view) {
         view.addHistoryNavListener(e -> { view.dispose(); goToHistory(dashboard); });
@@ -97,6 +109,13 @@ public class NavigationManager {
         view.addBookingNavListener(e -> { view.dispose(); goToBooking(dashboard, ""); });
         view.addNotificationNavListener(e -> { view.dispose(); goToNotification(dashboard); });
         view.addProfileNavListener(e -> { view.dispose(); goToProfile(dashboard); });
+    }
+
+    private void wireNavButtons(view.SpecificTechnician view) {
+        view.addHistoryListener(e -> { view.dispose(); goToHistory(dashboard); });
+        view.addBookingListener(e -> { view.dispose(); goToBooking(dashboard, ""); });
+        view.addNotificationListener(e -> { view.dispose(); goToNotification(dashboard); });
+        view.addProfileListener(e -> { view.dispose(); goToProfile(dashboard); });
     }
 
     // ── dashboard button ─────────────────────────────────────────

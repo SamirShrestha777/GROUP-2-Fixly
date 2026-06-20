@@ -200,4 +200,48 @@ public class AppointmentDao {
         }
         return list;
     }
-}
+
+    public java.util.List<Appointment> getPendingAndAcceptedAppointments() {
+        java.util.List<Appointment> list = new java.util.ArrayList<>();
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "SELECT * FROM appointments WHERE status IN ('pending','accepted') ORDER BY created_at DESC";
+            ResultSet rs = conn.prepareStatement(sql).executeQuery();
+            while (rs.next()) { list.add(mapRow(rs)); }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally { mysql.closeConnection(conn); }
+        return list;
+    }
+
+    public java.util.List<Appointment> getPendingAndAcceptedByService(String serviceType) {
+        java.util.List<Appointment> list = new java.util.ArrayList<>();
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "SELECT * FROM appointments WHERE service_type = ? AND status IN ('pending','accepted') ORDER BY created_at DESC";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1, serviceType);
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) { list.add(mapRow(rs)); }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally { mysql.closeConnection(conn); }
+        return list;
+    }
+
+    private Appointment mapRow(ResultSet rs) throws Exception {
+        Appointment a = new Appointment();
+        a.setId(rs.getInt("id"));
+        a.setClientId(rs.getInt("client_id"));
+        a.setServiceType(rs.getString("service_type"));
+        a.setDate(rs.getString("date"));
+        a.setTime(rs.getString("time"));
+        a.setNotes(rs.getString("notes"));
+        a.setAddress(rs.getString("address"));
+        a.setStatus(rs.getString("status"));
+        a.setPaymentMethod(rs.getString("payment_method"));
+        // technician_id may be null if not yet accepted
+        try { a.setTechnicianId(rs.getInt("technician_id")); } catch (Exception ignored) {}
+        return a;
+    }
+}

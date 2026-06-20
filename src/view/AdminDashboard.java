@@ -394,13 +394,14 @@ public class AdminDashboard extends javax.swing.JFrame {
         technicianPanel = new javax.swing.JPanel();
         technicianPanel.setLayout(new javax.swing.BoxLayout(technicianPanel, javax.swing.BoxLayout.Y_AXIS));
         technicianPanel.setBackground(new java.awt.Color(30, 41, 59));
+        technicianPanel.setOpaque(true);
     }
 
     public void showTechnicianPanel() {
         dynamicdata.setViewportView(technicianPanel);
         dynamicdata.getViewport().setBackground(new java.awt.Color(30, 41, 59));
         dynamicdata.setBackground(new java.awt.Color(30, 41, 59));
-        dynamicdata.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 65, 85)));
+        dynamicdata.setBorder(null);
         dynamicdata.setOpaque(true);
         technicianPanel.revalidate();
         technicianPanel.repaint();
@@ -416,8 +417,13 @@ public class AdminDashboard extends javax.swing.JFrame {
         } else {
             for (model.UserData t : list) {
                 AdminTechnicianCard card = createTechnicianCard(t);
+                card.setMaximumSize(new java.awt.Dimension(Integer.MAX_VALUE, card.getPreferredSize().height));
                 technicianPanel.add(card);
-                technicianPanel.add(javax.swing.Box.createVerticalStrut(8));
+                javax.swing.Box.Filler gap = new javax.swing.Box.Filler(
+                    new java.awt.Dimension(0, 6), new java.awt.Dimension(0, 6), new java.awt.Dimension(Short.MAX_VALUE, 6));
+                gap.setBackground(new java.awt.Color(30, 41, 59));
+                gap.setOpaque(true);
+                technicianPanel.add(gap);
             }
         }
         technicianPanel.revalidate();
@@ -437,13 +443,14 @@ public class AdminDashboard extends javax.swing.JFrame {
         adminHistoryPanel = new javax.swing.JPanel();
         adminHistoryPanel.setLayout(new javax.swing.BoxLayout(adminHistoryPanel, javax.swing.BoxLayout.Y_AXIS));
         adminHistoryPanel.setBackground(new java.awt.Color(30, 41, 59));
+        adminHistoryPanel.setOpaque(true);
     }
 
     public void showAdminHistoryPanel() {
         dynamicdata.setViewportView(adminHistoryPanel);
         dynamicdata.getViewport().setBackground(new java.awt.Color(30, 41, 59));
         dynamicdata.setBackground(new java.awt.Color(30, 41, 59));
-        dynamicdata.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 65, 85)));
+        dynamicdata.setBorder(null);
         dynamicdata.setOpaque(true);
         adminHistoryPanel.revalidate();
         adminHistoryPanel.repaint();
@@ -469,7 +476,11 @@ public class AdminDashboard extends javax.swing.JFrame {
                 card.setMaximumSize(new java.awt.Dimension(Integer.MAX_VALUE, 120));
                 card.setPreferredSize(new java.awt.Dimension(card.getPreferredSize().width, 120));
                 adminHistoryPanel.add(card);
-                adminHistoryPanel.add(javax.swing.Box.createVerticalStrut(8));
+                javax.swing.Box.Filler gap = new javax.swing.Box.Filler(
+                    new java.awt.Dimension(0, 6), new java.awt.Dimension(0, 6), new java.awt.Dimension(Short.MAX_VALUE, 6));
+                gap.setBackground(new java.awt.Color(30, 41, 59));
+                gap.setOpaque(true);
+                adminHistoryPanel.add(gap);
             }
         }
         adminHistoryPanel.revalidate();

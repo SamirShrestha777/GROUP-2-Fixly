@@ -50,7 +50,9 @@ private void applyStatusColor(String status) {
         default:
             statusColor = new java.awt.Color(29, 78, 216); // default blue
     }
-    type.setBackground(statusColor);
+    // Only change text color — NOT the label background
+    type.setForeground(statusColor);
+    type.setOpaque(false); // ensure label background doesn't show
     setBorder(javax.swing.BorderFactory.createCompoundBorder(
         javax.swing.BorderFactory.createLineBorder(statusColor, 1),
         javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5)
@@ -96,8 +98,8 @@ private void applyStatusColor(String status) {
                         .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(46, 46, 46)
-                        .addComponent(detailslbl, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 724, Short.MAX_VALUE)
+                        .addComponent(detailslbl, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 581, Short.MAX_VALUE)
                 .addComponent(datelbl, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );

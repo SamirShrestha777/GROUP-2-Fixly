@@ -23,7 +23,20 @@ public class HistoryController {
 
     private void loadHistory() {
         List<Appointment> appointments = appointmentDao.getAppointmentsByUser(userId);
-        view.loadHistory(appointments, this::handlePaymentConfirmation);
+        view.loadHistory(appointments, this::handlePaymentConfirmation, this::handleReview);
+    }
+
+    private void handleReview(Appointment appointment) {
+        // technician_id must exist on the appointment (set when technician accepted)
+        int technicianId = appointment.getTechnicianId();
+        if (technicianId <= 0) {
+            javax.swing.JOptionPane.showMessageDialog(view,
+                "No technician is assigned to this job yet.", "Info",
+                javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        utils.ReviewDialog dialog = new utils.ReviewDialog(view, appointment.getId(), userId, technicianId);
+        dialog.setVisible(true);
     }
 
     private void handlePaymentConfirmation(Appointment appointment) {
