@@ -49,10 +49,16 @@ public class TechnicianApplicationCard extends javax.swing.JPanel {
         detailslbl.setForeground(new java.awt.Color(255, 255, 255));
         detailslbl.setOpaque(true);
 
+        apprvbtn.setBackground(new java.awt.Color(51, 65, 85));
+        apprvbtn.setForeground(new java.awt.Color(255, 255, 255));
         apprvbtn.setText("Approve");
 
+        decbtn.setBackground(new java.awt.Color(51, 65, 85));
+        decbtn.setForeground(new java.awt.Color(255, 255, 255));
         decbtn.setText("Decline");
 
+        certbtn.setBackground(new java.awt.Color(51, 65, 85));
+        certbtn.setForeground(new java.awt.Color(255, 255, 255));
         certbtn.setText("View Certification");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
