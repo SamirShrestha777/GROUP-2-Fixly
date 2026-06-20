@@ -153,6 +153,8 @@ public class AdminDashboard extends javax.swing.JFrame {
         HVAC.setForeground(new java.awt.Color(255, 255, 255));
         HVAC.setText("Rejected");
 
+        dynamicdata.setBackground(new java.awt.Color(30, 41, 59));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -252,7 +254,12 @@ public void initPendingPanel() {
     requestsPanel.setLayout(new javax.swing.BoxLayout(
         requestsPanel, javax.swing.BoxLayout.Y_AXIS));
     requestsPanel.setBackground(new java.awt.Color(30, 41, 59));
+    
     dynamicdata.setViewportView(requestsPanel);
+    dynamicdata.getViewport().setBackground(new java.awt.Color(30, 41, 59));
+    dynamicdata.setBackground(new java.awt.Color(30, 41, 59));
+    dynamicdata.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 65, 85)));
+    dynamicdata.setOpaque(true);
 }
 
 public void loadPendingTechnicians(java.util.List<model.UserData> list,
@@ -260,6 +267,7 @@ public void loadPendingTechnicians(java.util.List<model.UserData> list,
         java.util.function.Consumer<Integer> onReject,
         java.util.function.Consumer<Integer> onViewCertificate) {
     requestsPanel.removeAll();
+    
     if (list.isEmpty()) {
         javax.swing.JLabel empty = new javax.swing.JLabel("No pending applications.");
         empty.setForeground(java.awt.Color.WHITE);
@@ -267,10 +275,12 @@ public void loadPendingTechnicians(java.util.List<model.UserData> list,
         requestsPanel.add(empty);
     } else {
         for (model.UserData t : list) {
-            requestsPanel.add(createTechCard(t, onApprove, onReject, onViewCertificate));
-            requestsPanel.add(javax.swing.Box.createVerticalStrut(10));
+            TechnicianApplicationCard card = createTechCard(t, onApprove, onReject, onViewCertificate);
+            requestsPanel.add(card);
+            requestsPanel.add(javax.swing.Box.createVerticalStrut(8));
         }
     }
+    
     requestsPanel.revalidate();
     requestsPanel.repaint();
 }
@@ -291,6 +301,11 @@ private TechnicianApplicationCard createTechCard(model.UserData t,
     card.addApproveListener(e -> onApprove.accept(t.getId()));
     card.addDeclineListener(e -> onReject.accept(t.getId()));
     card.addViewCertificateListener(e -> onViewCertificate.accept(t.getId()));
+
+    // force the card to stretch to full panel width
+    card.setAlignmentX(java.awt.Component.LEFT_ALIGNMENT);
+    card.setMaximumSize(new java.awt.Dimension(Integer.MAX_VALUE, 100));
+    card.setPreferredSize(new java.awt.Dimension(card.getPreferredSize().width, 100));
 
     return card;
 }
