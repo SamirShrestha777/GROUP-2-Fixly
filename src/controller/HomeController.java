@@ -24,22 +24,18 @@ public class HomeController {
 
     public HomeController(HomePage homeView) {
         this.homeView = homeView;
-        
+
         homeView.addLoginListener(new LoginListener());
         homeView.addSignupListener(new SignupListener());
         homeView.addForgotPasswordListener(new ForgotPasswordListener());
+
         homeView.addTechSignupListener(e -> {
             close();
             signupfortechnician techView = new signupfortechnician();
             new TechnicianSignupController(techView, homeView);
             techView.setVisible(true);
         });
-        homeView.addTechSignupListener(e -> {
-    close();
-    signupfortechnician techView = new signupfortechnician();
-    new TechnicianSignupController(techView, homeView);
-    techView.setVisible(true);
-});
+
         setPlaceholder(homeView.getEmailField(), "Enter your email address");
 
         javax.swing.ButtonGroup roleGroup = new javax.swing.ButtonGroup();
@@ -94,10 +90,9 @@ public class HomeController {
                         Session.setEmail(email);
                         Session.setRole("admin");
                         close();
-                       close();
-AdminDashboard adminDash = new AdminDashboard();
-new AdminController(adminDash);
-adminDash.setVisible(true);
+                        AdminDashboard adminDash = new AdminDashboard();
+                        new AdminController(adminDash);
+                        adminDash.setVisible(true);
                     } else {
                         JOptionPane.showMessageDialog(homeView,
                             "Invalid admin credentials.");

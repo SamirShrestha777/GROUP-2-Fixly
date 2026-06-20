@@ -3,6 +3,7 @@ package controller;
 import dao.TechnicianDao;
 import model.UserData;
 import view.AdminDashboard;
+import view.HomePage;
 import java.util.List;
 
 public class AdminController {
@@ -49,7 +50,7 @@ public class AdminController {
         );
         if (confirm == javax.swing.JOptionPane.YES_OPTION) {
             view.dispose();
-            view.HomePage homeView = new view.HomePage();
+            HomePage homeView = new HomePage();
             new HomeController(homeView);
             homeView.setVisible(true);
         }

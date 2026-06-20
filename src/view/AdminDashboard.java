@@ -321,12 +321,14 @@ private javax.swing.JPanel createTechCard(model.UserData t,
     return card;
 }
 
-public void addLogoutListener(java.awt.event.ActionListener l) {
-    lgnbtn.addActionListener(l);
-}
 public void showCertificatePreview(String certPath) {
     new CertificatePreviewDialog(this, certPath).setVisible(true);
 }
+
+public void addLogoutListener(java.awt.event.ActionListener l) {
+    lgnbtn.addActionListener(l);
+}
+
     /**
      * @param args the command line arguments
      */
