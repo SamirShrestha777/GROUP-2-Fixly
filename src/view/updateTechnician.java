@@ -90,13 +90,13 @@ public class updateTechnician extends javax.swing.JFrame {
 
         historybtn.setBackground(new java.awt.Color(30, 41, 59));
         historybtn.setForeground(new java.awt.Color(255, 255, 255));
-        historybtn.setText("🕓   History");
+        historybtn.setText("Request");
         historybtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 65, 85)));
         historybtn.addActionListener(this::historybtnActionPerformed);
 
         bookingbtn.setBackground(new java.awt.Color(30, 41, 59));
         bookingbtn.setForeground(new java.awt.Color(255, 255, 255));
-        bookingbtn.setText("📅   Booking");
+        bookingbtn.setText("🕓   History");
         bookingbtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 65, 85)));
         bookingbtn.addActionListener(this::bookingbtnActionPerformed);
 
@@ -140,7 +140,7 @@ public class updateTechnician extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Update your account information");
+        jLabel2.setText("Update your Technician account information");
 
         username.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         username.setForeground(new java.awt.Color(255, 255, 255));
