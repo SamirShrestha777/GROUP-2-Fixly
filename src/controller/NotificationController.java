@@ -38,7 +38,7 @@ public class NotificationController {
                 String type = icon + "  " + a.getServiceType();
                 String details = "📍 " + a.getAddress() + "   🕐 " + a.getTime();
                 String date = "📅 " + a.getDate();
-                notifications.add(new String[]{type, details, date});
+                notifications.add(new String[]{type, details, date, a.getStatus()});
             }
         } else if ("technician".equals(role)) {
             String specialization = Session.getSpecialization();
@@ -47,7 +47,7 @@ public class NotificationController {
                 String type = "🔔  New " + a.getServiceType() + " Request";
                 String details = "📍 " + a.getAddress() + "   🕐 " + a.getTime();
                 String date = "📅 " + a.getDate();
-                notifications.add(new String[]{type, details, date});
+                notifications.add(new String[]{type, details, date, a.getStatus()});
             }
         }
 

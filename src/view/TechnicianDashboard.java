@@ -291,6 +291,10 @@ private javax.swing.JLabel makeLabel(String text, boolean bold) {
 public void addLogoutListener(java.awt.event.ActionListener l) {
     lgnbtn.addActionListener(l);
 }
+
+public void addNotificationNavListener(java.awt.event.ActionListener l) {
+    notificationbtn.addActionListener(l);
+}
     // optional: update a label on the dashboard
     // lblWelcome.setText("Welcome, " + username);
 

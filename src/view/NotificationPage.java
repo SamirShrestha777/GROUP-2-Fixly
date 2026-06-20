@@ -271,8 +271,8 @@ public void loadNotifications(java.util.List<String[]> notifications) {
         notificationPanel.add(empty);
     } else {
         for (String[] n : notifications) {
-            NotificationCard card = new NotificationCard(n[0], n[1], n[2]);
-            card.setMaximumSize(new java.awt.Dimension(Integer.MAX_VALUE, 110));
+NotificationCard card = new NotificationCard(n[0], n[1], n[2], n[3]);
+card.setMaximumSize(new java.awt.Dimension(Integer.MAX_VALUE, 110));
             card.setAlignmentX(java.awt.Component.LEFT_ALIGNMENT);
             notificationPanel.add(card);
             notificationPanel.add(javax.swing.Box.createVerticalStrut(10));

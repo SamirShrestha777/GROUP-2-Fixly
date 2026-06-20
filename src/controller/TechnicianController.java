@@ -12,15 +12,19 @@ import javax.swing.Timer;
 public class TechnicianController {
     private final TechnicianDashboard view;
     private final AppointmentDao appointmentDao;
+    private final TechnicianNavigationManager nav;
     private Timer pollingTimer;
 
     public TechnicianController(TechnicianDashboard view) {
         this.view = view;
         this.appointmentDao = new AppointmentDao();
+        this.nav = new TechnicianNavigationManager(view);
+
         view.initRequestsPanel();
         loadPendingAppointments();
         startPolling();
         wireButtons();
+        wireNavButtons();
     }
 
     private void loadPendingAppointments() {
@@ -48,6 +52,10 @@ public class TechnicianController {
                 homeView.setVisible(true);
             }
         });
+    }
+
+    private void wireNavButtons() {
+        view.addNotificationNavListener(e -> nav.goToNotifications(view));
     }
 
     public void open() {
