@@ -40,9 +40,10 @@ public class TechNoti extends javax.swing.JFrame {
         technicianbtn = new javax.swing.JButton();
         notification = new javax.swing.JLabel();
         all = new javax.swing.JButton();
-        update = new javax.swing.JButton();
-        alerts = new javax.swing.JButton();
+        app = new javax.swing.JButton();
+        Declined = new javax.swing.JButton();
         scrollpanel = new javax.swing.JScrollPane();
+        Pending = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -138,16 +139,21 @@ public class TechNoti extends javax.swing.JFrame {
         all.setForeground(new java.awt.Color(255, 255, 255));
         all.setText("All");
 
-        update.setBackground(new java.awt.Color(30, 41, 59));
-        update.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        update.setForeground(new java.awt.Color(255, 255, 255));
-        update.setText("Update");
-        update.addActionListener(this::updateActionPerformed);
+        app.setBackground(new java.awt.Color(30, 41, 59));
+        app.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        app.setForeground(new java.awt.Color(255, 255, 255));
+        app.setText("Apporved");
+        app.addActionListener(this::appActionPerformed);
 
-        alerts.setBackground(new java.awt.Color(30, 41, 59));
-        alerts.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        alerts.setForeground(new java.awt.Color(252, 252, 252));
-        alerts.setText("Alerts");
+        Declined.setBackground(new java.awt.Color(30, 41, 59));
+        Declined.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        Declined.setForeground(new java.awt.Color(252, 252, 252));
+        Declined.setText("Declined");
+
+        Pending.setBackground(new java.awt.Color(30, 41, 59));
+        Pending.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        Pending.setForeground(new java.awt.Color(252, 252, 252));
+        Pending.setText("Pending");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -161,12 +167,14 @@ public class TechNoti extends javax.swing.JFrame {
                         .addGap(52, 52, 52)
                         .addComponent(scrollpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1429, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(637, 637, 637)
+                        .addGap(621, 621, 621)
                         .addComponent(all, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(update)
                         .addGap(18, 18, 18)
-                        .addComponent(alerts))
+                        .addComponent(app)
+                        .addGap(18, 18, 18)
+                        .addComponent(Pending)
+                        .addGap(18, 18, 18)
+                        .addComponent(Declined))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(645, 645, 645)
                         .addComponent(notification, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -176,18 +184,19 @@ public class TechNoti extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(notification, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(notification, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 720, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(all, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(update, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(alerts, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                            .addComponent(app, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Pending, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Declined, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
                         .addComponent(scrollpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -221,9 +230,9 @@ public class TechNoti extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_bookingbtnActionPerformed
 
-    private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
+    private void appActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_updateActionPerformed
+    }//GEN-LAST:event_appActionPerformed
 private javax.swing.JPanel notiPanel;
 
 public void initNotificationPanel() {
@@ -263,6 +272,11 @@ public void addHistoryNavListener(java.awt.event.ActionListener l)      { histor
 public void addBookingNavListener(java.awt.event.ActionListener l)      { bookingbtn.addActionListener(l); }
 public void addNotificationNavListener(java.awt.event.ActionListener l) { notificationbtn.addActionListener(l); }
 public void addProfileNavListener(java.awt.event.ActionListener l)      { technicianbtn.addActionListener(l); }
+
+public void addAllFilterListener(java.awt.event.ActionListener l)       { all.addActionListener(l); }
+public void addApprovedFilterListener(java.awt.event.ActionListener l)  { app.addActionListener(l); }
+public void addDeclinedFilterListener(java.awt.event.ActionListener l)  { Declined.addActionListener(l); }
+public void addPendingFilterListener(java.awt.event.ActionListener l)   { Pending.addActionListener(l); }
     /**
      * @param args the command line arguments
      */
@@ -290,8 +304,10 @@ public void addProfileNavListener(java.awt.event.ActionListener l)      { techni
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Createacc1;
-    private javax.swing.JButton alerts;
+    private javax.swing.JButton Declined;
+    private javax.swing.JButton Pending;
     private javax.swing.JButton all;
+    private javax.swing.JButton app;
     private javax.swing.JButton bookingbtn;
     private javax.swing.JButton historybtn;
     private javax.swing.JPanel jPanel2;
@@ -302,6 +318,5 @@ public void addProfileNavListener(java.awt.event.ActionListener l)      { techni
     private javax.swing.JButton notificationbtn;
     private javax.swing.JScrollPane scrollpanel;
     private javax.swing.JButton technicianbtn;
-    private javax.swing.JButton update;
     // End of variables declaration//GEN-END:variables
 }

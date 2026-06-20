@@ -44,9 +44,10 @@ public class NotificationPage extends javax.swing.JFrame {
         notificationbtn = new javax.swing.JButton();
         technicianbtn = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        declined = new javax.swing.JButton();
+        pending = new javax.swing.JButton();
         usernotiscroll = new javax.swing.JScrollPane();
+        comp1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -153,18 +154,26 @@ public class NotificationPage extends javax.swing.JFrame {
         jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(59, 75, 124)));
         jButton1.addActionListener(this::jButton1ActionPerformed);
 
-        jButton2.setBackground(new java.awt.Color(30, 41, 59));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Alerts");
-        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(59, 75, 124)));
+        declined.setBackground(new java.awt.Color(30, 41, 59));
+        declined.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        declined.setForeground(new java.awt.Color(255, 255, 255));
+        declined.setText("Declined");
+        declined.setToolTipText("");
+        declined.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(59, 75, 124)));
 
-        jButton3.setBackground(new java.awt.Color(30, 41, 59));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Updates");
-        jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(59, 75, 124)));
-        jButton3.addActionListener(this::jButton3ActionPerformed);
+        pending.setBackground(new java.awt.Color(30, 41, 59));
+        pending.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pending.setForeground(new java.awt.Color(255, 255, 255));
+        pending.setText("Pending");
+        pending.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(59, 75, 124)));
+        pending.addActionListener(this::pendingActionPerformed);
+
+        comp1.setBackground(new java.awt.Color(30, 41, 59));
+        comp1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        comp1.setForeground(new java.awt.Color(255, 255, 255));
+        comp1.setText("Completed");
+        comp1.setToolTipText("");
+        comp1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(59, 75, 124)));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -180,11 +189,13 @@ public class NotificationPage extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 729, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(33, 33, 33)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(27, 27, 27)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(437, 437, 437)
+                                .addGap(18, 18, 18)
+                                .addComponent(comp1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(declined, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(pending, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(351, 351, 351)
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
@@ -202,8 +213,9 @@ public class NotificationPage extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(comp1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(declined, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pending, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(jLabel5)))
@@ -241,9 +253,9 @@ public class NotificationPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_bookingbtnActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void pendingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pendingActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_pendingActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -259,6 +271,11 @@ public void addHistoryNavListener(java.awt.event.ActionListener l)      { histor
 public void addBookingNavListener(java.awt.event.ActionListener l)      { bookingbtn.addActionListener(l); }
 public void addNotificationNavListener(java.awt.event.ActionListener l) { notificationbtn.addActionListener(l); }
 public void addProfileNavListener(java.awt.event.ActionListener l)      { technicianbtn.addActionListener(l); }
+
+public void addAllFilterListener(java.awt.event.ActionListener l)       { jButton1.addActionListener(l); }
+public void addCompletedFilterListener(java.awt.event.ActionListener l) { comp1.addActionListener(l); }
+public void addDeclinedFilterListener(java.awt.event.ActionListener l)  { declined.addActionListener(l); }
+public void addPendingFilterListener(java.awt.event.ActionListener l)   { pending.addActionListener(l); }
     /**
      * @param args the command line arguments
      */
@@ -321,11 +338,11 @@ public void addDashboardListener(java.awt.event.ActionListener l) {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Createacc1;
     private javax.swing.JButton bookingbtn;
+    private javax.swing.JButton comp1;
     private javax.swing.JButton dashbtn;
+    private javax.swing.JButton declined;
     private javax.swing.JButton historybtn;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
@@ -333,6 +350,7 @@ public void addDashboardListener(java.awt.event.ActionListener l) {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JButton lgnbtn;
     private javax.swing.JButton notificationbtn;
+    private javax.swing.JButton pending;
     private javax.swing.JButton technicianbtn;
     private javax.swing.JScrollPane usernotiscroll;
     // End of variables declaration//GEN-END:variables

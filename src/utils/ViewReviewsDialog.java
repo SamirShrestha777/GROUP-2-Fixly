@@ -103,7 +103,7 @@ public class ViewReviewsDialog extends JDialog {
         card.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(new Color(71, 85, 105), 1),
                 BorderFactory.createEmptyBorder(12, 16, 12, 16)));
-        card.setMaximumSize(new Dimension(Integer.MAX_VALUE, 120));
+        card.setMaximumSize(new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
         card.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         JLabel stars = new JLabel(getStars(r.getRating()));

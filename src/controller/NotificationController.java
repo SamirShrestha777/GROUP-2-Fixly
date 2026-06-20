@@ -14,6 +14,7 @@ public class NotificationController {
     private final Runnable onBack;
     private final AppointmentDao appointmentDao;
     private Timer pollingTimer;
+    private String currentFilter = "All";
 
     public NotificationController(NotificationPage view, int userId, Runnable onBack) {
         this.view           = view;
@@ -34,19 +35,20 @@ public class NotificationController {
         if ("client".equals(role)) {
             List<Appointment> appointments = appointmentDao.getAppointmentsByUser(userId);
             for (Appointment a : appointments) {
-                String icon = getStatusIcon(a.getStatus());
-                String type = icon + "  " + a.getServiceType();
-                String details = "📍 " + a.getAddress() + "   🕐 " + a.getTime();
-                String date = "📅 " + a.getDate();
+                if (!matchesFilter(a.getStatus())) continue;
+                String type = a.getServiceType() + " (" + a.getStatus().toUpperCase() + ")";
+                String details = a.getAddress() + "   " + a.getTime();
+                String date = a.getDate();
                 notifications.add(new String[]{type, details, date, a.getStatus()});
             }
         } else if ("technician".equals(role)) {
             String specialization = Session.getSpecialization();
             List<Appointment> jobs = appointmentDao.getPendingAppointmentsByService(specialization);
             for (Appointment a : jobs) {
-                String type = "🔔  New " + a.getServiceType() + " Request";
-                String details = "📍 " + a.getAddress() + "   🕐 " + a.getTime();
-                String date = "📅 " + a.getDate();
+                if (!matchesFilter(a.getStatus())) continue;
+                String type = "New " + a.getServiceType() + " Request";
+                String details = a.getAddress() + "   " + a.getTime();
+                String date = a.getDate();
                 notifications.add(new String[]{type, details, date, a.getStatus()});
             }
         }
@@ -54,14 +56,9 @@ public class NotificationController {
         view.loadNotifications(notifications);
     }
 
-    private String getStatusIcon(String status) {
-        switch (status) {
-            case "pending":   return "⏳";
-            case "accepted":  return "✅";
-            case "completed": return "🎉";
-            case "paid":      return "💰";
-            default:          return "🔔";
-        }
+    private boolean matchesFilter(String status) {
+        if ("All".equals(currentFilter)) return true;
+        return currentFilter.equalsIgnoreCase(status);
     }
 
     private void startPolling() {
@@ -84,6 +81,11 @@ public class NotificationController {
                 homeView.setVisible(true);
             }
         });
+
+        view.addAllFilterListener(e -> { currentFilter = "All"; loadNotifications(); });
+        view.addCompletedFilterListener(e -> { currentFilter = "completed"; loadNotifications(); });
+        view.addDeclinedFilterListener(e -> { currentFilter = "declined"; loadNotifications(); });
+        view.addPendingFilterListener(e -> { currentFilter = "pending"; loadNotifications(); });
     }
 
     public void open() {

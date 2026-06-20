@@ -23,7 +23,7 @@ public class SpecificTechnicianController {
 
         view.initListPanel();
         String title = specialization == null || specialization.isEmpty() ? "All Technicians" : specialization + " Technicians";
-        view.setHeaderTitle("🔧 " + title);
+        view.setHeaderTitle(title);
 
         wireButtons();
         loadTechnicians();

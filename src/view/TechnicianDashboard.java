@@ -264,12 +264,12 @@ public void initRequestsPanel() {
     jScrollPane1.setBorder(null);
     jScrollPane1.getViewport().setBackground(new java.awt.Color(30, 41, 59));
     jScrollPane1.setViewportView(requestsPanel);
-    Verifyrequest.setText("📋 Pending Requests");
+    Verifyrequest.setText("Pending Requests");
 }
 
 public void showRequestPanel() {
     jScrollPane1.setViewportView(requestsPanel);
-    Verifyrequest.setText("📋 Pending Requests");
+    Verifyrequest.setText("Pending Requests");
     requestsPanel.revalidate();
     requestsPanel.repaint();
 }
@@ -322,7 +322,7 @@ public void initHistoryPanel() {
 
 public void showHistoryPanel() {
     jScrollPane1.setViewportView(historyPanel);
-    Verifyrequest.setText("🕓 Job History");
+    Verifyrequest.setText("Job History");
     historyPanel.revalidate();
     historyPanel.repaint();
 }

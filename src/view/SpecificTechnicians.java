@@ -15,6 +15,23 @@ public class SpecificTechnicians extends javax.swing.JPanel {
      */
     public SpecificTechnicians() {
         initComponents();
+
+        // Fix: make jPanel1 fill the full width of this panel
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE,
+                    javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE,
+                    javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        // Fix: make jPanel1 itself stretch horizontally
+        jPanel1.setPreferredSize(null); // remove hardcoded preferred size
     }
 
     /**

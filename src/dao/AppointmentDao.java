@@ -229,6 +229,21 @@ public class AppointmentDao {
         return list;
     }
 
+    public java.util.List<Appointment> getAllAppointmentsByService(String serviceType) {
+        java.util.List<Appointment> list = new java.util.ArrayList<>();
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "SELECT * FROM appointments WHERE service_type = ? ORDER BY created_at DESC";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1, serviceType);
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) { list.add(mapRow(rs)); }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally { mysql.closeConnection(conn); }
+        return list;
+    }
+
     private Appointment mapRow(ResultSet rs) throws Exception {
         Appointment a = new Appointment();
         a.setId(rs.getInt("id"));

@@ -13,6 +13,7 @@ public class TechNotiController {
     private final AppointmentDao appointmentDao;
     private final Runnable onBack;
     private Timer pollingTimer;
+    private String currentFilter = "All";
 
     public TechNotiController(TechNoti view, int technicianId, Runnable onBack) {
         this.view           = view;
@@ -27,17 +28,28 @@ public class TechNotiController {
 
     private void loadNotifications() {
         String specialization = Session.getSpecialization();
-        List<Appointment> jobs = appointmentDao.getPendingAppointmentsByService(specialization);
+        // Fetch all appointments for the technician's service to support filtering by all statuses
+        List<Appointment> jobs = appointmentDao.getAllAppointmentsByService(specialization);
         List<String[]> notifications = new ArrayList<>();
 
         for (Appointment a : jobs) {
-            String type = "🔔  New " + a.getServiceType() + " Request";
-            String details = "📍 " + a.getAddress() + "   🕐 " + a.getTime();
-            String date = "📅 " + a.getDate();
+            if (!matchesFilter(a.getStatus())) continue;
+            
+            String type = "New " + a.getServiceType() + " Request (" + a.getStatus().toUpperCase() + ")";
+            String details = a.getAddress() + "   " + a.getTime();
+            String date = a.getDate();
             notifications.add(new String[]{type, details, date, a.getStatus()});
         }
 
         view.loadNotifications(notifications);
+    }
+
+    private boolean matchesFilter(String status) {
+        if ("All".equals(currentFilter)) return true;
+        if ("Pending".equals(currentFilter)) return "pending".equalsIgnoreCase(status);
+        if ("Approved".equals(currentFilter)) return "accepted".equalsIgnoreCase(status);
+        if ("Declined".equals(currentFilter)) return "declined".equalsIgnoreCase(status);
+        return true;
     }
 
     private void startPolling() {
@@ -56,5 +68,10 @@ public class TechNotiController {
             view.dispose();
             // Assuming navigation logic would go here
         });
+
+        view.addAllFilterListener(e -> { currentFilter = "All"; loadNotifications(); });
+        view.addApprovedFilterListener(e -> { currentFilter = "Approved"; loadNotifications(); });
+        view.addDeclinedFilterListener(e -> { currentFilter = "Declined"; loadNotifications(); });
+        view.addPendingFilterListener(e -> { currentFilter = "Pending"; loadNotifications(); });
     }
 }

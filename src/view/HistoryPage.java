@@ -42,10 +42,6 @@ public class HistoryPage extends javax.swing.JFrame {
         notificationbtn = new javax.swing.JButton();
         technicianbtn = new javax.swing.JButton();
         History = new javax.swing.JLabel();
-        All = new javax.swing.JButton();
-        payment = new javax.swing.JButton();
-        Services = new javax.swing.JButton();
-        Booking = new javax.swing.JButton();
         thescrollbar = new javax.swing.JScrollBar();
         scroolpane = new javax.swing.JScrollPane();
 
@@ -141,25 +137,9 @@ public class HistoryPage extends javax.swing.JFrame {
             .addComponent(technicianbtn, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
         );
 
-        History.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        History.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         History.setForeground(new java.awt.Color(255, 255, 255));
         History.setText("History");
-
-        All.setBackground(new java.awt.Color(30, 41, 59));
-        All.setForeground(new java.awt.Color(255, 255, 255));
-        All.setText("All");
-
-        payment.setBackground(new java.awt.Color(30, 41, 59));
-        payment.setForeground(new java.awt.Color(255, 255, 255));
-        payment.setText("Payments");
-
-        Services.setBackground(new java.awt.Color(30, 41, 59));
-        Services.setForeground(new java.awt.Color(255, 255, 255));
-        Services.setText("Services");
-
-        Booking.setBackground(new java.awt.Color(30, 41, 59));
-        Booking.setForeground(new java.awt.Color(255, 255, 255));
-        Booking.setText("Bookings");
 
         scroolpane.setBackground(new java.awt.Color(51, 65, 85));
         scroolpane.setBorder(null);
@@ -174,17 +154,10 @@ public class HistoryPage extends javax.swing.JFrame {
             .addGroup(whitebgLayout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(whitebgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(scroolpane, javax.swing.GroupLayout.PREFERRED_SIZE, 1497, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(whitebgLayout.createSequentialGroup()
-                        .addGroup(whitebgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(History)
-                            .addComponent(All))
-                        .addGap(29, 29, 29)
-                        .addComponent(Booking)
-                        .addGap(29, 29, 29)
-                        .addComponent(payment)
-                        .addGap(29, 29, 29)
-                        .addComponent(Services))
-                    .addComponent(scroolpane, javax.swing.GroupLayout.PREFERRED_SIZE, 1497, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(9, 9, 9)
+                        .addComponent(History)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addComponent(thescrollbar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -196,14 +169,8 @@ public class HistoryPage extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(whitebgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(whitebgLayout.createSequentialGroup()
-                        .addComponent(History)
-                        .addGap(27, 27, 27)
-                        .addGroup(whitebgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(All)
-                            .addComponent(payment)
-                            .addComponent(Services)
-                            .addComponent(Booking))
-                        .addGap(49, 49, 49)
+                        .addComponent(History, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(70, 70, 70)
                         .addComponent(scroolpane, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 9, Short.MAX_VALUE))
                     .addComponent(thescrollbar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -319,17 +286,13 @@ public void addDashboardListener(java.awt.event.ActionListener l) {
         java.awt.EventQueue.invokeLater(() -> new HistoryPage().setVisible(true));
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton All;
-    private javax.swing.JButton Booking;
     private javax.swing.JLabel Createacc1;
     private javax.swing.JLabel History;
-    private javax.swing.JButton Services;
     private javax.swing.JButton bookingbtn;
     private javax.swing.JButton dashbtn;
     private javax.swing.JButton historybtn;
     private javax.swing.JButton lgnbtn;
     private javax.swing.JButton notificationbtn;
-    private javax.swing.JButton payment;
     private javax.swing.JScrollPane scroolpane;
     private javax.swing.JPanel sidepanel;
     private javax.swing.JButton technicianbtn;
