@@ -18,20 +18,41 @@ public class AdminController {
         view.initPendingPanel();
         view.initMonitorPanel();
         view.initTechnicianPanel();
+        view.initAdminHistoryPanel();
         view.addLogoutListener(e -> handleLogout());
         view.addVerifyNavListener(e -> {
             view.showVerifyPanel();
+            view.setFilterButtonsVisible(false);
             loadPending();
         });
         view.addMonitorNavListener(e -> {
             view.showMonitorPanel();
+            view.setFilterButtonsVisible(false);
             loadPendingPayments();
         });
         view.addTechnicianNavListener(e -> {
             view.showTechnicianPanel();
+            view.setFilterButtonsVisible(false);
             loadTechnicians();
         });
+        view.addHistoryNavListener(e -> {
+            view.showAdminHistoryPanel();
+            view.setFilterButtonsVisible(true);
+            loadAdminHistory("all");
+        });
+        
+        view.addFilterAllListener(e -> loadAdminHistory("all"));
+        view.addFilterPendingListener(e -> loadAdminHistory("pending"));
+        view.addFilterApprovedListener(e -> loadAdminHistory("approved"));
+        view.addFilterRejectedListener(e -> loadAdminHistory("rejected"));
+
+        view.setFilterButtonsVisible(false);
         loadPending();
+    }
+
+    private void loadAdminHistory(String status) {
+        List<UserData> history = techDao.getTechniciansByApplicationStatus(status);
+        view.loadAdminHistory(history);
     }
 
     private void loadPending() {
@@ -122,6 +143,7 @@ public class AdminController {
                 view, "Are you sure you want to logout?",
                 "Logout", javax.swing.JOptionPane.YES_NO_OPTION);
         if (confirm == javax.swing.JOptionPane.YES_OPTION) {
+            utils.Session.clear();
             view.dispose();
             HomePage homeView = new HomePage();
             new HomeController(homeView);

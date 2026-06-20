@@ -548,4 +548,35 @@ public class TechnicianDao {
             mysql.closeConnection(conn);
         }
     }
+    public List<UserData> getTechniciansByApplicationStatus(String status) {
+        List<UserData> list = new ArrayList<>();
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "SELECT * FROM technicians";
+            if (status != null && !status.equalsIgnoreCase("all")) {
+                sql += " WHERE status = ?";
+            }
+            try (PreparedStatement pstm = conn.prepareStatement(sql)) {
+                if (status != null && !status.equalsIgnoreCase("all")) {
+                    pstm.setString(1, status.toLowerCase());
+                }
+                ResultSet rs = pstm.executeQuery();
+                while (rs.next()) {
+                    UserData u = new UserData();
+                    u.setId(rs.getInt("id"));
+                    u.setUsername(rs.getString("username"));
+                    u.setEmail(rs.getString("email"));
+                    u.setSpecialization(rs.getString("specialization"));
+                    u.setCertificationPath(rs.getString("certification_path"));
+                    u.setAccountStatus(rs.getString("status")); // reusing account status field to carry application status
+                    list.add(u);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error fetching technicians by application status: " + e.getMessage());
+        } finally {
+            mysql.closeConnection(conn);
+        }
+        return list;
+    }
 }

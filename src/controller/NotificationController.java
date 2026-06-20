@@ -70,10 +70,19 @@ public class NotificationController {
     }
 
     private void wireButtons() {
-        view.addBackListener(e -> {
-            pollingTimer.stop();
-            view.dispose();
-            onBack.run();
+        view.addLogoutListener(e -> {
+            int confirm = javax.swing.JOptionPane.showConfirmDialog(
+                view, "Are you sure you want to logout?",
+                "Logout", javax.swing.JOptionPane.YES_NO_OPTION
+            );
+            if (confirm == javax.swing.JOptionPane.YES_OPTION) {
+                if (pollingTimer != null) pollingTimer.stop();
+                Session.clear();
+                view.dispose();
+                view.HomePage homeView = new view.HomePage();
+                new HomeController(homeView);
+                homeView.setVisible(true);
+            }
         });
     }
 

@@ -252,7 +252,7 @@ public class NotificationPage extends javax.swing.JFrame {
     private void dashbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashbtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_dashbtnActionPerformed
-public void addBackListener(java.awt.event.ActionListener listener) {
+public void addLogoutListener(java.awt.event.ActionListener listener) {
     lgnbtn.addActionListener(listener);
 }
 public void addHistoryNavListener(java.awt.event.ActionListener l)      { historybtn.addActionListener(l); }

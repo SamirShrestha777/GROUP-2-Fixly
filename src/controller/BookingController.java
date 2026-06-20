@@ -28,9 +28,18 @@ public class BookingController {
         }
 
         view.addConfirmListener(e -> handleBooking());
-        view.addBackListener(e -> {
-            view.dispose();
-            onBack.run();
+        view.addLogoutListener(e -> {
+            int confirm = JOptionPane.showConfirmDialog(
+                view, "Are you sure you want to logout?",
+                "Logout", JOptionPane.YES_NO_OPTION
+            );
+            if (confirm == JOptionPane.YES_OPTION) {
+                Session.clear();
+                view.dispose();
+                HomePage homeView = new HomePage();
+                new HomeController(homeView);
+                homeView.setVisible(true);
+            }
         });
     }
 

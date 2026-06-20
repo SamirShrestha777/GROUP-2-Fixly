@@ -380,7 +380,10 @@ public class AdminDashboard extends javax.swing.JFrame {
         card.addApproveListener(e -> onApprove.accept(a.getId()));
         card.addDeclineListener(e -> onReject.accept(a.getId()));
         card.addProvideProofListener(e -> onViewProof.accept(a.getId()));
+        
         card.setAlignmentX(java.awt.Component.LEFT_ALIGNMENT);
+        card.setMaximumSize(new java.awt.Dimension(Integer.MAX_VALUE, 120));
+        card.setPreferredSize(new java.awt.Dimension(card.getPreferredSize().width, 120));
 
         return card;
     }
@@ -428,6 +431,64 @@ public class AdminDashboard extends javax.swing.JFrame {
         return card;
     }
 
+    private javax.swing.JPanel adminHistoryPanel;
+
+    public void initAdminHistoryPanel() {
+        adminHistoryPanel = new javax.swing.JPanel();
+        adminHistoryPanel.setLayout(new javax.swing.BoxLayout(adminHistoryPanel, javax.swing.BoxLayout.Y_AXIS));
+        adminHistoryPanel.setBackground(new java.awt.Color(30, 41, 59));
+    }
+
+    public void showAdminHistoryPanel() {
+        dynamicdata.setViewportView(adminHistoryPanel);
+        dynamicdata.getViewport().setBackground(new java.awt.Color(30, 41, 59));
+        dynamicdata.setBackground(new java.awt.Color(30, 41, 59));
+        dynamicdata.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 65, 85)));
+        dynamicdata.setOpaque(true);
+        adminHistoryPanel.revalidate();
+        adminHistoryPanel.repaint();
+    }
+
+    public void loadAdminHistory(java.util.List<model.UserData> list) {
+        adminHistoryPanel.removeAll();
+        if (list.isEmpty()) {
+            javax.swing.JLabel empty = new javax.swing.JLabel("No history found.");
+            empty.setForeground(java.awt.Color.WHITE);
+            empty.setAlignmentX(java.awt.Component.CENTER_ALIGNMENT);
+            adminHistoryPanel.add(empty);
+        } else {
+            for (model.UserData t : list) {
+                AdminHistoryCard card = new AdminHistoryCard();
+                card.setCardData(
+                    t.getSpecialization(), 
+                    t.getEmail(), 
+                    t.getAccountStatus() != null ? t.getAccountStatus() : "Unknown", 
+                    t.getUsername()
+                );
+                card.setAlignmentX(java.awt.Component.LEFT_ALIGNMENT);
+                card.setMaximumSize(new java.awt.Dimension(Integer.MAX_VALUE, 120));
+                card.setPreferredSize(new java.awt.Dimension(card.getPreferredSize().width, 120));
+                adminHistoryPanel.add(card);
+                adminHistoryPanel.add(javax.swing.Box.createVerticalStrut(8));
+            }
+        }
+        adminHistoryPanel.revalidate();
+        adminHistoryPanel.repaint();
+    }
+
+    public void setFilterButtonsVisible(boolean visible) {
+        All.setVisible(visible);
+        Plumbing.setVisible(visible);
+        Electrical.setVisible(visible);
+        HVAC.setVisible(visible);
+        Availablerequest.setVisible(visible);
+    }
+
+    public void addFilterAllListener(java.awt.event.ActionListener l) { All.addActionListener(l); }
+    public void addFilterPendingListener(java.awt.event.ActionListener l) { Plumbing.addActionListener(l); }
+    public void addFilterApprovedListener(java.awt.event.ActionListener l) { Electrical.addActionListener(l); }
+    public void addFilterRejectedListener(java.awt.event.ActionListener l) { HVAC.addActionListener(l); }
+
     public void addVerifyNavListener(java.awt.event.ActionListener l) {
         historybtn.addActionListener(l);
     }
@@ -438,6 +499,10 @@ public class AdminDashboard extends javax.swing.JFrame {
 
     public void addTechnicianNavListener(java.awt.event.ActionListener l) {
         notificationbtn.addActionListener(l);
+    }
+    
+    public void addHistoryNavListener(java.awt.event.ActionListener l) {
+        technicianbtn.addActionListener(l);
     }
 
     public void addLogoutListener(java.awt.event.ActionListener l) {

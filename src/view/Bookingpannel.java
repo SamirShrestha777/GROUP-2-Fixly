@@ -368,7 +368,7 @@ public void setServiceType(String serviceType) {
     cmbServiceType.setSelectedItem(serviceType);
 }
 
-public void addBackListener(java.awt.event.ActionListener listener) {
+public void addLogoutListener(java.awt.event.ActionListener listener) {
     lgnbtn.addActionListener(listener);
 }
 public void addHistoryNavListener(java.awt.event.ActionListener l)      { historybtn.addActionListener(l); }
