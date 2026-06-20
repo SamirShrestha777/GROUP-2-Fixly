@@ -9,6 +9,7 @@ public class Review {
     private String comment;
     private String createdAt;
     private String clientName;
+    private String technicianName;
 
     public int getId()             { return id; }
     public void setId(int id)      { this.id = id; }
@@ -33,4 +34,7 @@ public class Review {
 
     public String getClientName()                  { return clientName; }
     public void setClientName(String clientName)   { this.clientName = clientName; }
+
+    public String getTechnicianName()                      { return technicianName; }
+    public void setTechnicianName(String technicianName)   { this.technicianName = technicianName; }
 }

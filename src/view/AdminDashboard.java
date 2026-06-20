@@ -495,6 +495,91 @@ public class AdminDashboard extends javax.swing.JFrame {
         Availablerequest.setVisible(visible);
     }
 
+    private String currentMode = "";
+
+    public String getCurrentMode() {
+        return currentMode;
+    }
+
+    public void setCurrentMode(String currentMode) {
+        this.currentMode = currentMode;
+    }
+
+    public void configureForHistoryMode() {
+        setCurrentMode("history");
+        setFilterButtonsVisible(true);
+        All.setText("All");
+        Plumbing.setText("Pending");
+        Electrical.setText("Approved");
+        HVAC.setText("Rejected");
+        Availablerequest.setText("History Filters");
+    }
+
+    public void configureForMonitorMode() {
+        setCurrentMode("monitor");
+        All.setVisible(true);
+        Plumbing.setVisible(true);
+        Electrical.setVisible(false);
+        HVAC.setVisible(false);
+        Availablerequest.setVisible(true);
+        
+        All.setText("Pending Payments");
+        Plumbing.setText("Reviews");
+        Availablerequest.setText("Monitor Options");
+    }
+
+    private javax.swing.JPanel reviewsPanel;
+
+    public void initReviewsPanel() {
+        reviewsPanel = new javax.swing.JPanel();
+        reviewsPanel.setLayout(new javax.swing.BoxLayout(reviewsPanel, javax.swing.BoxLayout.Y_AXIS));
+        reviewsPanel.setBackground(new java.awt.Color(30, 41, 59));
+        reviewsPanel.setOpaque(true);
+    }
+
+    public void showReviewsPanel() {
+        dynamicdata.setViewportView(reviewsPanel);
+        dynamicdata.getViewport().setBackground(new java.awt.Color(30, 41, 59));
+        dynamicdata.setBackground(new java.awt.Color(30, 41, 59));
+        dynamicdata.setBorder(null);
+        dynamicdata.setOpaque(true);
+        reviewsPanel.revalidate();
+        reviewsPanel.repaint();
+    }
+
+    public void loadReviews(java.util.List<model.Review> list,
+            java.util.function.Consumer<Integer> onDelete) {
+        reviewsPanel.removeAll();
+        if (list.isEmpty()) {
+            javax.swing.JLabel empty = new javax.swing.JLabel("No reviews found.");
+            empty.setForeground(java.awt.Color.WHITE);
+            empty.setAlignmentX(java.awt.Component.CENTER_ALIGNMENT);
+            reviewsPanel.add(empty);
+        } else {
+            for (model.Review r : list) {
+                AdminReviewCard card = new AdminReviewCard();
+                card.setCardData(
+                    r.getClientName() != null ? r.getClientName() : "Unknown Client",
+                    r.getTechnicianName() != null ? r.getTechnicianName() : "Unknown Tech",
+                    r.getRating(),
+                    r.getComment()
+                );
+                card.addDeleteListener(e -> onDelete.accept(r.getId()));
+                card.setAlignmentX(java.awt.Component.LEFT_ALIGNMENT);
+                card.setMaximumSize(new java.awt.Dimension(Integer.MAX_VALUE, 120));
+                card.setPreferredSize(new java.awt.Dimension(card.getPreferredSize().width, 120));
+                reviewsPanel.add(card);
+                javax.swing.Box.Filler gap = new javax.swing.Box.Filler(
+                    new java.awt.Dimension(0, 6), new java.awt.Dimension(0, 6), new java.awt.Dimension(Short.MAX_VALUE, 6));
+                gap.setBackground(new java.awt.Color(30, 41, 59));
+                gap.setOpaque(true);
+                reviewsPanel.add(gap);
+            }
+        }
+        reviewsPanel.revalidate();
+        reviewsPanel.repaint();
+    }
+
     public void addFilterAllListener(java.awt.event.ActionListener l) { All.addActionListener(l); }
     public void addFilterPendingListener(java.awt.event.ActionListener l) { Plumbing.addActionListener(l); }
     public void addFilterApprovedListener(java.awt.event.ActionListener l) { Electrical.addActionListener(l); }

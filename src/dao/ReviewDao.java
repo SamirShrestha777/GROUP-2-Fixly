@@ -95,4 +95,53 @@ public class ReviewDao {
         }
         return 0.0;
     }
+
+    /** Get all reviews (for admin monitoring). */
+    public List<Review> getAllReviews() {
+        List<Review> list = new ArrayList<>();
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "SELECT r.*, u1.username as client_name, u2.username as technician_name " +
+                         "FROM reviews r " +
+                         "LEFT JOIN users u1 ON r.client_id = u1.id " +
+                         "LEFT JOIN users u2 ON r.technician_id = u2.id " +
+                         "ORDER BY r.created_at DESC";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) {
+                Review r = new Review();
+                r.setId(rs.getInt("id"));
+                r.setAppointmentId(rs.getInt("appointment_id"));
+                r.setClientId(rs.getInt("client_id"));
+                r.setTechnicianId(rs.getInt("technician_id"));
+                r.setRating(rs.getInt("rating"));
+                r.setComment(rs.getString("comment"));
+                r.setCreatedAt(rs.getString("created_at"));
+                r.setClientName(rs.getString("client_name"));
+                r.setTechnicianName(rs.getString("technician_name"));
+                list.add(r);
+            }
+        } catch (Exception e) {
+            System.out.println("Error fetching all reviews: " + e.getMessage());
+        } finally {
+            mysql.closeConnection(conn);
+        }
+        return list;
+    }
+
+    /** Delete a review. */
+    public boolean deleteReview(int reviewId) {
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "DELETE FROM reviews WHERE id = ?";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, reviewId);
+            return pstm.executeUpdate() > 0;
+        } catch (Exception e) {
+            System.out.println("Error deleting review: " + e.getMessage());
+            return false;
+        } finally {
+            mysql.closeConnection(conn);
+        }
+    }
 }

@@ -2,8 +2,10 @@ package controller;
 
 import dao.TechnicianDao;
 import dao.AppointmentDao;
+import dao.ReviewDao;
 import model.UserData;
 import model.Appointment;
+import model.Review;
 import view.AdminDashboard;
 import view.HomePage;
 import java.util.List;
@@ -12,6 +14,7 @@ public class AdminController {
     private final AdminDashboard view;
     private final TechnicianDao techDao = new TechnicianDao();
     private final AppointmentDao appointmentDao = new AppointmentDao();
+    private final ReviewDao reviewDao = new ReviewDao();
 
     public AdminController(AdminDashboard view) {
         this.view = view;
@@ -19,32 +22,53 @@ public class AdminController {
         view.initMonitorPanel();
         view.initTechnicianPanel();
         view.initAdminHistoryPanel();
+        view.initReviewsPanel();
         view.addLogoutListener(e -> handleLogout());
         view.addVerifyNavListener(e -> {
+            view.setCurrentMode("");
             view.showVerifyPanel();
             view.setFilterButtonsVisible(false);
             loadPending();
         });
         view.addMonitorNavListener(e -> {
+            view.configureForMonitorMode();
             view.showMonitorPanel();
-            view.setFilterButtonsVisible(false);
             loadPendingPayments();
         });
         view.addTechnicianNavListener(e -> {
+            view.setCurrentMode("");
             view.showTechnicianPanel();
             view.setFilterButtonsVisible(false);
             loadTechnicians();
         });
         view.addHistoryNavListener(e -> {
+            view.configureForHistoryMode();
             view.showAdminHistoryPanel();
-            view.setFilterButtonsVisible(true);
             loadAdminHistory("all");
         });
         
-        view.addFilterAllListener(e -> loadAdminHistory("all"));
-        view.addFilterPendingListener(e -> loadAdminHistory("pending"));
-        view.addFilterApprovedListener(e -> loadAdminHistory("approved"));
-        view.addFilterRejectedListener(e -> loadAdminHistory("rejected"));
+        view.addFilterAllListener(e -> {
+            if ("monitor".equals(view.getCurrentMode())) {
+                view.showMonitorPanel();
+                loadPendingPayments();
+            } else if ("history".equals(view.getCurrentMode())) {
+                loadAdminHistory("all");
+            }
+        });
+        view.addFilterPendingListener(e -> {
+            if ("monitor".equals(view.getCurrentMode())) {
+                view.showReviewsPanel();
+                loadReviews();
+            } else if ("history".equals(view.getCurrentMode())) {
+                loadAdminHistory("pending");
+            }
+        });
+        view.addFilterApprovedListener(e -> {
+            if ("history".equals(view.getCurrentMode())) loadAdminHistory("approved");
+        });
+        view.addFilterRejectedListener(e -> {
+            if ("history".equals(view.getCurrentMode())) loadAdminHistory("rejected");
+        });
 
         view.setFilterButtonsVisible(false);
         loadPending();
@@ -142,6 +166,26 @@ public class AdminController {
             return;
         }
         new utils.CertificatePreviewDialog(view, proofPath).setVisible(true);
+    }
+
+    private void loadReviews() {
+        List<model.Review> reviews = reviewDao.getAllReviews();
+        view.loadReviews(reviews, this::deleteReview);
+    }
+
+    private void deleteReview(int reviewId) {
+        int confirm = javax.swing.JOptionPane.showConfirmDialog(
+                view, "Are you sure you want to remove this review?",
+                "Remove Review", javax.swing.JOptionPane.YES_NO_OPTION);
+        if (confirm == javax.swing.JOptionPane.YES_OPTION) {
+            boolean success = reviewDao.deleteReview(reviewId);
+            if (success) {
+                javax.swing.JOptionPane.showMessageDialog(view, "Review removed successfully.", "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(view, "Failed to remove review.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            }
+            loadReviews();
+        }
     }
 
     private void handleLogout() {
