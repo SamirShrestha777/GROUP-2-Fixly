@@ -25,10 +25,15 @@ public AdminMonitorCard(String typeText, String emailText, String detailsText, S
 
     this.setBackground(new java.awt.Color(30, 41, 59));
     this.setOpaque(true);
+    this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+
     jPanel1.setBackground(new java.awt.Color(30, 41, 59));
     jPanel1.setOpaque(true);
+    jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
 
-    // Force card to stretch full width in BoxLayout
+    jPanel2.setBackground(new java.awt.Color(51, 65, 85));
+    jPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+
     setAlignmentX(java.awt.Component.LEFT_ALIGNMENT);
     setMaximumSize(new java.awt.Dimension(Integer.MAX_VALUE, getPreferredSize().height));
 }
