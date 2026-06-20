@@ -108,10 +108,10 @@
                               <Component id="logoutbtn" alignment="0" max="32767" attributes="0"/>
                               <Component id="jLabel10" min="-2" pref="127" max="-2" attributes="0"/>
                               <Component id="jLabel3" min="-2" pref="283" max="-2" attributes="0"/>
-                              <Component id="usernamebtn" max="32767" attributes="0"/>
                               <Component id="jLabel6" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
                               <Component id="emailbtn" alignment="0" max="32767" attributes="0"/>
                               <Component id="PasswordFieldbtn" alignment="0" pref="835" max="32767" attributes="0"/>
+                              <Component id="usernamebtn" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
