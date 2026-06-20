@@ -377,8 +377,6 @@ private AdminMonitorCard createMonitorCard(model.Appointment a,
     card.addDeclineListener(e -> onReject.accept(a.getId()));
     card.addProvideProofListener(e -> onViewProof.accept(a.getId()));
     card.setAlignmentX(java.awt.Component.LEFT_ALIGNMENT);
-    card.setMaximumSize(new java.awt.Dimension(Integer.MAX_VALUE, 100));
-    card.setPreferredSize(new java.awt.Dimension(card.getPreferredSize().width, 100));
 
     return card;
 }
