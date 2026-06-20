@@ -37,6 +37,7 @@ public class HomeController {
         });
 
         setPlaceholder(homeView.getEmailField(), "Enter your email address");
+        setPasswordPlaceholder(homeView.getPasswordField(), "Enter your password");
 
         javax.swing.ButtonGroup roleGroup = new javax.swing.ButtonGroup();
         roleGroup.add(homeView.getUserbtn());
@@ -56,12 +57,36 @@ public class HomeController {
             public void focusGained(java.awt.event.FocusEvent e) {
                 if (field.getText().equals(placeholder)) {
                     field.setText("");
-                    field.setForeground(java.awt.Color.BLACK);
+                    field.setForeground(java.awt.Color.WHITE);
                 }
             }
             @Override
             public void focusLost(java.awt.event.FocusEvent e) {
                 if (field.getText().isEmpty()) {
+                    field.setText(placeholder);
+                    field.setForeground(java.awt.Color.GRAY);
+                }
+            }
+        });
+    }
+
+    private void setPasswordPlaceholder(javax.swing.JPasswordField field, String placeholder) {
+        field.setEchoChar((char) 0);
+        field.setText(placeholder);
+        field.setForeground(java.awt.Color.GRAY);
+        field.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent e) {
+                if (new String(field.getPassword()).equals(placeholder)) {
+                    field.setText("");
+                    field.setForeground(java.awt.Color.WHITE);
+                    field.setEchoChar('●');
+                }
+            }
+            @Override
+            public void focusLost(java.awt.event.FocusEvent e) {
+                if (field.getPassword().length == 0) {
+                    field.setEchoChar((char) 0);
                     field.setText(placeholder);
                     field.setForeground(java.awt.Color.GRAY);
                 }
@@ -77,8 +102,13 @@ public class HomeController {
             String role     = homeView.getSelectedRole();
 
             if (email.isEmpty() || email.equals("Enter your email address") ||
-                password.isEmpty()) {
+                password.isEmpty() || password.equals("Enter your password")) {
                 JOptionPane.showMessageDialog(homeView, "Please fill in all fields.");
+                return;
+            }
+
+            if (!email.matches("^[\\w._%+\\-]+@[\\w.\\-]+\\.[a-zA-Z]{2,}$")) {
+                JOptionPane.showMessageDialog(homeView, "Please enter a valid email address.");
                 return;
             }
 
