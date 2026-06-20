@@ -16,6 +16,30 @@ public class AdminMonitorCard extends javax.swing.JPanel {
     public AdminMonitorCard() {
         initComponents();
     }
+ public AdminMonitorCard(String typeText, String emailText, String detailsText, String dateText) {
+    initComponents();
+    type.setText(typeText);
+    emailbl.setText(emailText);
+    detailslbl.setText(detailsText);
+    datelbl.setText(dateText);
+
+    this.setBackground(new java.awt.Color(30, 41, 59));
+    this.setOpaque(true);
+    jPanel1.setBackground(new java.awt.Color(30, 41, 59));
+    jPanel1.setOpaque(true);
+}
+
+public void addApproveListener(java.awt.event.ActionListener listener) {
+    apprvbtn.addActionListener(listener);
+}
+
+public void addDeclineListener(java.awt.event.ActionListener listener) {
+    decbtn.addActionListener(listener);
+}
+
+public void addProvideProofListener(java.awt.event.ActionListener listener) {
+    certbtn.addActionListener(listener);
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -61,7 +85,7 @@ public class AdminMonitorCard extends javax.swing.JPanel {
 
         certbtn.setBackground(new java.awt.Color(51, 65, 85));
         certbtn.setForeground(new java.awt.Color(255, 255, 255));
-        certbtn.setText("View Certification");
+        certbtn.setText("Provide Proof");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -120,7 +144,7 @@ public class AdminMonitorCard extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,7 +152,7 @@ public class AdminMonitorCard extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 

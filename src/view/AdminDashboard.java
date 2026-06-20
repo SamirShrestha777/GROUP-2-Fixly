@@ -23,7 +23,10 @@ public class AdminDashboard extends javax.swing.JFrame {
         javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
     dynamicdata.setHorizontalScrollBarPolicy(
         javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+    
 }
+   
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -314,6 +317,69 @@ private TechnicianApplicationCard createTechCard(model.UserData t,
 
     return card;
 }
+private javax.swing.JPanel monitorPanel;
+
+public void initMonitorPanel() {
+    monitorPanel = new javax.swing.JPanel();
+    monitorPanel.setLayout(new javax.swing.BoxLayout(monitorPanel, javax.swing.BoxLayout.Y_AXIS));
+    monitorPanel.setBackground(new java.awt.Color(30, 41, 59));
+}
+
+public void showVerifyPanel() {
+    dynamicdata.setViewportView(requestsPanel);
+}
+
+public void showMonitorPanel() {
+    dynamicdata.setViewportView(monitorPanel);
+}
+
+public void loadPendingPayments(java.util.List<model.Appointment> list,
+        java.util.function.Consumer<Integer> onApprove,
+        java.util.function.Consumer<Integer> onReject,
+        java.util.function.Consumer<Integer> onViewProof) {
+    monitorPanel.removeAll();
+
+    if (list.isEmpty()) {
+        javax.swing.JLabel empty = new javax.swing.JLabel("No payments awaiting verification.");
+        empty.setForeground(java.awt.Color.WHITE);
+        empty.setAlignmentX(java.awt.Component.CENTER_ALIGNMENT);
+        monitorPanel.add(empty);
+    } else {
+        for (model.Appointment a : list) {
+            AdminMonitorCard card = createMonitorCard(a, onApprove, onReject, onViewProof);
+            monitorPanel.add(card);
+            monitorPanel.add(javax.swing.Box.createVerticalStrut(8));
+        }
+    }
+
+    monitorPanel.revalidate();
+    monitorPanel.repaint();
+}
+
+private AdminMonitorCard createMonitorCard(model.Appointment a,
+        java.util.function.Consumer<Integer> onApprove,
+        java.util.function.Consumer<Integer> onReject,
+        java.util.function.Consumer<Integer> onViewProof) {
+
+    AdminMonitorCard card = new AdminMonitorCard(
+        a.getServiceType(),
+        "Client ID: " + a.getClientId(),
+        "📍 " + a.getAddress() + "  🕐 " + a.getTime(),
+        "📅 " + a.getDate()
+    );
+
+    card.addApproveListener(e -> onApprove.accept(a.getId()));
+    card.addDeclineListener(e -> onReject.accept(a.getId()));
+    card.addProvideProofListener(e -> onViewProof.accept(a.getId()));
+    card.setAlignmentX(java.awt.Component.LEFT_ALIGNMENT);
+    card.setMaximumSize(new java.awt.Dimension(Integer.MAX_VALUE, 100));
+    card.setPreferredSize(new java.awt.Dimension(card.getPreferredSize().width, 100));
+
+    return card;
+}
+
+public void addVerifyNavListener(java.awt.event.ActionListener l) { historybtn.addActionListener(l); }
+public void addMonitorNavListener(java.awt.event.ActionListener l) { bookingbtn.addActionListener(l); }
 
 
 public void addLogoutListener(java.awt.event.ActionListener l) {

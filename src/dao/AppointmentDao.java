@@ -51,6 +51,69 @@ public class AppointmentDao {
         }
     }
 
+    public java.util.List<Appointment> getAppointmentsByStatus(String status) {
+        java.util.List<Appointment> list = new java.util.ArrayList<>();
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "SELECT * FROM appointments WHERE status = ? ORDER BY created_at DESC";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1, status);
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) {
+                Appointment a = new Appointment();
+                a.setId(rs.getInt("id"));
+                a.setClientId(rs.getInt("client_id"));
+                a.setServiceType(rs.getString("service_type"));
+                a.setDate(rs.getString("date"));
+                a.setTime(rs.getString("time"));
+                a.setNotes(rs.getString("notes"));
+                a.setAddress(rs.getString("address"));
+                a.setStatus(rs.getString("status"));
+                a.setPaymentMethod(rs.getString("payment_method"));
+                list.add(a);
+            }
+        } catch (Exception e) {
+            System.out.println("Error fetching appointments by status: " + e.getMessage());
+        } finally {
+            mysql.closeConnection(conn);
+        }
+        return list;
+    }
+
+    public boolean updateAppointmentStatus(int appointmentId, String status) {
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "UPDATE appointments SET status = ? WHERE id = ?";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1, status);
+            pstm.setInt(2, appointmentId);
+            return pstm.executeUpdate() > 0;
+        } catch (Exception e) {
+            System.out.println("Error updating appointment status: " + e.getMessage());
+            return false;
+        } finally {
+            mysql.closeConnection(conn);
+        }
+    }
+
+    public String getPaymentProofPathById(int appointmentId) {
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "SELECT payment_proof_path FROM appointments WHERE id = ?";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, appointmentId);
+            ResultSet rs = pstm.executeQuery();
+            if (rs.next()) {
+                return rs.getString("payment_proof_path");
+            }
+        } catch (Exception e) {
+            System.out.println("Error fetching payment proof path: " + e.getMessage());
+        } finally {
+            mysql.closeConnection(conn);
+        }
+        return null;
+    }
+
     public java.util.List<Appointment> getAppointmentsByUser(int clientId) {
         java.util.List<Appointment> list = new java.util.ArrayList<>();
         Connection conn = mysql.openConnection();
