@@ -33,6 +33,24 @@ public class AppointmentDao {
         }
     }
 
+    public boolean submitPaymentProof(int appointmentId, String screenshotPath) {
+        Connection conn = mysql.openConnection();
+        try {
+            String sql = "UPDATE appointments SET payment_proof_path = ?, status = 'payment_submitted' WHERE id = ?";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1, screenshotPath);
+            pstm.setInt(2, appointmentId);
+            boolean result = pstm.executeUpdate() > 0;
+            if (result) System.out.println("Payment proof submitted successfully.");
+            return result;
+        } catch (Exception e) {
+            System.out.println("Error submitting payment proof: " + e.getMessage());
+            return false;
+        } finally {
+            mysql.closeConnection(conn);
+        }
+    }
+
     public java.util.List<Appointment> getAppointmentsByUser(int clientId) {
         java.util.List<Appointment> list = new java.util.ArrayList<>();
         Connection conn = mysql.openConnection();

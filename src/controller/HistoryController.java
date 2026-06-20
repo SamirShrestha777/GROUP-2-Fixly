@@ -16,7 +16,6 @@ public class HistoryController {
         this.userId       = userId;
         this.onBack       = onBack;
         this.appointmentDao = new AppointmentDao();
-
         view.initHistoryPanel();
         loadHistory();
         wireButtons();
@@ -24,7 +23,21 @@ public class HistoryController {
 
     private void loadHistory() {
         List<Appointment> appointments = appointmentDao.getAppointmentsByUser(userId);
-        view.loadHistory(appointments);
+        view.loadHistory(appointments, this::handlePaymentConfirmation);
+    }
+
+    private void handlePaymentConfirmation(Appointment appointment) {
+        javax.swing.JFileChooser chooser = new javax.swing.JFileChooser();
+        chooser.setDialogTitle("Select Payment Screenshot");
+        chooser.setFileFilter(new javax.swing.filechooser.FileNameExtensionFilter(
+            "Image files", "jpg", "jpeg", "png"));
+
+        int result = chooser.showOpenDialog(view);
+        if (result == javax.swing.JFileChooser.APPROVE_OPTION) {
+            String path = chooser.getSelectedFile().getAbsolutePath();
+            appointmentDao.submitPaymentProof(appointment.getId(), path);
+            loadHistory();
+        }
     }
 
     private void wireButtons() {

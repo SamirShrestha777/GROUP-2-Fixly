@@ -248,7 +248,8 @@ public void initHistoryPanel() {
     scroolpane.setViewportView(historyPanel);
 }
 
-public void loadHistory(java.util.List<model.Appointment> appointments) {
+public void loadHistory(java.util.List<model.Appointment> appointments,
+                         java.util.function.Consumer<model.Appointment> onConfirmPaid) {
     historyPanel.removeAll();
     if (appointments.isEmpty()) {
         javax.swing.JLabel empty = new javax.swing.JLabel("No booking history found.");
@@ -260,10 +261,12 @@ public void loadHistory(java.util.List<model.Appointment> appointments) {
             HistoryCard card = new HistoryCard(
                 a.getServiceType(),
                 "📍 " + a.getAddress() + "  🕐 " + a.getTime() + "  ⚡ " + a.getStatus(),
-                "📅 " + a.getDate()
+                "📅 " + a.getDate(),
+                a.getStatus()
             );
             card.setMaximumSize(new java.awt.Dimension(Integer.MAX_VALUE, 110));
             card.setAlignmentX(java.awt.Component.LEFT_ALIGNMENT);
+            card.addConfirmListener(e -> onConfirmPaid.accept(a));
             historyPanel.add(card);
             historyPanel.add(javax.swing.Box.createVerticalStrut(8));
         }
