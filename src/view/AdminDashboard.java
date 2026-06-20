@@ -25,8 +25,7 @@ public class AdminDashboard extends javax.swing.JFrame {
         javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
     
 }
-   
-   
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -323,8 +322,8 @@ public void initMonitorPanel() {
     monitorPanel = new javax.swing.JPanel();
     monitorPanel.setLayout(new javax.swing.BoxLayout(monitorPanel, javax.swing.BoxLayout.Y_AXIS));
     monitorPanel.setBackground(new java.awt.Color(30, 41, 59));
+    // DO NOT set viewport here
 }
-
 public void showVerifyPanel() {
     dynamicdata.setViewportView(requestsPanel);
 }
