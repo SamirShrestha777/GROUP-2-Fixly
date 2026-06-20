@@ -10,6 +10,7 @@ public class HistoryController {
     private final int userId;
     private final Runnable onBack;
     private final AppointmentDao appointmentDao;
+    private final dao.ReviewDao reviewDao = new dao.ReviewDao();
 
     public HistoryController(HistoryPage view, int userId, Runnable onBack) {
         this.view         = view;
@@ -23,7 +24,10 @@ public class HistoryController {
 
     private void loadHistory() {
         List<Appointment> appointments = appointmentDao.getAppointmentsByUser(userId);
-        view.loadHistory(appointments, this::handlePaymentConfirmation, this::handleReview);
+        view.loadHistory(appointments, this::handlePaymentConfirmation, this::handleReview, a -> {
+            boolean isCompleted = "completed".equalsIgnoreCase(a.getStatus());
+            return isCompleted && !reviewDao.hasReviewed(a.getId(), userId);
+        });
     }
 
     private void handleReview(Appointment appointment) {
@@ -37,6 +41,8 @@ public class HistoryController {
         }
         utils.ReviewDialog dialog = new utils.ReviewDialog(view, appointment.getId(), userId, technicianId);
         dialog.setVisible(true);
+        // Reload history after the dialog is closed to potentially hide the button
+        loadHistory();
     }
 
     private void handlePaymentConfirmation(Appointment appointment) {

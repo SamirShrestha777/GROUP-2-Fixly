@@ -13,7 +13,8 @@ public class SpecificTechnicianController {
     private final String specialization;
     private final Runnable onBack;
     private final TechnicianDao technicianDao = new TechnicianDao();
-    private final HireDao hireDao = new HireDao();
+    private final dao.AppointmentDao appointmentDao = new dao.AppointmentDao();
+    private final dao.UserDao userDao = new dao.UserDao();
     private final int userId = Session.getUserId();
 
     public SpecificTechnicianController(SpecificTechnician view, String specialization, Runnable onBack) {
@@ -36,16 +37,31 @@ public class SpecificTechnicianController {
 
         view.loadTechnicians(
                 technicians,
-                techId -> hireDao.isAlreadyHired(userId, techId),
+                techId -> appointmentDao.hasPendingDirectHire(userId, techId),
                 this::handleHire,
                 this::handleReviews
         );
     }
 
     private void handleHire(UserData tech) {
-        if (hireDao.hireTechnician(userId, tech.getId())) {
+        String today = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
+        String address = userDao.getUserById(userId).getAddress();
+        if (address == null || address.isEmpty()) { address = "Address on file"; }
+
+        model.Appointment app = new model.Appointment();
+        app.setClientId(userId);
+        app.setTechnicianId(tech.getId());
+        app.setServiceType(tech.getSpecialization());
+        app.setDate(today);
+        app.setTime("TBD (Direct Hire)");
+        app.setAddress(address);
+        app.setNotes("Direct hire request from user dashboard.");
+        app.setStatus("pending");
+        app.setPaymentMethod("tbd");
+
+        if (appointmentDao.saveAppointment(app)) {
             javax.swing.JOptionPane.showMessageDialog(view,
-                    tech.getUsername() + " has been hired! 🎉",
+                    tech.getUsername() + " has been hired! The request is now pending in your history.",
                     "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE);
             loadTechnicians(); // Refresh list to update button state
         } else {

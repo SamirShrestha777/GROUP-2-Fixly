@@ -367,6 +367,15 @@ public void addFilterAcListener(java.awt.event.ActionListener l) { AC.addActionL
 public void addFilterPainterListener(java.awt.event.ActionListener l) { Painter.addActionListener(l); }
 public void addFilterCarpenterListener(java.awt.event.ActionListener l) { Carpenter.addActionListener(l); }
 
+public void hideFilterButtons() {
+    All.setVisible(false);
+    electrical.setVisible(false);
+    Plumbing.setVisible(false);
+    AC.setVisible(false);
+    Painter.setVisible(false);
+    Carpenter.setVisible(false);
+    plumber.setVisible(false);
+}
 
     /**
      * @param args the command line arguments

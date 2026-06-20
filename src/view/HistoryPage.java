@@ -229,7 +229,8 @@ public void initHistoryPanel() {
 
 public void loadHistory(java.util.List<model.Appointment> appointments,
                          java.util.function.Consumer<model.Appointment> onConfirmPaid,
-                         java.util.function.Consumer<model.Appointment> onReview) {
+                         java.util.function.Consumer<model.Appointment> onReview,
+                         java.util.function.Predicate<model.Appointment> canReview) {
     historyPanel.removeAll();
     if (appointments.isEmpty()) {
         javax.swing.JLabel empty = new javax.swing.JLabel("No booking history found.");
@@ -248,10 +249,10 @@ public void loadHistory(java.util.List<model.Appointment> appointments,
             card.setAlignmentX(java.awt.Component.LEFT_ALIGNMENT);
             card.addConfirmListener(e -> onConfirmPaid.accept(a));
 
-            // Show "Review Technician" only for completed jobs
-            boolean isCompleted = "completed".equalsIgnoreCase(a.getStatus());
-            card.showReviewButton(isCompleted);
-            if (isCompleted && onReview != null) {
+            // Show "Review Technician" only if the predicate allows it (e.g. completed & not reviewed yet)
+            boolean showReview = canReview != null && canReview.test(a);
+            card.showReviewButton(showReview);
+            if (showReview && onReview != null) {
                 card.addReviewListener(e -> onReview.accept(a));
             }
 

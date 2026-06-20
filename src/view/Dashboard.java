@@ -185,7 +185,6 @@ public class Dashboard extends javax.swing.JFrame {
         plumbingbtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         plumbingbtn.setForeground(new java.awt.Color(255, 255, 255));
         plumbingbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/plumberlg.png"))); // NOI18N
-        plumbingbtn.setBorder(null);
         plumbingbtn.addActionListener(this::plumbingbtnActionPerformed);
 
         caprenterbtn.setBackground(new java.awt.Color(0, 102, 204));

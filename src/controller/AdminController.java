@@ -111,7 +111,7 @@ public class AdminController {
     }
 
     private void loadPendingPayments() {
-        List<Appointment> payments = appointmentDao.getAppointmentsByStatus("payment_submitted");
+        List<Appointment> payments = appointmentDao.getPendingPayments();
         view.loadPendingPayments(
                 payments,
                 this::approvePayment,
@@ -135,6 +135,12 @@ public class AdminController {
 
     private void viewPaymentProof(int appointmentId) {
         String proofPath = appointmentDao.getPaymentProofPathById(appointmentId);
+        if (proofPath == null || proofPath.trim().isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(view,
+                    "No payment proof uploaded yet by the user.",
+                    "Info", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
         new utils.CertificatePreviewDialog(view, proofPath).setVisible(true);
     }
 

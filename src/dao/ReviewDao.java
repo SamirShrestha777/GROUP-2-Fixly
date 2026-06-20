@@ -35,7 +35,9 @@ public class ReviewDao {
         List<Review> list = new ArrayList<>();
         Connection conn = mysql.openConnection();
         try {
-            String sql = "SELECT * FROM reviews WHERE technician_id = ? ORDER BY created_at DESC";
+            String sql = "SELECT r.*, u.username as client_name FROM reviews r " +
+                         "LEFT JOIN users u ON r.client_id = u.id " +
+                         "WHERE r.technician_id = ? ORDER BY r.created_at DESC";
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setInt(1, technicianId);
             ResultSet rs = pstm.executeQuery();
@@ -48,6 +50,7 @@ public class ReviewDao {
                 r.setRating(rs.getInt("rating"));
                 r.setComment(rs.getString("comment"));
                 r.setCreatedAt(rs.getString("created_at"));
+                r.setClientName(rs.getString("client_name"));
                 list.add(r);
             }
         } catch (Exception e) {

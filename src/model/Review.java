@@ -8,6 +8,7 @@ public class Review {
     private int rating;
     private String comment;
     private String createdAt;
+    private String clientName;
 
     public int getId()             { return id; }
     public void setId(int id)      { this.id = id; }
@@ -29,4 +30,7 @@ public class Review {
 
     public String getCreatedAt()                   { return createdAt; }
     public void setCreatedAt(String createdAt)     { this.createdAt = createdAt; }
+
+    public String getClientName()                  { return clientName; }
+    public void setClientName(String clientName)   { this.clientName = clientName; }
 }

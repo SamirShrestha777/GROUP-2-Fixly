@@ -48,6 +48,7 @@ public class updateTechnician extends javax.swing.JFrame {
         update = new javax.swing.JButton();
         logout = new javax.swing.JButton();
         cmbbx = new javax.swing.JComboBox<>();
+        rating = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -173,6 +174,9 @@ public class updateTechnician extends javax.swing.JFrame {
 
         cmbbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Status", "Active", "Inactive", " " }));
 
+        rating.setForeground(new java.awt.Color(255, 255, 255));
+        rating.setToolTipText("");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -185,7 +189,8 @@ public class updateTechnician extends javax.swing.JFrame {
                         .addGap(41, 41, 41)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(bglbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bglbl)))
+                            .addComponent(bglbl)
+                            .addComponent(rating, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(360, 360, 360)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,7 +214,9 @@ public class updateTechnician extends javax.swing.JFrame {
                 .addComponent(bglbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(bglbl)
-                .addGap(110, 110, 110)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(rating, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62)
                 .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(usertext, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -256,6 +263,7 @@ public class updateTechnician extends javax.swing.JFrame {
     public String getEmailText() { return emailtext.getText(); }
     public String getPasswordText() { return new String(Passwordtext.getPassword()); }
     public String getStatus() { return (String) cmbbx.getSelectedItem(); }
+    public void setRatingText(String text) { rating.setText(text); }
 
     private void lgnbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lgnbtnActionPerformed
         // TODO add your handling code here:
@@ -330,6 +338,7 @@ public class updateTechnician extends javax.swing.JFrame {
     private javax.swing.JButton logout;
     private javax.swing.JButton notificationbtn;
     private javax.swing.JLabel password;
+    private javax.swing.JLabel rating;
     private javax.swing.JButton technicianbtn;
     private javax.swing.JButton update;
     private javax.swing.JPanel uppnl;

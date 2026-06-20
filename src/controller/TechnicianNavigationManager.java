@@ -35,7 +35,6 @@ public class TechnicianNavigationManager {
         notiView.addBookingNavListener(e -> { notiView.dispose(); goToDashboard(); });
         notiView.addNotificationNavListener(e -> { /* already here */ });
         notiView.addProfileNavListener(e -> { notiView.dispose(); goToProfile(dashboard); });
-        notiView.addBackListener(e -> { notiView.dispose(); goToDashboard(); });
     }
 
     // Navigate to Profile / Update page

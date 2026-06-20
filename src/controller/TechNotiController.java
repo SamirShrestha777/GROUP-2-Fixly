@@ -59,9 +59,20 @@ public class TechNotiController {
 
     private void wireButtons() {
         view.addBackListener(e -> {
-            pollingTimer.stop();
-            view.dispose();
-            onBack.run();
+            int confirm = javax.swing.JOptionPane.showConfirmDialog(
+                    view, "Are you sure you want to logout?",
+                    "Logout", javax.swing.JOptionPane.YES_NO_OPTION
+            );
+            if (confirm == javax.swing.JOptionPane.YES_OPTION) {
+                if (pollingTimer != null) pollingTimer.stop();
+                utils.Session.clear();
+                for (java.awt.Window window : java.awt.Window.getWindows()) {
+                    if (window != null) window.dispose();
+                }
+                view.HomePage homeView = new view.HomePage();
+                new HomeController(homeView);
+                homeView.setVisible(true);
+            }
         });
         view.addProfileNavListener(e -> {
             pollingTimer.stop();

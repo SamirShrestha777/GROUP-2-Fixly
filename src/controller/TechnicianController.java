@@ -27,6 +27,8 @@ public class TechnicianController {
         view.initRequestsPanel();
         view.initHistoryPanel();
 
+        view.hideFilterButtons();
+
         // Auto-show Requests panel on open
         loadPendingRequests();
         view.showRequestPanel();
@@ -40,11 +42,15 @@ public class TechnicianController {
 
     // ── Data Loaders ────────────────────────────────────────────────────────
     private void loadPendingRequests() {
+        int techId = Session.getUserId();
+        model.UserData tech = technicianDao.getTechnicianById(techId);
+        String spec = (tech != null) ? tech.getSpecialization() : null;
+
         java.util.List<Appointment> appointments;
-        if ("All".equals(currentFilter)) {
-            appointments = appointmentDao.getPendingAndAcceptedAppointments();
+        if (spec != null && !spec.trim().isEmpty()) {
+            appointments = appointmentDao.getPendingAndAcceptedByService(spec, techId);
         } else {
-            appointments = appointmentDao.getPendingAndAcceptedByService(currentFilter);
+            appointments = appointmentDao.getPendingAndAcceptedAppointments(techId);
         }
         view.loadAppointments(appointments, this::acceptRequest, this::rejectRequest, this::completeRequest);
     }

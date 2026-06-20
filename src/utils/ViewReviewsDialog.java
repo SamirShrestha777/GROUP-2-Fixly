@@ -43,7 +43,7 @@ public class ViewReviewsDialog extends JDialog {
         topPanel.setBorder(BorderFactory.createEmptyBorder(16, 20, 16, 20));
 
         double avgRating = reviewDao.getAverageRating(technicianId);
-        JLabel titleLabel = new JLabel("⭐ Reviews: " + technicianName);
+        JLabel titleLabel = new JLabel("Reviews: " + technicianName);
         titleLabel.setFont(heading);
         titleLabel.setForeground(Color.WHITE);
         titleLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -106,9 +106,10 @@ public class ViewReviewsDialog extends JDialog {
         card.setMaximumSize(new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
         card.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        JLabel stars = new JLabel(getStars(r.getRating()));
-        stars.setForeground(new Color(250, 204, 21));
-        stars.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        String clientName = (r.getClientName() != null && !r.getClientName().trim().isEmpty()) ? r.getClientName() : "Anonymous Client";
+        JLabel headerLabel = new JLabel(clientName + " - Rating: " + r.getRating() + "/5");
+        headerLabel.setForeground(Color.WHITE);
+        headerLabel.setFont(new Font("Segoe UI", Font.BOLD, 14));
 
         JLabel date = new JLabel("Posted: " + (r.getCreatedAt() != null ? r.getCreatedAt().substring(0, 10) : "N/A"));
         date.setForeground(new Color(148, 163, 184));
@@ -122,7 +123,7 @@ public class ViewReviewsDialog extends JDialog {
         comment.setForeground(Color.WHITE);
         comment.setFont(new Font("Segoe UI", Font.PLAIN, 13));
 
-        card.add(stars);
+        card.add(headerLabel);
         card.add(Box.createVerticalStrut(4));
         card.add(comment);
         card.add(Box.createVerticalStrut(8));
@@ -131,7 +132,4 @@ public class ViewReviewsDialog extends JDialog {
         return card;
     }
 
-    private String getStars(int rating) {
-        return "★".repeat(Math.max(0, rating)) + "☆".repeat(Math.max(0, 5 - rating));
-    }
 }

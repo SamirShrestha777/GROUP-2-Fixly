@@ -11,6 +11,12 @@ public class UpdateTechnicianController {
     public UpdateTechnicianController(updateTechnician view, TechnicianNavigationManager nav) {
         this.view = view;
         this.nav = nav;
+        
+        // Fetch and display average rating
+        dao.ReviewDao reviewDao = new dao.ReviewDao();
+        double avg = reviewDao.getAverageRating(Session.getUserId());
+        view.setRatingText(String.format("⭐ Rating: %.1f / 5.0", avg));
+        
         wireButtons();
     }
 
@@ -24,7 +30,9 @@ public class UpdateTechnicianController {
             );
             if (confirm == javax.swing.JOptionPane.YES_OPTION) {
                 Session.clear();
-                view.dispose();
+                for (java.awt.Window window : java.awt.Window.getWindows()) {
+                    if (window != null) window.dispose();
+                }
                 HomePage homeView = new HomePage();
                 new HomeController(homeView);
                 homeView.setVisible(true);

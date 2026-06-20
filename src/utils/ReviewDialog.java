@@ -24,7 +24,6 @@ public class ReviewDialog extends javax.swing.JDialog {
     private javax.swing.JLabel titleLabel;
     private javax.swing.JLabel ratingLabel;
     private javax.swing.JLabel commentLabel;
-    private javax.swing.JLabel starsLabel;
 
     public ReviewDialog(java.awt.Frame parent, int appointmentId, int clientId, int technicianId) {
         super(parent, "Rate Your Technician", true);
@@ -75,14 +74,7 @@ public class ReviewDialog extends javax.swing.JDialog {
         ratingSpinner.setAlignmentX(java.awt.Component.LEFT_ALIGNMENT);
         formPanel.add(ratingSpinner);
 
-        // Star preview — updates as spinner changes
-        starsLabel = new javax.swing.JLabel(getStars(5));
-        starsLabel.setForeground(new java.awt.Color(250, 204, 21));
-        starsLabel.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 20));
-        starsLabel.setAlignmentX(java.awt.Component.LEFT_ALIGNMENT);
         formPanel.add(javax.swing.Box.createVerticalStrut(4));
-        formPanel.add(starsLabel);
-        ratingSpinner.addChangeListener(e -> starsLabel.setText(getStars((int) ratingSpinner.getValue())));
 
         formPanel.add(javax.swing.Box.createVerticalStrut(16));
 
