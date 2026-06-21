@@ -56,6 +56,18 @@ public class TechNotiController {
     private void startPolling() {
         pollingTimer = new Timer(5000, e -> loadNotifications());
         pollingTimer.start();
+        // Bug 7 fix: stop the timer automatically whenever the window is closed/disposed
+        view.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent e) { stopTimer(); }
+            @Override
+            public void windowClosed(java.awt.event.WindowEvent e)  { stopTimer(); }
+        });
+    }
+
+    /** Stop the background polling timer. Called by NavigationManager on navigation. */
+    public void stopTimer() {
+        if (pollingTimer != null && pollingTimer.isRunning()) pollingTimer.stop();
     }
 
     private void wireButtons() {
@@ -65,7 +77,7 @@ public class TechNotiController {
                     "Logout", javax.swing.JOptionPane.YES_NO_OPTION
             );
             if (confirm == javax.swing.JOptionPane.YES_OPTION) {
-                if (pollingTimer != null) pollingTimer.stop();
+                stopTimer();
                 utils.Session.clear();
                 for (java.awt.Window window : java.awt.Window.getWindows()) {
                     if (window != null) window.dispose();
@@ -75,12 +87,7 @@ public class TechNotiController {
                 homeView.setVisible(true);
             }
         });
-
-        view.addProfileNavListener(e -> {
-            pollingTimer.stop();
-            view.dispose();
-            // Navigation logic placeholder
-        });
-
+        // Bug 11 fix: profile nav is handled entirely by TechnicianNavigationManager;
+        // do NOT wire it here — the old listener disposed the view without navigating.
     }
-}
+}

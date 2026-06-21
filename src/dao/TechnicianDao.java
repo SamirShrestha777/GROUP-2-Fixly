@@ -134,7 +134,7 @@ public class TechnicianDao {
     public boolean loginTechnician(String email, String password) {
         Connection conn = mysql.openConnection();
         try {
-            String sql = "SELECT * FROM technicians WHERE email = ? AND password = ? AND is_verified = TRUE";
+            String sql = "SELECT * FROM technicians WHERE email = ? AND password = ? AND is_verified = TRUE AND account_status = 'active'";
             try (PreparedStatement pstm = conn.prepareStatement(sql)) {
                 pstm.setString(1, email);
                 pstm.setString(2, password);

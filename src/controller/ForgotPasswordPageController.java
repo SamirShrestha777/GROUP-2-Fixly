@@ -63,7 +63,17 @@ public class ForgotPasswordPageController {
             boolean verified = forgotController.verifyOtp(email, otp);
             if (verified) {
                 String newPassword     = javax.swing.JOptionPane.showInputDialog(forgotView, "Enter new password:");
+                // Bug 3 fix: guard null if user cancelled the dialog
+                if (newPassword == null) return;
                 String confirmPassword = javax.swing.JOptionPane.showInputDialog(forgotView, "Confirm new password:");
+                if (confirmPassword == null) return;
+
+                // Bug 3 fix: enforce same strength rules as signup
+                if (!newPassword.matches("^(?=.*[A-Z])(?=.*\\d).{8,}$")) {
+                    javax.swing.JOptionPane.showMessageDialog(forgotView,
+                        "Password must be at least 8 characters,\ninclude one uppercase letter and one number.");
+                    return;
+                }
 
                 boolean reset = forgotController.resetPassword(email, newPassword, confirmPassword);
                 if (reset) {

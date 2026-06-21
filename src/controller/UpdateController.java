@@ -53,6 +53,13 @@ public class UpdateController {
                 return;
             }
 
+            if (!newEmail.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$")) {
+                javax.swing.JOptionPane.showMessageDialog(view,
+                    "Invalid email format.", "Error",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
             UserDao userDao = new UserDao();
             boolean updated = userDao.updateProfile(userId, newUsername, newEmail, newPassword);
 

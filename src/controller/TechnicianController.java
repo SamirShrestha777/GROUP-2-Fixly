@@ -43,14 +43,22 @@ public class TechnicianController {
     // ── Data Loaders ────────────────────────────────────────────────────────
     private void loadPendingRequests() {
         int techId = Session.getUserId();
-        model.UserData tech = technicianDao.getTechnicianById(techId);
-        String spec = (tech != null) ? tech.getSpecialization() : null;
 
         java.util.List<Appointment> appointments;
-        if (spec != null && !spec.trim().isEmpty()) {
-            appointments = appointmentDao.getPendingAndAcceptedByService(spec, techId);
+        if (!"All".equals(currentFilter)) {
+            // A specific service-type filter is active — query by that type,
+            // still scoped to jobs visible to this technician (open pool + direct hires).
+            appointments = appointmentDao.getPendingAndAcceptedByService(currentFilter, techId);
         } else {
-            appointments = appointmentDao.getPendingAndAcceptedAppointments(techId);
+            // "All" selected — fall back to the technician's specialization, or
+            // everything if no specialization is set.
+            model.UserData tech = technicianDao.getTechnicianById(techId);
+            String spec = (tech != null) ? tech.getSpecialization() : null;
+            if (spec != null && !spec.trim().isEmpty()) {
+                appointments = appointmentDao.getPendingAndAcceptedByService(spec, techId);
+            } else {
+                appointments = appointmentDao.getPendingAndAcceptedAppointments(techId);
+            }
         }
         view.loadAppointments(appointments, this::acceptRequest, this::rejectRequest, this::completeRequest);
     }

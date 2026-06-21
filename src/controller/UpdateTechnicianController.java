@@ -50,13 +50,18 @@ public class UpdateTechnicianController {
                 return;
             }
 
+            if (!newEmail.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$")) {
+                javax.swing.JOptionPane.showMessageDialog(view, "Invalid email format.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
             dao.TechnicianDao techDao = new dao.TechnicianDao();
             int currentTechId = Session.getUserId();
             
             boolean profileUpdated = techDao.updateProfile(currentTechId, newUsername, newEmail, newPassword);
             boolean statusUpdated = techDao.updateAccountStatus(currentTechId, newStatus);
 
-            if (profileUpdated || statusUpdated) {
+            if (profileUpdated && statusUpdated) {
                 javax.swing.JOptionPane.showMessageDialog(view, "Profile updated successfully!", "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE);
             } else {
                 javax.swing.JOptionPane.showMessageDialog(view, "Failed to update profile.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);

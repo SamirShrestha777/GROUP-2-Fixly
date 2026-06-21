@@ -45,8 +45,10 @@ public class SpecificTechnicianController {
 
     private void handleHire(UserData tech) {
         String today = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
-        String address = userDao.getUserById(userId).getAddress();
-        if (address == null || address.isEmpty()) { address = "Address on file"; }
+        // Bug 4 fix: getUserById() can return null if session is stale
+        UserData currentUser = userDao.getUserById(userId);
+        String address = (currentUser != null && currentUser.getAddress() != null && !currentUser.getAddress().isEmpty())
+                ? currentUser.getAddress() : "Address on file";
 
         model.Appointment app = new model.Appointment();
         app.setClientId(userId);

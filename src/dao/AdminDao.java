@@ -108,9 +108,9 @@ public class AdminDao {
         try {
             String sql =
                 "SELECT b.id, u.username as customer, t.username as technician, " +
-                "b.service, b.address, b.date, b.status " +
-                "FROM bookings b " +
-                "JOIN users u ON b.user_id = u.id " +
+                "b.service_type as service, b.address, b.date, b.status " +
+                "FROM appointments b " +
+                "JOIN users u ON b.client_id = u.id " +
                 "JOIN technicians t ON b.technician_id = t.id";
             try (Statement stmt = conn.createStatement()) {
                 ResultSet rs = stmt.executeQuery(sql);

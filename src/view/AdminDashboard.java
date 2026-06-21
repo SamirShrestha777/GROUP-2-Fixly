@@ -4,6 +4,8 @@
  */
 package view;
 
+import utils.AdminReviewCard;
+
 /**
  *
  * @author A C E R

@@ -101,7 +101,6 @@ public class Update extends javax.swing.JFrame {
         logoutbtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 22, 22)));
         logoutbtn.addActionListener(this::logoutbtnActionPerformed);
 
-        PasswordFieldbtn.setText("jPasswordField1");
         PasswordFieldbtn.addActionListener(this::PasswordFieldbtnActionPerformed);
 
         jPanel6.setBackground(new java.awt.Color(30, 41, 59));

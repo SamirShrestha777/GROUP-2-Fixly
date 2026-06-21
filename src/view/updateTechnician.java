@@ -160,7 +160,6 @@ public class updateTechnician extends javax.swing.JFrame {
         password.setForeground(new java.awt.Color(255, 255, 255));
         password.setText("Password");
 
-        Passwordtext.setText("jPasswordField1");
         Passwordtext.addActionListener(this::PasswordtextActionPerformed);
 
         update.setBackground(new java.awt.Color(0, 51, 153));

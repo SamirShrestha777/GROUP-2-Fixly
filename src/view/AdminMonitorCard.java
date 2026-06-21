@@ -27,12 +27,12 @@ public AdminMonitorCard(String typeText, String emailText, String detailsText, S
     this.setOpaque(true);
     this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
 
-    jPanel1.setBackground(new java.awt.Color(30, 41, 59));
-    jPanel1.setOpaque(true);
-    jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+    bgpnl.setBackground(new java.awt.Color(30, 41, 59));
+    bgpnl.setOpaque(true);
+    bgpnl.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
 
-    jPanel2.setBackground(new java.awt.Color(51, 65, 85));
-    jPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+    uppnl.setBackground(new java.awt.Color(51, 65, 85));
+    uppnl.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
 
     setAlignmentX(java.awt.Component.LEFT_ALIGNMENT);
     setMaximumSize(new java.awt.Dimension(Integer.MAX_VALUE, getPreferredSize().height));
@@ -64,8 +64,8 @@ public void addProvideProofListener(java.awt.event.ActionListener listener) {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        bgpnl = new javax.swing.JPanel();
+        uppnl = new javax.swing.JPanel();
         type = new javax.swing.JLabel();
         datelbl = new javax.swing.JLabel();
         detailslbl = new javax.swing.JLabel();
@@ -74,8 +74,8 @@ public void addProvideProofListener(java.awt.event.ActionListener listener) {
         certbtn = new javax.swing.JButton();
         emailbl = new javax.swing.JLabel();
 
-        jPanel2.setBackground(new java.awt.Color(51, 65, 85));
-        jPanel2.setPreferredSize(new java.awt.Dimension(1300, 100));
+        uppnl.setBackground(new java.awt.Color(51, 65, 85));
+        uppnl.setPreferredSize(new java.awt.Dimension(1300, 100));
 
         type.setBackground(new java.awt.Color(51, 65, 85));
         type.setForeground(new java.awt.Color(255, 255, 255));
@@ -101,11 +101,13 @@ public void addProvideProofListener(java.awt.event.ActionListener listener) {
         certbtn.setForeground(new java.awt.Color(255, 255, 255));
         certbtn.setText("Provide Proof");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        emailbl.setForeground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout uppnlLayout = new javax.swing.GroupLayout(uppnl);
+        uppnl.setLayout(uppnlLayout);
+        uppnlLayout.setHorizontalGroup(
+            uppnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(uppnlLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -113,7 +115,7 @@ public void addProvideProofListener(java.awt.event.ActionListener listener) {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(datelbl, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(uppnlLayout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addComponent(detailslbl, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(249, 249, 249)
@@ -124,49 +126,49 @@ public void addProvideProofListener(java.awt.event.ActionListener listener) {
                 .addComponent(certbtn)
                 .addContainerGap(322, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+        uppnlLayout.setVerticalGroup(
+            uppnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(uppnlLayout.createSequentialGroup()
+                .addGroup(uppnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(uppnlLayout.createSequentialGroup()
                         .addGap(2, 2, 2)
                         .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, uppnlLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(uppnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(datelbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(emailbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(uppnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(uppnlLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(detailslbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, uppnlLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(uppnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(apprvbtn)
                             .addComponent(decbtn)
                             .addComponent(certbtn))
                         .addGap(14, 14, 14))))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout bgpnlLayout = new javax.swing.GroupLayout(bgpnl);
+        bgpnl.setLayout(bgpnlLayout);
+        bgpnlLayout.setHorizontalGroup(
+            bgpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1300, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(bgpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgpnlLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(uppnl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        bgpnlLayout.setVerticalGroup(
+            bgpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 116, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(bgpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(bgpnlLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
+                    .addComponent(uppnl, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
@@ -178,7 +180,7 @@ public void addProvideProofListener(java.awt.event.ActionListener listener) {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bgpnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -187,7 +189,7 @@ public void addProvideProofListener(java.awt.event.ActionListener listener) {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bgpnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -195,13 +197,13 @@ public void addProvideProofListener(java.awt.event.ActionListener listener) {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton apprvbtn;
+    private javax.swing.JPanel bgpnl;
     private javax.swing.JButton certbtn;
     private javax.swing.JLabel datelbl;
     private javax.swing.JButton decbtn;
     private javax.swing.JLabel detailslbl;
     private javax.swing.JLabel emailbl;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel type;
+    private javax.swing.JPanel uppnl;
     // End of variables declaration//GEN-END:variables
 }

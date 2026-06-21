@@ -104,7 +104,7 @@ public class ReviewDao {
             String sql = "SELECT r.*, u1.username as client_name, u2.username as technician_name " +
                          "FROM reviews r " +
                          "LEFT JOIN users u1 ON r.client_id = u1.id " +
-                         "LEFT JOIN users u2 ON r.technician_id = u2.id " +
+                         "LEFT JOIN technicians u2 ON r.technician_id = u2.id " +
                          "ORDER BY r.created_at DESC";
             PreparedStatement pstm = conn.prepareStatement(sql);
             ResultSet rs = pstm.executeQuery();

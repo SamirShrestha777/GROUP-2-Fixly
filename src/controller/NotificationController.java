@@ -43,10 +43,12 @@ public class NotificationController {
             }
         } else if ("technician".equals(role)) {
             String specialization = Session.getSpecialization();
-            List<Appointment> jobs = appointmentDao.getPendingAppointmentsByService(specialization);
+            int techId = Session.getUserId();
+            // Fetch ALL statuses so Approved/Declined filters can work
+            List<Appointment> jobs = appointmentDao.getAllAppointmentsByServiceForTech(specialization, techId);
             for (Appointment a : jobs) {
                 if (!matchesFilter(a.getStatus())) continue;
-                String type = "New " + a.getServiceType() + " Request";
+                String type = "New " + a.getServiceType() + " Request (" + a.getStatus().toUpperCase() + ")";
                 String details = a.getAddress() + "   " + a.getTime();
                 String date = a.getDate();
                 notifications.add(new String[]{type, details, date, a.getStatus()});
