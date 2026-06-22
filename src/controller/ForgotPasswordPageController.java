@@ -50,7 +50,8 @@ public class ForgotPasswordPageController {
         @Override
         public void actionPerformed(ActionEvent e) {
             String email = forgotView.getEmailField().getText().trim();
-            forgotController.sendOtp(email);
+            boolean isUser = forgotView.isUserSelected();
+            forgotController.sendOtp(email, isUser);
         }
     }
 
@@ -75,7 +76,8 @@ public class ForgotPasswordPageController {
                     return;
                 }
 
-                boolean reset = forgotController.resetPassword(email, newPassword, confirmPassword);
+                boolean isUser = forgotView.isUserSelected();
+                boolean reset = forgotController.resetPassword(email, newPassword, confirmPassword, isUser);
                 if (reset) {
                     close();
                     homeView.setVisible(true);

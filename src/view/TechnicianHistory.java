@@ -75,6 +75,16 @@ public class TechnicianHistory extends javax.swing.JPanel {
 
         bg.setBackground(new java.awt.Color(51, 65, 85));
 
+        notes.setForeground(new java.awt.Color(255, 255, 255));
+
+        status.setForeground(new java.awt.Color(255, 255, 255));
+
+        type.setForeground(new java.awt.Color(255, 255, 255));
+
+        address.setForeground(new java.awt.Color(255, 255, 255));
+
+        date.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
         bg.setLayout(bgLayout);
         bgLayout.setHorizontalGroup(

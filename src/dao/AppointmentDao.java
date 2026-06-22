@@ -187,7 +187,7 @@ public class AppointmentDao {
         java.util.List<Appointment> list = new java.util.ArrayList<>();
         Connection conn = mysql.openConnection();
         try {
-            String sql = "SELECT * FROM appointments WHERE status IN ('pending','accepted') AND (technician_id IS NULL OR technician_id = ?) ORDER BY created_at DESC";
+            String sql = "SELECT * FROM appointments WHERE status IN ('pending','accepted','awaiting_payment','payment_submitted','paid') AND (technician_id IS NULL OR technician_id = ?) ORDER BY created_at DESC";
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setInt(1, techId);
             ResultSet rs = pstm.executeQuery();
@@ -202,7 +202,7 @@ public class AppointmentDao {
         java.util.List<Appointment> list = new java.util.ArrayList<>();
         Connection conn = mysql.openConnection();
         try {
-            String sql = "SELECT * FROM appointments WHERE service_type = ? AND status IN ('pending','accepted') AND (technician_id IS NULL OR technician_id = ?) ORDER BY created_at DESC";
+            String sql = "SELECT * FROM appointments WHERE service_type = ? AND status IN ('pending','accepted','awaiting_payment','payment_submitted','paid') AND (technician_id IS NULL OR technician_id = ?) ORDER BY created_at DESC";
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setString(1, serviceType);
             pstm.setInt(2, techId);

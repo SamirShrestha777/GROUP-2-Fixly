@@ -12,10 +12,15 @@ public class ForgotPassword extends javax.swing.JFrame {
         public ForgotPassword() {
                 initComponents();
                 sndbutton.putClientProperty("JButton.buttonType", "roundRect");
-sndbutton.putClientProperty("JComponent.arc", 20); // corner radius
+                sndbutton.putClientProperty("JComponent.arc", 20); // corner radius
 
-backtologin.putClientProperty("JButton.buttonType", "roundRect");
-backtologin.putClientProperty("JComponent.arc", 20);
+                backtologin.putClientProperty("JButton.buttonType", "roundRect");
+                backtologin.putClientProperty("JComponent.arc", 20);
+
+                javax.swing.ButtonGroup bg = new javax.swing.ButtonGroup();
+                bg.add(usrbtn);
+                bg.add(jRadioButton2);
+                usrbtn.setSelected(true);
         }
 
         @SuppressWarnings("unchecked")
@@ -29,10 +34,21 @@ backtologin.putClientProperty("JComponent.arc", 20);
         txtboxemail = new javax.swing.JTextField();
         backtologin = new javax.swing.JButton();
         sndbutton = new javax.swing.JButton();
-        imagelbl = new javax.swing.JLabel();
+        imagelbl = new javax.swing.JLabel() {
+            @Override
+            protected void paintComponent(java.awt.Graphics g) {
+                java.awt.Graphics2D g2 = (java.awt.Graphics2D) g.create();
+                g2.setRenderingHint(java.awt.RenderingHints.KEY_ANTIALIASING, java.awt.RenderingHints.VALUE_ANTIALIAS_ON);
+                g2.setClip(new java.awt.geom.RoundRectangle2D.Float(0, 0, getWidth(), getHeight(), 40, 40));
+                super.paintComponent(g2);
+                g2.dispose();
+            }
+        };
         txtboxemail1 = new javax.swing.JTextField();
         EmailTxT1 = new javax.swing.JLabel();
         sndbutton1 = new javax.swing.JButton();
+        usrbtn = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,6 +92,12 @@ backtologin.putClientProperty("JComponent.arc", 20);
         sndbutton1.setBorderPainted(false);
         sndbutton1.addActionListener(this::sndbutton1ActionPerformed);
 
+        usrbtn.setForeground(new java.awt.Color(255, 255, 255));
+        usrbtn.setText("User");
+
+        jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton2.setText("Technician");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -93,6 +115,12 @@ backtologin.putClientProperty("JComponent.arc", 20);
                     .addComponent(EmailTxT1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(sndbutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 356, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(usrbtn)
+                .addGap(53, 53, 53)
+                .addComponent(jRadioButton2)
+                .addGap(105, 105, 105))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addContainerGap(1230, Short.MAX_VALUE)
@@ -104,7 +132,11 @@ backtologin.putClientProperty("JComponent.arc", 20);
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(298, 298, 298)
+                        .addGap(56, 56, 56)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(usrbtn)
+                            .addComponent(jRadioButton2))
+                        .addGap(221, 221, 221)
                         .addComponent(Forgot, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(EmailTxT)
@@ -191,10 +223,12 @@ backtologin.putClientProperty("JComponent.arc", 20);
     private javax.swing.JButton backtologin;
     private javax.swing.JLabel imagelbl;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JButton sndbutton;
     private javax.swing.JButton sndbutton1;
     private javax.swing.JTextField txtboxemail;
     private javax.swing.JTextField txtboxemail1;
+    private javax.swing.JRadioButton usrbtn;
     // End of variables declaration//GEN-END:variables
 public void addSendOtpListener(java.awt.event.ActionListener listener) {
     sndbutton1.addActionListener(listener);
@@ -216,6 +250,8 @@ public javax.swing.JTextField getOtpField() {
     return txtboxemail;
 }
 
-
+public boolean isUserSelected() {
+    return usrbtn.isSelected();
+}
 
 }

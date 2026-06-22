@@ -17,7 +17,6 @@ public class UserDao {
                 "email VARCHAR(100) NOT NULL UNIQUE," +
                 "password VARCHAR(100) NOT NULL," +
                 "address VARCHAR(255)," +
-                "otp INT," +
                 "role VARCHAR(20) DEFAULT 'client'," +
                 "specialization VARCHAR(100)," +
                 "is_verified BOOLEAN DEFAULT FALSE" +
@@ -83,7 +82,7 @@ public class UserDao {
     public boolean resetPassword(String email, String newPassword) {
         Connection conn = mysql.openConnection();
         try {
-            String sql = "UPDATE users SET password = ?, otp = NULL WHERE email = ?";
+            String sql = "UPDATE users SET password = ? WHERE email = ?";
             try (PreparedStatement pstm = conn.prepareStatement(sql)) {
                 pstm.setString(1, newPassword);
                 pstm.setString(2, email);
@@ -190,7 +189,6 @@ public class UserDao {
                 "email VARCHAR(100) NOT NULL UNIQUE," +
                 "password VARCHAR(100) NOT NULL," +
                 "address VARCHAR(255)," +
-                "otp INT," +
                 "role VARCHAR(20) DEFAULT 'client'," +
                 "specialization VARCHAR(100)," +
                 "is_verified BOOLEAN DEFAULT FALSE" +

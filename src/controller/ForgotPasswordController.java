@@ -9,15 +9,23 @@ import javax.swing.JOptionPane;
 public class ForgotPasswordController {
 
     private final UserDao userDao = new UserDao();
+    private final dao.TechnicianDao techDao = new dao.TechnicianDao();
 
-    public boolean sendOtp(String email) {
+    public boolean sendOtp(String email, boolean isUser) {
         if (email.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please enter your email.");
             return false;
         }
-        UserData user = new UserData();
-        user.setEmail(email);
-        boolean exists = userDao.checkUser(user);
+
+        boolean exists;
+        if (isUser) {
+            UserData user = new UserData();
+            user.setEmail(email);
+            exists = userDao.checkUser(user);
+        } else {
+            exists = techDao.checkTechnician(email);
+        }
+
         if (!exists) {
             JOptionPane.showMessageDialog(null, "Email not found.");
             return false;
@@ -40,7 +48,7 @@ public class ForgotPasswordController {
         return valid;
     }
 
-    public boolean resetPassword(String email, String newPassword, String confirmPassword) {
+    public boolean resetPassword(String email, String newPassword, String confirmPassword, boolean isUser) {
         if (newPassword.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Password cannot be empty.");
             return false;
@@ -49,7 +57,12 @@ public class ForgotPasswordController {
             JOptionPane.showMessageDialog(null, "Passwords do not match.");
             return false;
         }
-        boolean success = userDao.resetPassword(email, newPassword);
+        boolean success;
+        if (isUser) {
+            success = userDao.resetPassword(email, newPassword);
+        } else {
+            success = techDao.resetPassword(email, newPassword);
+        }
         if (success) {
             JOptionPane.showMessageDialog(null, "Password reset successfully!");
         }

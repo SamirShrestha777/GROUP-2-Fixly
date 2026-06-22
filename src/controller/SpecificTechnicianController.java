@@ -17,6 +17,9 @@ public class SpecificTechnicianController {
     private final dao.UserDao userDao = new dao.UserDao();
     private final int userId = Session.getUserId();
 
+    private static final String STRIPE_PAYMENT_LINK =
+        "https://buy.stripe.com/test_9B6dRb94E5rx7PpflKbwk00";
+
     public SpecificTechnicianController(SpecificTechnician view, String specialization, Runnable onBack) {
         this.view = view;
         this.specialization = specialization;
@@ -44,6 +47,21 @@ public class SpecificTechnicianController {
     }
 
     private void handleHire(UserData tech) {
+        Object[] options = {"💳 Pay with Card", "💵 Pay with Cash"};
+        int choice = javax.swing.JOptionPane.showOptionDialog(view,
+            "How would you like to pay?",
+            "Select Payment Method",
+            javax.swing.JOptionPane.DEFAULT_OPTION,
+            javax.swing.JOptionPane.QUESTION_MESSAGE,
+            null, options, options[0]);
+
+        if (choice == javax.swing.JOptionPane.CLOSED_OPTION) {
+            return;
+        }
+
+        String paymentMethod = (choice == 0) ? "card" : "cash";
+        String status = (choice == 0) ? "awaiting_payment" : "pending";
+
         String today = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
         // Bug 4 fix: getUserById() can return null if session is stale
         UserData currentUser = userDao.getUserById(userId);
@@ -58,13 +76,25 @@ public class SpecificTechnicianController {
         app.setTime("TBD (Direct Hire)");
         app.setAddress(address);
         app.setNotes("Direct hire request from user dashboard.");
-        app.setStatus("pending");
-        app.setPaymentMethod("tbd");
+        app.setStatus(status);
+        app.setPaymentMethod(paymentMethod);
 
         if (appointmentDao.saveAppointment(app)) {
-            javax.swing.JOptionPane.showMessageDialog(view,
-                    tech.getUsername() + " has been hired! The request is now pending in your history.",
+            if (choice == 0) {
+                try {
+                    java.awt.Desktop.getDesktop().browse(
+                        new java.net.URI(STRIPE_PAYMENT_LINK));
+                } catch (Exception ex) {
+                    javax.swing.JOptionPane.showMessageDialog(view, "Could not open payment page.");
+                }
+                javax.swing.JOptionPane.showMessageDialog(view,
+                    tech.getUsername() + " has been hired! Complete payment in your browser. The request is now pending in your history.",
                     "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(view,
+                    tech.getUsername() + " has been hired! Pay cash on service completion. The request is now pending in your history.",
+                    "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            }
             loadTechnicians(); // Refresh list to update button state
         } else {
             javax.swing.JOptionPane.showMessageDialog(view,

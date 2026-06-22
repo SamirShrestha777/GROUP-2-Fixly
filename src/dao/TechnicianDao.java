@@ -20,7 +20,6 @@ public class TechnicianDao {
                     "email VARCHAR(100) NOT NULL UNIQUE," +
                     "password VARCHAR(100) NOT NULL," +
                     "address VARCHAR(255)," +
-                    "otp INT," +
                     "emp_id VARCHAR(30)," +
                     "specialization VARCHAR(100)," +
                     "is_verified BOOLEAN DEFAULT FALSE," +
@@ -134,7 +133,7 @@ public class TechnicianDao {
     public boolean loginTechnician(String email, String password) {
         Connection conn = mysql.openConnection();
         try {
-            String sql = "SELECT * FROM technicians WHERE email = ? AND password = ? AND is_verified = TRUE AND account_status = 'active'";
+            String sql = "SELECT * FROM technicians WHERE email = ? AND password = ? AND is_verified = TRUE";
             try (PreparedStatement pstm = conn.prepareStatement(sql)) {
                 pstm.setString(1, email);
                 pstm.setString(2, password);
@@ -151,7 +150,7 @@ public class TechnicianDao {
     public boolean resetPassword(String email, String newPassword) {
         Connection conn = mysql.openConnection();
         try {
-            String sql = "UPDATE technicians SET password = ?, otp = NULL WHERE email = ?";
+            String sql = "UPDATE technicians SET password = ? WHERE email = ?";
             try (PreparedStatement pstm = conn.prepareStatement(sql)) {
                 pstm.setString(1, newPassword);
                 pstm.setString(2, email);

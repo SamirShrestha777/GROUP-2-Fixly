@@ -47,6 +47,7 @@ public class AdminTechnicianCard extends javax.swing.JPanel {
         emailbl = new javax.swing.JLabel();
 
         jPanel3.setBackground(new java.awt.Color(51, 65, 85));
+        jPanel3.setForeground(new java.awt.Color(255, 255, 255));
         jPanel3.setPreferredSize(new java.awt.Dimension(1300, 100));
 
         type.setBackground(new java.awt.Color(51, 65, 85));
